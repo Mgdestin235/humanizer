@@ -24,7 +24,7 @@ export function buildFinale(cfg, ctx) {
   const t = kineticTitle(box, cfg.title, { highlight: cfg.highlight });
   t.el.style.fontSize = `${wide ? 104 : fmt.key === '1x1' ? 80 : 104}px`;
   const cta = div('cta', box, `<span class="dot"></span><b>${cfg.subtitle}</b><em>${brand.campaign.url}</em>`);
-  const tag = div('tagline', box); tag.textContent = brand.campaign.tagline;
+  const tag = div('tagline', box); tag.textContent = cfg.perk ?? brand.campaign.tagline;
   if (brand.campaign.showPhone) tag.textContent += `  ·  ${brand.campaign.phone}`;
 
   return {

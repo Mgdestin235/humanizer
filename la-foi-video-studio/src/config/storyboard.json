@@ -51,12 +51,12 @@
     {
       "id": "s07-avantages", "template": "benefits", "sync": { "from": "u07", "to": "u07" },
       "background": "assets/images/08-suivi-medical.jpg",
-      "kicker": "ADHÉRENTS", "title": "Réductions et avantages adhérents", "highlight": ["avantages"],
+      "kicker": "AVEC VOTRE CARTE D'ADHÉSION", "title": "Des réductions à chaque visite", "highlight": ["réductions"],
       "cards": [
-        { "icon": "tag", "label": "Réductions sur certaines prestations éligibles", "at": 0.12 },
-        { "icon": "pulse", "label": "Facilités de suivi médical", "at": 0.38 },
-        { "icon": "star", "label": "Avantages réservés aux adhérents", "at": 0.6 },
-        { "icon": "gift", "label": "Futurs programmes promotionnels", "at": 0.8 }],
+        { "icon": "tag", "label": "Prix de consultation réduit à chaque visite médicale", "at": 0.1 },
+        { "icon": "rx", "label": "Réduction sur vos ordonnances", "at": 0.3 },
+        { "icon": "pulse", "label": "Facilités de suivi médical", "at": 0.55 },
+        { "icon": "gift", "label": "Futurs programmes promotionnels", "at": 0.78 }],
       "enter": { "type": "slide-up", "dur": 0.7 }, "sfx": "whoosh"
     },
     {
@@ -93,6 +93,7 @@
       "background": "assets/images/01-facade.png",
       "kicker": "LANCEMENT DE LA CAMPAGNE", "title": "20 octobre 2026", "highlight": ["20 octobre 2026"],
       "subtitle": "Réservez en ligne",
+      "perk": "Avec la carte d'adhésion : consultation et ordonnances à prix réduit",
       "enter": { "type": "fade", "dur": 0.9 }, "sfx": "bell"
     }
   ]

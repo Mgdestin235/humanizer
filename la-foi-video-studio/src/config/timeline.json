@@ -339,31 +339,31 @@
         "to": "u07"
       },
       "background": "assets/images/08-suivi-medical.jpg",
-      "kicker": "ADHÉRENTS",
-      "title": "Réductions et avantages adhérents",
+      "kicker": "AVEC VOTRE CARTE D'ADHÉSION",
+      "title": "Des réductions à chaque visite",
       "highlight": [
-        "avantages"
+        "réductions"
       ],
       "cards": [
         {
           "icon": "tag",
-          "label": "Réductions sur certaines prestations éligibles",
-          "at": 0.12
+          "label": "Prix de consultation réduit à chaque visite médicale",
+          "at": 0.1
+        },
+        {
+          "icon": "rx",
+          "label": "Réduction sur vos ordonnances",
+          "at": 0.3
         },
         {
           "icon": "pulse",
           "label": "Facilités de suivi médical",
-          "at": 0.38
-        },
-        {
-          "icon": "star",
-          "label": "Avantages réservés aux adhérents",
-          "at": 0.6
+          "at": 0.55
         },
         {
           "icon": "gift",
           "label": "Futurs programmes promotionnels",
-          "at": 0.8
+          "at": 0.78
         }
       ],
       "enter": {
@@ -553,6 +553,7 @@
         "20 octobre 2026"
       ],
       "subtitle": "Réservez en ligne",
+      "perk": "Avec la carte d'adhésion : consultation et ordonnances à prix réduit",
       "enter": {
         "type": "fade",
         "dur": 0.9

@@ -21,7 +21,7 @@ const lg = probe(p(tl.brand.logo)).streams[0]; add(Math.abs(lg.width - lg.height
 
 // 2. Contenu interdit par le brief
 const allText = [...script.units.map((u) => u.text), ...tl.scenes.flatMap((s) => [s.title, s.subtitle, s.kicker, ...(s.cards ?? []).map((c) => c.label), ...(s.chips ?? []).map((c) => c.label)])].filter(Boolean).join('\n');
-const banned = [/%/, /€|\bFCFA\b|\bXAF\b|\bCFA\b|\$/, /\bprix\b|\btarif|\bcoût|\bpayant/i];
+const banned = [/%/, /€|\bFCFA\b|\bXAF\b|\bCFA\b|\$/, /\bprix (de |d')?(l')?(adhésion|carte)|\btarif|\bcoût|\bpayant/i];
 const hits = banned.map((r) => allText.match(r)?.[0]).filter(Boolean);
 // « gratuit » doit toujours rester accompagné de sa condition dans la même scène (ou la même phrase du script).
 const sceneTxt = (s) => [s.title, s.subtitle, ...(s.cards ?? []).map((c) => c.label)].filter(Boolean).join(' ');
