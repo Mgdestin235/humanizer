@@ -1,0 +1,10 @@
+{
+  "note": "Mode A : placez votre voix dans assets/audio/ et renseignez-la ici. La voix n'est ajoutée à la vidéo que si les temps sont alignés (timing.json).",
+  "voice": "assets/audio/voix-off-elevenlabs.mp3",
+  "music": "assets/audio/musique-fond.wav",
+  "musicVolume": 0.34,
+  "voiceVolume": 1.0,
+  "sfxVolume": 0.5,
+  "duckRatio": 8,
+  "fadeOut": 2.0
+}

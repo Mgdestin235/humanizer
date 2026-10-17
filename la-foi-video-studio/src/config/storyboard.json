@@ -1,0 +1,99 @@
+{
+  "note": "Une entrée par scène. 'sync' relie la scène à des unités du script (script.json). Les débuts et fins viennent de la voix off (npm run build). Camera : at = fraction de la durée, s = zoom, x/y = point de la photo (0 à 1) placé au centre.",
+  "scenes": [
+    {
+      "id": "s01-facade", "template": "photo", "sync": { "from": "u01", "to": "u01" },
+      "images": [{ "src": "assets/images/01-facade.png", "camera": [
+        { "at": 0, "s": 1.08, "x": 0.5, "y": 0.64 }, { "at": 1, "s": 1.45, "x": 0.5, "y": 0.72 }] }],
+      "kicker": "ANNIVERSAIRE", "title": "20 octobre 2026", "highlight": ["20 octobre 2026"],
+      "enter": { "type": "fade", "dur": 0.9 }, "sfx": "bell", "brandBadge": false, "sparkles": true
+    },
+    {
+      "id": "s02-equipe", "template": "photo", "sync": { "from": "u02", "to": "u02" },
+      "images": [{ "src": "assets/images/06-portrait-medecin.png", "reveal": "wipe-left", "camera": [
+        { "at": 0, "s": 1.0, "x": 0.5, "y": 0.4 }, { "at": 1, "s": 1.2, "x": 0.47, "y": 0.34 }] }],
+      "kicker": "NOTRE ÉQUIPE", "title": "Une équipe engagée pour votre santé", "highlight": ["équipe engagée"],
+      "enter": { "type": "wipe-left", "dur": 0.7 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s03-acces-aux-soins", "template": "photo", "sync": { "from": "u03", "to": "u03" },
+      "images": [{ "src": "assets/images/09-echographie.jpg", "fit": "width", "camera": [
+        { "at": 0, "s": 1.0, "x": 0.45, "y": 0.5 }, { "at": 1, "s": 1.16, "x": 0.4, "y": 0.42 }] }],
+      "kicker": "NOTRE ENGAGEMENT", "title": "Une initiative pour faciliter l'accès aux soins", "highlight": ["accès aux soins"],
+      "enter": { "type": "circle", "dur": 0.8, "cx": 0.5, "cy": 0.45 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s04-campagne", "template": "campaign", "sync": { "from": "u04", "to": "u04" },
+      "background": "assets/images/07-equipe-facade.png",
+      "kicker": "CAMPAGNE ANNIVERSAIRE", "title": "Consultations gratuites",
+      "highlight": ["gratuites"], "subtitle": "Selon les conditions d'adhésion du cabinet",
+      "enter": { "type": "circle", "dur": 0.9, "cx": 0.5, "cy": 0.4, "ring": true }, "sfx": "bell"
+    },
+    {
+      "id": "s05-documents", "template": "photo", "sync": { "from": "u05", "to": "u05" },
+      "images": [{ "src": "assets/images/05-carte-carnet.png", "camera": [
+        { "at": 0, "s": 1.0, "x": 0.5, "y": 0.5 }, { "at": 0.3, "s": 1.7, "x": 0.4, "y": 0.58 },
+        { "at": 0.62, "s": 1.6, "x": 0.68, "y": 0.5 }, { "at": 1, "s": 1.3, "x": 0.55, "y": 0.72 }] }],
+      "kicker": "POUR ADHÉRER", "title": "Trois documents pour adhérer", "highlight": ["adhérer"],
+      "chips": [
+        { "n": 1, "label": "Carte d'adhésion", "at": 0.22 },
+        { "n": 2, "label": "Carnet médical", "at": 0.5 },
+        { "n": 3, "label": "Fiche de bilan médical", "at": 0.78 }],
+      "enter": { "type": "wipe-up", "dur": 0.7 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s06-accompagnement", "template": "photo", "sync": { "from": "u06", "to": "u06" },
+      "images": [{ "src": "assets/images/08-suivi-medical.jpg", "fit": "width", "camera": [
+        { "at": 0, "s": 1.0, "x": 0.4, "y": 0.5 }, { "at": 1, "s": 1.14, "x": 0.35, "y": 0.52 }] }],
+      "kicker": "SUIVI MÉDICAL", "title": "Un accompagnement régulier", "highlight": ["accompagnement"],
+      "enter": { "type": "wipe-right", "dur": 0.7 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s07-avantages", "template": "benefits", "sync": { "from": "u07", "to": "u07" },
+      "background": "assets/images/08-suivi-medical.jpg",
+      "kicker": "ADHÉRENTS", "title": "Réductions et avantages adhérents", "highlight": ["avantages"],
+      "cards": [
+        { "icon": "tag", "label": "Réductions sur certaines prestations éligibles", "at": 0.12 },
+        { "icon": "pulse", "label": "Facilités de suivi médical", "at": 0.38 },
+        { "icon": "star", "label": "Avantages réservés aux adhérents", "at": 0.6 },
+        { "icon": "gift", "label": "Futurs programmes promotionnels", "at": 0.8 }],
+      "enter": { "type": "slide-up", "dur": 0.7 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s08-prevention", "template": "photo", "sync": { "from": "u08", "to": "u08" },
+      "images": [{ "src": "assets/images/03-gynecologie.png", "camera": [
+        { "at": 0, "s": 1.0, "x": 0.5, "y": 0.45 }, { "at": 1, "s": 1.22, "x": 0.55, "y": 0.4 }] }],
+      "kicker": "PRÉVENTION", "title": "Prévention et proximité", "highlight": ["Prévention"],
+      "enter": { "type": "wipe-left", "dur": 0.7 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s09-confiance", "template": "photo", "sync": { "from": "u09", "to": "u09" },
+      "images": [{ "src": "assets/images/02-consultation-equipe.png", "camera": [
+        { "at": 0, "s": 1.25, "x": 0.62, "y": 0.3 }, { "at": 1, "s": 1.0, "x": 0.5, "y": 0.5 }] }],
+      "kicker": "CONFIANCE", "title": "Une relation de confiance durable", "highlight": ["confiance"],
+      "enter": { "type": "zoom", "dur": 0.8 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s10-rendez-vous", "template": "photo", "sync": { "from": "u10", "to": "u11" },
+      "images": [{ "src": "assets/images/04-rendez-vous-mobile.png", "camera": [
+        { "at": 0, "s": 1.0, "x": 0.5, "y": 0.5 }, { "at": 1, "s": 1.3, "x": 0.62, "y": 0.52 }] }],
+      "kicker": "RENDEZ-VOUS EN LIGNE", "title": "Réservez votre consultation", "highlight": ["Réservez"],
+      "urlPill": true, "pulse": { "x": 0.8, "y": 0.66 },
+      "enter": { "type": "wipe-up", "dur": 0.7 }, "sfx": "whoosh"
+    },
+    {
+      "id": "s11-equipe", "template": "photo", "sync": { "from": "u12", "to": "u12" },
+      "images": [{ "src": "assets/images/07-equipe-facade.png", "camera": [
+        { "at": 0, "s": 1.0, "x": 0.5, "y": 0.5 }, { "at": 1, "s": 1.12, "x": 0.5, "y": 0.45 }] }],
+      "kicker": "ENSEMBLE", "title": "Notre anniversaire, votre santé à l'honneur", "highlight": ["anniversaire"],
+      "enter": { "type": "circle", "dur": 0.8, "cx": 0.5, "cy": 0.5 }, "sfx": "whoosh", "sparkles": true
+    },
+    {
+      "id": "s12-final", "template": "finale", "sync": { "from": "u13", "to": "u13" }, "tail": 3.5,
+      "background": "assets/images/01-facade.png",
+      "kicker": "LANCEMENT DE LA CAMPAGNE", "title": "20 octobre 2026", "highlight": ["20 octobre 2026"],
+      "subtitle": "Réservez en ligne",
+      "enter": { "type": "fade", "dur": 0.9 }, "sfx": "bell"
+    }
+  ]
+}

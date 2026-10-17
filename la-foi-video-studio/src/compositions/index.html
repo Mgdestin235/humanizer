@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Cabinet Médical LA FOI — Studio vidéo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/src/compositions/styles.css">
+</head>
+<body>
+<div id="viewport"><div id="stage"></div><div id="fadeout"></div></div>
+<div id="studio" hidden>
+  <button id="play" title="Lecture / pause (espace)">▶</button>
+  <input id="scrub" type="range" min="0" max="1000" value="0">
+  <span id="clock">0:00 / 0:00</span>
+  <select id="fmt"><option value="9x16">9:16 vertical</option><option value="1x1">1:1 carré</option><option value="16x9">16:9 horizontal</option></select>
+  <label><input type="checkbox" id="subs" checked> sous-titres</label>
+  <span id="scenes"></span>
+</div>
+<script type="module">
+  import { mount } from '/src/compositions/ad.js';
+  const comp = await mount();
+  window.__comp = comp;
+  const studio = new URLSearchParams(location.search).get('studio') === '1';
+  if (!studio) { comp.setTime(0); window.__ready = true; }
+  else (await import('/src/compositions/studio.js')).initStudio(comp);
+</script>
+</body>
+</html>

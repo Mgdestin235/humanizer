@@ -1,0 +1,93 @@
+{
+  "images": [
+    {
+      "file": "assets/images/01-facade.png",
+      "hd": "assets/images/_hd/01-facade.png",
+      "width": 941,
+      "height": 1672,
+      "ratio": 0.563,
+      "note": "plus petite que la cible 1080 px : agrandie 1,5× (rendu légèrement adouci)"
+    },
+    {
+      "file": "assets/images/02-consultation-equipe.png",
+      "hd": "assets/images/_hd/02-consultation-equipe.png",
+      "width": 941,
+      "height": 1672,
+      "ratio": 0.563,
+      "note": "plus petite que la cible 1080 px : agrandie 1,5× (rendu légèrement adouci)"
+    },
+    {
+      "file": "assets/images/03-gynecologie.png",
+      "hd": "assets/images/_hd/03-gynecologie.png",
+      "width": 941,
+      "height": 1672,
+      "ratio": 0.563,
+      "note": "plus petite que la cible 1080 px : agrandie 1,5× (rendu légèrement adouci)"
+    },
+    {
+      "file": "assets/images/04-rendez-vous-mobile.png",
+      "hd": "assets/images/_hd/04-rendez-vous-mobile.png",
+      "width": 941,
+      "height": 1672,
+      "ratio": 0.563,
+      "note": "plus petite que la cible 1080 px : agrandie 1,5× (rendu légèrement adouci)"
+    },
+    {
+      "file": "assets/images/05-carte-carnet.png",
+      "hd": "assets/images/_hd/05-carte-carnet.png",
+      "width": 941,
+      "height": 1672,
+      "ratio": 0.563,
+      "note": "plus petite que la cible 1080 px : agrandie 1,5× (rendu légèrement adouci)"
+    },
+    {
+      "file": "assets/images/06-portrait-medecin.png",
+      "hd": "assets/images/_hd/06-portrait-medecin.png",
+      "width": 941,
+      "height": 1672,
+      "ratio": 0.563,
+      "note": "plus petite que la cible 1080 px : agrandie 1,5× (rendu légèrement adouci)"
+    },
+    {
+      "file": "assets/images/07-equipe-facade.png",
+      "hd": "assets/images/_hd/07-equipe-facade.png",
+      "width": 941,
+      "height": 1672,
+      "ratio": 0.563,
+      "note": "plus petite que la cible 1080 px : agrandie 1,5× (rendu légèrement adouci)"
+    },
+    {
+      "file": "assets/images/08-suivi-medical.jpg",
+      "hd": "assets/images/_hd/08-suivi-medical.png",
+      "width": 1122,
+      "height": 1402,
+      "ratio": 0.8,
+      "note": "ok"
+    },
+    {
+      "file": "assets/images/09-echographie.jpg",
+      "hd": "assets/images/_hd/09-echographie.png",
+      "width": 1122,
+      "height": 1402,
+      "ratio": 0.8,
+      "note": "ok"
+    }
+  ],
+  "audio": [
+    {
+      "file": "assets/audio/voix-off-elevenlabs.mp3",
+      "duration": 282.04,
+      "codec": "mp3",
+      "sampleRate": 44100,
+      "channels": 1
+    }
+  ],
+  "logos": [
+    {
+      "file": "assets/logos/logo-cmf.png",
+      "width": 824,
+      "height": 824,
+      "note": "découpé depuis la photo 05 (pas de fichier officiel fourni)"
+    }
+  ]
+}

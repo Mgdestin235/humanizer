@@ -1,0 +1,31 @@
+{
+  "name": "Cabinet Médical LA FOI",
+  "colors": {
+    "green": "#0B8A44",
+    "greenDark": "#075C30",
+    "greenDeep": "#03321B",
+    "white": "#FFFFFF",
+    "blue": "#1E63D6",
+    "gold": "#F2C14E",
+    "goldLight": "#FFE39A",
+    "ink": "#06210F"
+  },
+  "font": "Inter",
+  "logo": "assets/logos/logo-cmf.png",
+  "campaign": {
+    "date": "20 octobre 2026",
+    "url": "cabinetmedicallafoi.netlify.app",
+    "urlFull": "https://cabinetmedicallafoi.netlify.app/",
+    "tagline": "Votre santé, notre priorité.",
+    "showPhone": false,
+    "phone": "+235 65 15 34 52"
+  },
+  "layout": {
+    "9x16": { "w": 1080, "h": 1920, "top": 230, "sideL": 70, "sideR": 140, "titleBottom": 1330, "subBottom": 1500 },
+    "1x1":  { "w": 1080, "h": 1080, "top": 60,  "sideL": 60, "sideR": 60,  "titleBottom": 800,  "subBottom": 1010 },
+    "16x9": { "w": 1920, "h": 1080, "top": 60,  "sideL": 110, "sideR": 60, "titleBottom": 800,  "subBottom": 1020, "textWidth": 700, "photoX": 0.42 }
+  },
+  "subtitles": { "enabled": true, "fontSize": 54, "maxWords": 4, "maxChars": 30, "emphasisColor": "gold" },
+  "audio": { "musicVolume": 0.34, "voiceVolume": 1.0, "duckRatio": 8, "sfxVolume": 0.5, "fadeOut": 2.0 },
+  "transitionOverlap": 0.55
+}

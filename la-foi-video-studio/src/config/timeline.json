@@ -1,0 +1,2215 @@
+{
+  "version": 1,
+  "estimated": true,
+  "timingSource": "estimation (brouillon)",
+  "audio": null,
+  "duration": 81.66,
+  "fps": 30,
+  "brand": {
+    "name": "Cabinet Médical LA FOI",
+    "colors": {
+      "green": "#0B8A44",
+      "greenDark": "#075C30",
+      "greenDeep": "#03321B",
+      "white": "#FFFFFF",
+      "blue": "#1E63D6",
+      "gold": "#F2C14E",
+      "goldLight": "#FFE39A",
+      "ink": "#06210F"
+    },
+    "font": "Inter",
+    "logo": "assets/logos/logo-cmf.png",
+    "campaign": {
+      "date": "20 octobre 2026",
+      "url": "cabinetmedicallafoi.netlify.app",
+      "urlFull": "https://cabinetmedicallafoi.netlify.app/",
+      "tagline": "Votre santé, notre priorité.",
+      "showPhone": false,
+      "phone": "+235 65 15 34 52"
+    },
+    "layout": {
+      "9x16": {
+        "w": 1080,
+        "h": 1920,
+        "top": 230,
+        "sideL": 70,
+        "sideR": 140,
+        "titleBottom": 1330,
+        "subBottom": 1500
+      },
+      "1x1": {
+        "w": 1080,
+        "h": 1080,
+        "top": 60,
+        "sideL": 60,
+        "sideR": 60,
+        "titleBottom": 800,
+        "subBottom": 1010
+      },
+      "16x9": {
+        "w": 1920,
+        "h": 1080,
+        "top": 60,
+        "sideL": 110,
+        "sideR": 60,
+        "titleBottom": 800,
+        "subBottom": 1020,
+        "textWidth": 700,
+        "photoX": 0.42
+      }
+    },
+    "subtitles": {
+      "enabled": true,
+      "fontSize": 54,
+      "maxWords": 4,
+      "maxChars": 30,
+      "emphasisColor": "gold"
+    },
+    "audio": {
+      "musicVolume": 0.34,
+      "voiceVolume": 1,
+      "duckRatio": 8,
+      "sfxVolume": 0.5,
+      "fadeOut": 2
+    },
+    "transitionOverlap": 0.55
+  },
+  "scenes": [
+    {
+      "id": "s01-facade",
+      "template": "photo",
+      "sync": {
+        "from": "u01",
+        "to": "u01"
+      },
+      "images": [
+        {
+          "src": "assets/images/01-facade.png",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1.08,
+              "x": 0.5,
+              "y": 0.64
+            },
+            {
+              "at": 1,
+              "s": 1.45,
+              "x": 0.5,
+              "y": 0.72
+            }
+          ]
+        }
+      ],
+      "kicker": "ANNIVERSAIRE",
+      "title": "20 octobre 2026",
+      "highlight": [
+        "20 octobre 2026"
+      ],
+      "enter": {
+        "type": "fade",
+        "dur": 0.9
+      },
+      "sfx": "bell",
+      "brandBadge": false,
+      "sparkles": true,
+      "start": 0,
+      "end": 6.31
+    },
+    {
+      "id": "s02-equipe",
+      "template": "photo",
+      "sync": {
+        "from": "u02",
+        "to": "u02"
+      },
+      "images": [
+        {
+          "src": "assets/images/06-portrait-medecin.png",
+          "reveal": "wipe-left",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1,
+              "x": 0.5,
+              "y": 0.4
+            },
+            {
+              "at": 1,
+              "s": 1.2,
+              "x": 0.47,
+              "y": 0.34
+            }
+          ]
+        }
+      ],
+      "kicker": "NOTRE ÉQUIPE",
+      "title": "Une équipe engagée pour votre santé",
+      "highlight": [
+        "équipe engagée"
+      ],
+      "enter": {
+        "type": "wipe-left",
+        "dur": 0.7
+      },
+      "sfx": "whoosh",
+      "start": 5.76,
+      "end": 9.5
+    },
+    {
+      "id": "s03-acces-aux-soins",
+      "template": "photo",
+      "sync": {
+        "from": "u03",
+        "to": "u03"
+      },
+      "images": [
+        {
+          "src": "assets/images/09-echographie.jpg",
+          "fit": "width",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1,
+              "x": 0.45,
+              "y": 0.5
+            },
+            {
+              "at": 1,
+              "s": 1.16,
+              "x": 0.4,
+              "y": 0.42
+            }
+          ]
+        }
+      ],
+      "kicker": "NOTRE ENGAGEMENT",
+      "title": "Une initiative pour faciliter l'accès aux soins",
+      "highlight": [
+        "accès aux soins"
+      ],
+      "enter": {
+        "type": "circle",
+        "dur": 0.8,
+        "cx": 0.5,
+        "cy": 0.45
+      },
+      "sfx": "whoosh",
+      "start": 8.95,
+      "end": 13.48
+    },
+    {
+      "id": "s04-campagne",
+      "template": "campaign",
+      "sync": {
+        "from": "u04",
+        "to": "u04"
+      },
+      "background": "assets/images/07-equipe-facade.png",
+      "kicker": "CAMPAGNE ANNIVERSAIRE",
+      "title": "Consultations gratuites",
+      "highlight": [
+        "gratuites"
+      ],
+      "subtitle": "Selon les conditions d'adhésion du cabinet",
+      "enter": {
+        "type": "circle",
+        "dur": 0.9,
+        "cx": 0.5,
+        "cy": 0.4,
+        "ring": true
+      },
+      "sfx": "bell",
+      "start": 12.93,
+      "end": 21.38
+    },
+    {
+      "id": "s05-documents",
+      "template": "photo",
+      "sync": {
+        "from": "u05",
+        "to": "u05"
+      },
+      "images": [
+        {
+          "src": "assets/images/05-carte-carnet.png",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1,
+              "x": 0.5,
+              "y": 0.5
+            },
+            {
+              "at": 0.3,
+              "s": 1.7,
+              "x": 0.4,
+              "y": 0.58
+            },
+            {
+              "at": 0.62,
+              "s": 1.6,
+              "x": 0.68,
+              "y": 0.5
+            },
+            {
+              "at": 1,
+              "s": 1.3,
+              "x": 0.55,
+              "y": 0.72
+            }
+          ]
+        }
+      ],
+      "kicker": "POUR ADHÉRER",
+      "title": "Trois documents pour adhérer",
+      "highlight": [
+        "adhérer"
+      ],
+      "chips": [
+        {
+          "n": 1,
+          "label": "Carte d'adhésion",
+          "at": 0.22
+        },
+        {
+          "n": 2,
+          "label": "Carnet médical",
+          "at": 0.5
+        },
+        {
+          "n": 3,
+          "label": "Fiche de bilan médical",
+          "at": 0.78
+        }
+      ],
+      "enter": {
+        "type": "wipe-up",
+        "dur": 0.7
+      },
+      "sfx": "whoosh",
+      "start": 20.83,
+      "end": 28.5
+    },
+    {
+      "id": "s06-accompagnement",
+      "template": "photo",
+      "sync": {
+        "from": "u06",
+        "to": "u06"
+      },
+      "images": [
+        {
+          "src": "assets/images/08-suivi-medical.jpg",
+          "fit": "width",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1,
+              "x": 0.4,
+              "y": 0.5
+            },
+            {
+              "at": 1,
+              "s": 1.14,
+              "x": 0.35,
+              "y": 0.52
+            }
+          ]
+        }
+      ],
+      "kicker": "SUIVI MÉDICAL",
+      "title": "Un accompagnement régulier",
+      "highlight": [
+        "accompagnement"
+      ],
+      "enter": {
+        "type": "wipe-right",
+        "dur": 0.7
+      },
+      "sfx": "whoosh",
+      "start": 27.95,
+      "end": 36.01
+    },
+    {
+      "id": "s07-avantages",
+      "template": "benefits",
+      "sync": {
+        "from": "u07",
+        "to": "u07"
+      },
+      "background": "assets/images/08-suivi-medical.jpg",
+      "kicker": "ADHÉRENTS",
+      "title": "Réductions et avantages adhérents",
+      "highlight": [
+        "avantages"
+      ],
+      "cards": [
+        {
+          "icon": "tag",
+          "label": "Réductions sur certaines prestations éligibles",
+          "at": 0.12
+        },
+        {
+          "icon": "pulse",
+          "label": "Facilités de suivi médical",
+          "at": 0.38
+        },
+        {
+          "icon": "star",
+          "label": "Avantages réservés aux adhérents",
+          "at": 0.6
+        },
+        {
+          "icon": "gift",
+          "label": "Futurs programmes promotionnels",
+          "at": 0.8
+        }
+      ],
+      "enter": {
+        "type": "slide-up",
+        "dur": 0.7
+      },
+      "sfx": "whoosh",
+      "start": 35.46,
+      "end": 47.05
+    },
+    {
+      "id": "s08-prevention",
+      "template": "photo",
+      "sync": {
+        "from": "u08",
+        "to": "u08"
+      },
+      "images": [
+        {
+          "src": "assets/images/03-gynecologie.png",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1,
+              "x": 0.5,
+              "y": 0.45
+            },
+            {
+              "at": 1,
+              "s": 1.22,
+              "x": 0.55,
+              "y": 0.4
+            }
+          ]
+        }
+      ],
+      "kicker": "PRÉVENTION",
+      "title": "Prévention et proximité",
+      "highlight": [
+        "Prévention"
+      ],
+      "enter": {
+        "type": "wipe-left",
+        "dur": 0.7
+      },
+      "sfx": "whoosh",
+      "start": 46.5,
+      "end": 56.12
+    },
+    {
+      "id": "s09-confiance",
+      "template": "photo",
+      "sync": {
+        "from": "u09",
+        "to": "u09"
+      },
+      "images": [
+        {
+          "src": "assets/images/02-consultation-equipe.png",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1.25,
+              "x": 0.62,
+              "y": 0.3
+            },
+            {
+              "at": 1,
+              "s": 1,
+              "x": 0.5,
+              "y": 0.5
+            }
+          ]
+        }
+      ],
+      "kicker": "CONFIANCE",
+      "title": "Une relation de confiance durable",
+      "highlight": [
+        "confiance"
+      ],
+      "enter": {
+        "type": "zoom",
+        "dur": 0.8
+      },
+      "sfx": "whoosh",
+      "start": 55.57,
+      "end": 61.67
+    },
+    {
+      "id": "s10-rendez-vous",
+      "template": "photo",
+      "sync": {
+        "from": "u10",
+        "to": "u11"
+      },
+      "images": [
+        {
+          "src": "assets/images/04-rendez-vous-mobile.png",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1,
+              "x": 0.5,
+              "y": 0.5
+            },
+            {
+              "at": 1,
+              "s": 1.3,
+              "x": 0.62,
+              "y": 0.52
+            }
+          ]
+        }
+      ],
+      "kicker": "RENDEZ-VOUS EN LIGNE",
+      "title": "Réservez votre consultation",
+      "highlight": [
+        "Réservez"
+      ],
+      "urlPill": true,
+      "pulse": {
+        "x": 0.8,
+        "y": 0.66
+      },
+      "enter": {
+        "type": "wipe-up",
+        "dur": 0.7
+      },
+      "sfx": "whoosh",
+      "start": 61.12,
+      "end": 70.81
+    },
+    {
+      "id": "s11-equipe",
+      "template": "photo",
+      "sync": {
+        "from": "u12",
+        "to": "u12"
+      },
+      "images": [
+        {
+          "src": "assets/images/07-equipe-facade.png",
+          "camera": [
+            {
+              "at": 0,
+              "s": 1,
+              "x": 0.5,
+              "y": 0.5
+            },
+            {
+              "at": 1,
+              "s": 1.12,
+              "x": 0.5,
+              "y": 0.45
+            }
+          ]
+        }
+      ],
+      "kicker": "ENSEMBLE",
+      "title": "Notre anniversaire, votre santé à l'honneur",
+      "highlight": [
+        "anniversaire"
+      ],
+      "enter": {
+        "type": "circle",
+        "dur": 0.8,
+        "cx": 0.5,
+        "cy": 0.5
+      },
+      "sfx": "whoosh",
+      "sparkles": true,
+      "start": 70.26,
+      "end": 75.96
+    },
+    {
+      "id": "s12-final",
+      "template": "finale",
+      "sync": {
+        "from": "u13",
+        "to": "u13"
+      },
+      "tail": 3.5,
+      "background": "assets/images/01-facade.png",
+      "kicker": "LANCEMENT DE LA CAMPAGNE",
+      "title": "20 octobre 2026",
+      "highlight": [
+        "20 octobre 2026"
+      ],
+      "subtitle": "Réservez en ligne",
+      "enter": {
+        "type": "fade",
+        "dur": 0.9
+      },
+      "sfx": "bell",
+      "start": 75.41,
+      "end": 81.66
+    }
+  ],
+  "cues": [
+    {
+      "unit": "u01",
+      "start": 0.6,
+      "end": 1.881,
+      "words": [
+        {
+          "w": "Le",
+          "hl": false,
+          "start": 0.6,
+          "end": 0.817
+        },
+        {
+          "w": "20",
+          "hl": true,
+          "start": 0.817,
+          "end": 1.034
+        },
+        {
+          "w": "octobre",
+          "hl": true,
+          "start": 1.034,
+          "end": 1.561
+        },
+        {
+          "w": "2026,",
+          "hl": true,
+          "start": 1.561,
+          "end": 1.901
+        }
+      ],
+      "text": "Le 20 octobre 2026,"
+    },
+    {
+      "unit": "u01",
+      "start": 1.901,
+      "end": 3.369,
+      "words": [
+        {
+          "w": "le",
+          "hl": false,
+          "start": 1.901,
+          "end": 2.118
+        },
+        {
+          "w": "Cabinet",
+          "hl": false,
+          "start": 2.118,
+          "end": 2.645
+        },
+        {
+          "w": "Médical",
+          "hl": false,
+          "start": 2.645,
+          "end": 3.172
+        },
+        {
+          "w": "LA",
+          "hl": false,
+          "start": 3.172,
+          "end": 3.389
+        }
+      ],
+      "text": "le Cabinet Médical LA"
+    },
+    {
+      "unit": "u01",
+      "start": 3.389,
+      "end": 5.74,
+      "words": [
+        {
+          "w": "FOI",
+          "hl": false,
+          "start": 3.389,
+          "end": 3.668
+        },
+        {
+          "w": "célèbre",
+          "hl": false,
+          "start": 3.668,
+          "end": 4.194
+        },
+        {
+          "w": "son",
+          "hl": false,
+          "start": 4.194,
+          "end": 4.473
+        },
+        {
+          "w": "anniversaire !",
+          "hl": true,
+          "start": 4.473,
+          "end": 5.31
+        }
+      ],
+      "text": "FOI célèbre son anniversaire !"
+    },
+    {
+      "unit": "u02",
+      "start": 5.76,
+      "end": 6.67,
+      "words": [
+        {
+          "w": "À",
+          "hl": false,
+          "start": 5.76,
+          "end": 5.886
+        },
+        {
+          "w": "cette",
+          "hl": false,
+          "start": 5.886,
+          "end": 6.212
+        },
+        {
+          "w": "occasion,",
+          "hl": false,
+          "start": 6.212,
+          "end": 6.69
+        }
+      ],
+      "text": "À cette occasion,"
+    },
+    {
+      "unit": "u02",
+      "start": 6.69,
+      "end": 7.902,
+      "words": [
+        {
+          "w": "nous",
+          "hl": false,
+          "start": 6.69,
+          "end": 6.967
+        },
+        {
+          "w": "renouvelons",
+          "hl": false,
+          "start": 6.967,
+          "end": 7.595
+        },
+        {
+          "w": "notre",
+          "hl": false,
+          "start": 7.595,
+          "end": 7.922
+        }
+      ],
+      "text": "nous renouvelons notre"
+    },
+    {
+      "unit": "u02",
+      "start": 7.922,
+      "end": 8.93,
+      "words": [
+        {
+          "w": "engagement :",
+          "hl": false,
+          "start": 7.922,
+          "end": 8.5
+        }
+      ],
+      "text": "engagement :"
+    },
+    {
+      "unit": "u03",
+      "start": 8.95,
+      "end": 10.462,
+      "words": [
+        {
+          "w": "rendre",
+          "hl": false,
+          "start": 8.95,
+          "end": 9.36
+        },
+        {
+          "w": "les",
+          "hl": false,
+          "start": 9.36,
+          "end": 9.607
+        },
+        {
+          "w": "soins",
+          "hl": false,
+          "start": 9.607,
+          "end": 9.962
+        },
+        {
+          "w": "médicaux",
+          "hl": false,
+          "start": 9.962,
+          "end": 10.482
+        }
+      ],
+      "text": "rendre les soins médicaux"
+    },
+    {
+      "unit": "u03",
+      "start": 10.482,
+      "end": 11.995,
+      "words": [
+        {
+          "w": "plus",
+          "hl": false,
+          "start": 10.482,
+          "end": 10.783
+        },
+        {
+          "w": "accessibles",
+          "hl": false,
+          "start": 10.783,
+          "end": 11.468
+        },
+        {
+          "w": "à",
+          "hl": false,
+          "start": 11.468,
+          "end": 11.604
+        },
+        {
+          "w": "chaque",
+          "hl": false,
+          "start": 11.604,
+          "end": 12.015
+        }
+      ],
+      "text": "plus accessibles à chaque"
+    },
+    {
+      "unit": "u03",
+      "start": 12.015,
+      "end": 12.91,
+      "words": [
+        {
+          "w": "famille.",
+          "hl": false,
+          "start": 12.015,
+          "end": 12.48
+        }
+      ],
+      "text": "famille."
+    },
+    {
+      "unit": "u04",
+      "start": 12.93,
+      "end": 14.385,
+      "words": [
+        {
+          "w": "Pour",
+          "hl": false,
+          "start": 12.93,
+          "end": 13.2
+        },
+        {
+          "w": "célébrer",
+          "hl": false,
+          "start": 13.2,
+          "end": 13.668
+        },
+        {
+          "w": "cet",
+          "hl": false,
+          "start": 13.668,
+          "end": 13.889
+        },
+        {
+          "w": "événement,",
+          "hl": false,
+          "start": 13.889,
+          "end": 14.405
+        }
+      ],
+      "text": "Pour célébrer cet événement,"
+    },
+    {
+      "unit": "u04",
+      "start": 14.405,
+      "end": 15.762,
+      "words": [
+        {
+          "w": "nous",
+          "hl": false,
+          "start": 14.405,
+          "end": 14.676
+        },
+        {
+          "w": "lançons",
+          "hl": false,
+          "start": 14.676,
+          "end": 15.094
+        },
+        {
+          "w": "une",
+          "hl": false,
+          "start": 15.094,
+          "end": 15.315
+        },
+        {
+          "w": "campagne",
+          "hl": false,
+          "start": 15.315,
+          "end": 15.782
+        }
+      ],
+      "text": "nous lançons une campagne"
+    },
+    {
+      "unit": "u04",
+      "start": 15.782,
+      "end": 18.147,
+      "words": [
+        {
+          "w": "spéciale",
+          "hl": false,
+          "start": 15.782,
+          "end": 16.249
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 16.249,
+          "end": 16.421
+        },
+        {
+          "w": "consultations",
+          "hl": true,
+          "start": 16.421,
+          "end": 17.134
+        },
+        {
+          "w": "médicales",
+          "hl": true,
+          "start": 17.134,
+          "end": 17.651
+        },
+        {
+          "w": "gratuites,",
+          "hl": true,
+          "start": 17.651,
+          "end": 18.167
+        }
+      ],
+      "text": "spéciale de consultations médicales gratuites,"
+    },
+    {
+      "unit": "u04",
+      "start": 18.167,
+      "end": 19.254,
+      "words": [
+        {
+          "w": "selon",
+          "hl": false,
+          "start": 18.167,
+          "end": 18.487
+        },
+        {
+          "w": "les",
+          "hl": false,
+          "start": 18.487,
+          "end": 18.708
+        },
+        {
+          "w": "conditions",
+          "hl": false,
+          "start": 18.708,
+          "end": 19.274
+        }
+      ],
+      "text": "selon les conditions"
+    },
+    {
+      "unit": "u04",
+      "start": 19.274,
+      "end": 20.81,
+      "words": [
+        {
+          "w": "d'adhésion",
+          "hl": true,
+          "start": 19.274,
+          "end": 19.79
+        },
+        {
+          "w": "du",
+          "hl": false,
+          "start": 19.79,
+          "end": 19.962
+        },
+        {
+          "w": "cabinet.",
+          "hl": false,
+          "start": 19.962,
+          "end": 20.38
+        }
+      ],
+      "text": "d'adhésion du cabinet."
+    },
+    {
+      "unit": "u05",
+      "start": 20.83,
+      "end": 21.809,
+      "words": [
+        {
+          "w": "Pour",
+          "hl": false,
+          "start": 20.83,
+          "end": 21.127
+        },
+        {
+          "w": "en",
+          "hl": false,
+          "start": 21.127,
+          "end": 21.316
+        },
+        {
+          "w": "profiter,",
+          "hl": false,
+          "start": 21.316,
+          "end": 21.829
+        }
+      ],
+      "text": "Pour en profiter,"
+    },
+    {
+      "unit": "u05",
+      "start": 21.829,
+      "end": 23.24,
+      "words": [
+        {
+          "w": "procurez-vous",
+          "hl": false,
+          "start": 21.829,
+          "end": 22.558
+        },
+        {
+          "w": "votre",
+          "hl": false,
+          "start": 22.558,
+          "end": 22.909
+        },
+        {
+          "w": "carte",
+          "hl": false,
+          "start": 22.909,
+          "end": 23.26
+        }
+      ],
+      "text": "procurez-vous votre carte"
+    },
+    {
+      "unit": "u05",
+      "start": 23.26,
+      "end": 23.807,
+      "words": [
+        {
+          "w": "d'adhésion,",
+          "hl": true,
+          "start": 23.26,
+          "end": 23.827
+        }
+      ],
+      "text": "d'adhésion,"
+    },
+    {
+      "unit": "u05",
+      "start": 23.827,
+      "end": 25.59,
+      "words": [
+        {
+          "w": "votre",
+          "hl": false,
+          "start": 23.827,
+          "end": 24.179
+        },
+        {
+          "w": "carnet",
+          "hl": false,
+          "start": 24.179,
+          "end": 24.584
+        },
+        {
+          "w": "médical",
+          "hl": false,
+          "start": 24.584,
+          "end": 25.043
+        },
+        {
+          "w": "personnel",
+          "hl": false,
+          "start": 25.043,
+          "end": 25.61
+        }
+      ],
+      "text": "votre carnet médical personnel"
+    },
+    {
+      "unit": "u05",
+      "start": 25.61,
+      "end": 26.67,
+      "words": [
+        {
+          "w": "et",
+          "hl": false,
+          "start": 25.61,
+          "end": 25.799
+        },
+        {
+          "w": "votre",
+          "hl": false,
+          "start": 25.799,
+          "end": 26.15
+        },
+        {
+          "w": "fiche",
+          "hl": false,
+          "start": 26.15,
+          "end": 26.501
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 26.501,
+          "end": 26.69
+        }
+      ],
+      "text": "et votre fiche de"
+    },
+    {
+      "unit": "u05",
+      "start": 26.69,
+      "end": 27.93,
+      "words": [
+        {
+          "w": "bilan",
+          "hl": false,
+          "start": 26.69,
+          "end": 27.041
+        },
+        {
+          "w": "médical.",
+          "hl": false,
+          "start": 27.041,
+          "end": 27.5
+        }
+      ],
+      "text": "bilan médical."
+    },
+    {
+      "unit": "u06",
+      "start": 27.95,
+      "end": 29.301,
+      "words": [
+        {
+          "w": "Ces",
+          "hl": false,
+          "start": 27.95,
+          "end": 28.179
+        },
+        {
+          "w": "trois",
+          "hl": false,
+          "start": 28.179,
+          "end": 28.509
+        },
+        {
+          "w": "documents",
+          "hl": false,
+          "start": 28.509,
+          "end": 29.042
+        },
+        {
+          "w": "vous",
+          "hl": false,
+          "start": 29.042,
+          "end": 29.321
+        }
+      ],
+      "text": "Ces trois documents vous"
+    },
+    {
+      "unit": "u06",
+      "start": 29.321,
+      "end": 30.749,
+      "words": [
+        {
+          "w": "permettent",
+          "hl": false,
+          "start": 29.321,
+          "end": 29.905
+        },
+        {
+          "w": "d'intégrer",
+          "hl": false,
+          "start": 29.905,
+          "end": 30.439
+        },
+        {
+          "w": "notre",
+          "hl": false,
+          "start": 30.439,
+          "end": 30.769
+        }
+      ],
+      "text": "permettent d'intégrer notre"
+    },
+    {
+      "unit": "u06",
+      "start": 30.769,
+      "end": 32.222,
+      "words": [
+        {
+          "w": "programme",
+          "hl": false,
+          "start": 30.769,
+          "end": 31.302
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 31.302,
+          "end": 31.48
+        },
+        {
+          "w": "suivi",
+          "hl": true,
+          "start": 31.48,
+          "end": 31.81
+        },
+        {
+          "w": "médical",
+          "hl": true,
+          "start": 31.81,
+          "end": 32.242
+        }
+      ],
+      "text": "programme de suivi médical"
+    },
+    {
+      "unit": "u06",
+      "start": 32.242,
+      "end": 33.746,
+      "words": [
+        {
+          "w": "et",
+          "hl": false,
+          "start": 32.242,
+          "end": 32.42
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 32.42,
+          "end": 32.597
+        },
+        {
+          "w": "bénéficier",
+          "hl": false,
+          "start": 32.597,
+          "end": 33.182
+        },
+        {
+          "w": "d'avantages",
+          "hl": true,
+          "start": 33.182,
+          "end": 33.766
+        }
+      ],
+      "text": "et de bénéficier d'avantages"
+    },
+    {
+      "unit": "u06",
+      "start": 33.766,
+      "end": 35.44,
+      "words": [
+        {
+          "w": "réservés",
+          "hl": false,
+          "start": 33.766,
+          "end": 34.248
+        },
+        {
+          "w": "aux",
+          "hl": false,
+          "start": 34.248,
+          "end": 34.477
+        },
+        {
+          "w": "adhérents.",
+          "hl": false,
+          "start": 34.477,
+          "end": 35.01
+        }
+      ],
+      "text": "réservés aux adhérents."
+    },
+    {
+      "unit": "u07",
+      "start": 35.46,
+      "end": 36.811,
+      "words": [
+        {
+          "w": "Au-delà",
+          "hl": false,
+          "start": 35.46,
+          "end": 35.841
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 35.841,
+          "end": 36.019
+        },
+        {
+          "w": "cette",
+          "hl": false,
+          "start": 36.019,
+          "end": 36.349
+        },
+        {
+          "w": "campagne,",
+          "hl": false,
+          "start": 36.349,
+          "end": 36.831
+        }
+      ],
+      "text": "Au-delà de cette campagne,"
+    },
+    {
+      "unit": "u07",
+      "start": 36.831,
+      "end": 38.437,
+      "words": [
+        {
+          "w": "votre",
+          "hl": false,
+          "start": 36.831,
+          "end": 37.162
+        },
+        {
+          "w": "adhésion",
+          "hl": true,
+          "start": 37.162,
+          "end": 37.644
+        },
+        {
+          "w": "vous",
+          "hl": false,
+          "start": 37.644,
+          "end": 37.923
+        },
+        {
+          "w": "permettra",
+          "hl": false,
+          "start": 37.923,
+          "end": 38.457
+        }
+      ],
+      "text": "votre adhésion vous permettra"
+    },
+    {
+      "unit": "u07",
+      "start": 38.457,
+      "end": 39.808,
+      "words": [
+        {
+          "w": "également",
+          "hl": false,
+          "start": 38.457,
+          "end": 38.99
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 38.99,
+          "end": 39.168
+        },
+        {
+          "w": "profiter",
+          "hl": false,
+          "start": 39.168,
+          "end": 39.65
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 39.65,
+          "end": 39.828
+        }
+      ],
+      "text": "également de profiter de"
+    },
+    {
+      "unit": "u07",
+      "start": 39.828,
+      "end": 41.154,
+      "words": [
+        {
+          "w": "réductions",
+          "hl": true,
+          "start": 39.828,
+          "end": 40.412
+        },
+        {
+          "w": "sur",
+          "hl": false,
+          "start": 40.412,
+          "end": 40.641
+        },
+        {
+          "w": "certaines",
+          "hl": false,
+          "start": 40.641,
+          "end": 41.174
+        }
+      ],
+      "text": "réductions sur certaines"
+    },
+    {
+      "unit": "u07",
+      "start": 41.174,
+      "end": 42.322,
+      "words": [
+        {
+          "w": "prestations",
+          "hl": false,
+          "start": 41.174,
+          "end": 41.809
+        },
+        {
+          "w": "éligibles,",
+          "hl": false,
+          "start": 41.809,
+          "end": 42.342
+        }
+      ],
+      "text": "prestations éligibles,"
+    },
+    {
+      "unit": "u07",
+      "start": 42.342,
+      "end": 43.973,
+      "words": [
+        {
+          "w": "de",
+          "hl": false,
+          "start": 42.342,
+          "end": 42.52
+        },
+        {
+          "w": "facilités",
+          "hl": false,
+          "start": 42.52,
+          "end": 43.053
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 43.053,
+          "end": 43.231
+        },
+        {
+          "w": "suivi",
+          "hl": true,
+          "start": 43.231,
+          "end": 43.561
+        },
+        {
+          "w": "médical",
+          "hl": true,
+          "start": 43.561,
+          "end": 43.993
+        }
+      ],
+      "text": "de facilités de suivi médical"
+    },
+    {
+      "unit": "u07",
+      "start": 43.993,
+      "end": 45.294,
+      "words": [
+        {
+          "w": "et",
+          "hl": false,
+          "start": 43.993,
+          "end": 44.171
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 44.171,
+          "end": 44.348
+        },
+        {
+          "w": "futurs",
+          "hl": false,
+          "start": 44.348,
+          "end": 44.729
+        },
+        {
+          "w": "programmes",
+          "hl": false,
+          "start": 44.729,
+          "end": 45.314
+        }
+      ],
+      "text": "et de futurs programmes"
+    },
+    {
+      "unit": "u07",
+      "start": 45.314,
+      "end": 46.48,
+      "words": [
+        {
+          "w": "promotionnels.",
+          "hl": false,
+          "start": 45.314,
+          "end": 46.05
+        }
+      ],
+      "text": "promotionnels."
+    },
+    {
+      "unit": "u08",
+      "start": 46.5,
+      "end": 48.168,
+      "words": [
+        {
+          "w": "Notre",
+          "hl": false,
+          "start": 46.5,
+          "end": 46.892
+        },
+        {
+          "w": "ambition",
+          "hl": false,
+          "start": 46.892,
+          "end": 47.464
+        },
+        {
+          "w": "est",
+          "hl": false,
+          "start": 47.464,
+          "end": 47.736
+        },
+        {
+          "w": "simple :",
+          "hl": false,
+          "start": 47.736,
+          "end": 48.188
+        }
+      ],
+      "text": "Notre ambition est simple :"
+    },
+    {
+      "unit": "u08",
+      "start": 48.188,
+      "end": 49.795,
+      "words": [
+        {
+          "w": "vous",
+          "hl": false,
+          "start": 48.188,
+          "end": 48.519
+        },
+        {
+          "w": "accompagner",
+          "hl": false,
+          "start": 48.519,
+          "end": 49.273
+        },
+        {
+          "w": "dans",
+          "hl": false,
+          "start": 49.273,
+          "end": 49.604
+        },
+        {
+          "w": "la",
+          "hl": false,
+          "start": 49.604,
+          "end": 49.815
+        }
+      ],
+      "text": "vous accompagner dans la"
+    },
+    {
+      "unit": "u08",
+      "start": 49.815,
+      "end": 50.187,
+      "words": [
+        {
+          "w": "durée,",
+          "hl": false,
+          "start": 49.815,
+          "end": 50.207
+        }
+      ],
+      "text": "durée,"
+    },
+    {
+      "unit": "u08",
+      "start": 50.207,
+      "end": 51.996,
+      "words": [
+        {
+          "w": "vous",
+          "hl": false,
+          "start": 50.207,
+          "end": 50.539
+        },
+        {
+          "w": "encourager",
+          "hl": false,
+          "start": 50.539,
+          "end": 51.232
+        },
+        {
+          "w": "à",
+          "hl": false,
+          "start": 51.232,
+          "end": 51.383
+        },
+        {
+          "w": "consulter",
+          "hl": false,
+          "start": 51.383,
+          "end": 52.016
+        }
+      ],
+      "text": "vous encourager à consulter"
+    },
+    {
+      "unit": "u08",
+      "start": 52.016,
+      "end": 53.141,
+      "words": [
+        {
+          "w": "à",
+          "hl": false,
+          "start": 52.016,
+          "end": 52.166
+        },
+        {
+          "w": "temps",
+          "hl": false,
+          "start": 52.166,
+          "end": 52.558
+        },
+        {
+          "w": "et",
+          "hl": false,
+          "start": 52.558,
+          "end": 52.769
+        },
+        {
+          "w": "faire",
+          "hl": false,
+          "start": 52.769,
+          "end": 53.161
+        }
+      ],
+      "text": "à temps et faire"
+    },
+    {
+      "unit": "u08",
+      "start": 53.161,
+      "end": 54.527,
+      "words": [
+        {
+          "w": "de",
+          "hl": false,
+          "start": 53.161,
+          "end": 53.372
+        },
+        {
+          "w": "la",
+          "hl": false,
+          "start": 53.372,
+          "end": 53.583
+        },
+        {
+          "w": "prévention",
+          "hl": true,
+          "start": 53.583,
+          "end": 54.276
+        },
+        {
+          "w": "une",
+          "hl": false,
+          "start": 54.276,
+          "end": 54.547
+        }
+      ],
+      "text": "de la prévention une"
+    },
+    {
+      "unit": "u08",
+      "start": 54.547,
+      "end": 55.55,
+      "words": [
+        {
+          "w": "priorité.",
+          "hl": false,
+          "start": 54.547,
+          "end": 55.12
+        }
+      ],
+      "text": "priorité."
+    },
+    {
+      "unit": "u09",
+      "start": 55.57,
+      "end": 57.184,
+      "words": [
+        {
+          "w": "Parce",
+          "hl": false,
+          "start": 55.57,
+          "end": 55.936
+        },
+        {
+          "w": "qu'au",
+          "hl": false,
+          "start": 55.936,
+          "end": 56.246
+        },
+        {
+          "w": "Cabinet",
+          "hl": false,
+          "start": 56.246,
+          "end": 56.725
+        },
+        {
+          "w": "Médical",
+          "hl": false,
+          "start": 56.725,
+          "end": 57.204
+        }
+      ],
+      "text": "Parce qu'au Cabinet Médical"
+    },
+    {
+      "unit": "u09",
+      "start": 57.204,
+      "end": 57.635,
+      "words": [
+        {
+          "w": "LA",
+          "hl": false,
+          "start": 57.204,
+          "end": 57.401
+        },
+        {
+          "w": "FOI,",
+          "hl": false,
+          "start": 57.401,
+          "end": 57.655
+        }
+      ],
+      "text": "LA FOI,"
+    },
+    {
+      "unit": "u09",
+      "start": 57.655,
+      "end": 59.382,
+      "words": [
+        {
+          "w": "chaque",
+          "hl": false,
+          "start": 57.655,
+          "end": 58.078
+        },
+        {
+          "w": "patient",
+          "hl": false,
+          "start": 58.078,
+          "end": 58.557
+        },
+        {
+          "w": "mérite",
+          "hl": false,
+          "start": 58.557,
+          "end": 58.979
+        },
+        {
+          "w": "écoute,",
+          "hl": false,
+          "start": 58.979,
+          "end": 59.402
+        }
+      ],
+      "text": "chaque patient mérite écoute,"
+    },
+    {
+      "unit": "u09",
+      "start": 59.402,
+      "end": 61.1,
+      "words": [
+        {
+          "w": "attention",
+          "hl": false,
+          "start": 59.402,
+          "end": 59.994
+        },
+        {
+          "w": "et",
+          "hl": false,
+          "start": 59.994,
+          "end": 60.191
+        },
+        {
+          "w": "dignité.",
+          "hl": false,
+          "start": 60.191,
+          "end": 60.67
+        }
+      ],
+      "text": "attention et dignité."
+    },
+    {
+      "unit": "u10",
+      "start": 61.12,
+      "end": 63.393,
+      "words": [
+        {
+          "w": "Rendez-vous",
+          "hl": true,
+          "start": 61.12,
+          "end": 61.833
+        },
+        {
+          "w": "dès",
+          "hl": false,
+          "start": 61.833,
+          "end": 62.112
+        },
+        {
+          "w": "le",
+          "hl": false,
+          "start": 62.112,
+          "end": 62.328
+        },
+        {
+          "w": "20",
+          "hl": true,
+          "start": 62.328,
+          "end": 62.545
+        },
+        {
+          "w": "octobre",
+          "hl": true,
+          "start": 62.545,
+          "end": 63.072
+        },
+        {
+          "w": "2026",
+          "hl": true,
+          "start": 63.072,
+          "end": 63.413
+        }
+      ],
+      "text": "Rendez-vous dès le 20 octobre 2026"
+    },
+    {
+      "unit": "u10",
+      "start": 63.413,
+      "end": 64.818,
+      "words": [
+        {
+          "w": "pour",
+          "hl": false,
+          "start": 63.413,
+          "end": 63.754
+        },
+        {
+          "w": "le",
+          "hl": false,
+          "start": 63.754,
+          "end": 63.971
+        },
+        {
+          "w": "lancement",
+          "hl": false,
+          "start": 63.971,
+          "end": 64.622
+        },
+        {
+          "w": "de",
+          "hl": false,
+          "start": 64.622,
+          "end": 64.838
+        }
+      ],
+      "text": "pour le lancement de"
+    },
+    {
+      "unit": "u10",
+      "start": 64.838,
+      "end": 66.26,
+      "words": [
+        {
+          "w": "notre",
+          "hl": false,
+          "start": 64.838,
+          "end": 65.241
+        },
+        {
+          "w": "campagne.",
+          "hl": false,
+          "start": 65.241,
+          "end": 65.83
+        }
+      ],
+      "text": "notre campagne."
+    },
+    {
+      "unit": "u11",
+      "start": 66.28,
+      "end": 67.489,
+      "words": [
+        {
+          "w": "Prenez",
+          "hl": false,
+          "start": 66.28,
+          "end": 66.672
+        },
+        {
+          "w": "rendez-vous",
+          "hl": true,
+          "start": 66.672,
+          "end": 67.274
+        },
+        {
+          "w": "dès",
+          "hl": false,
+          "start": 67.274,
+          "end": 67.509
+        }
+      ],
+      "text": "Prenez rendez-vous dès"
+    },
+    {
+      "unit": "u11",
+      "start": 67.509,
+      "end": 68.666,
+      "words": [
+        {
+          "w": "maintenant",
+          "hl": false,
+          "start": 67.509,
+          "end": 68.11
+        },
+        {
+          "w": "sur",
+          "hl": false,
+          "start": 68.11,
+          "end": 68.346
+        },
+        {
+          "w": "notre",
+          "hl": false,
+          "start": 68.346,
+          "end": 68.686
+        }
+      ],
+      "text": "maintenant sur notre"
+    },
+    {
+      "unit": "u11",
+      "start": 68.686,
+      "end": 70.24,
+      "words": [
+        {
+          "w": "plateforme",
+          "hl": false,
+          "start": 68.686,
+          "end": 69.287
+        },
+        {
+          "w": "en",
+          "hl": false,
+          "start": 69.287,
+          "end": 69.47
+        },
+        {
+          "w": "ligne.",
+          "hl": false,
+          "start": 69.47,
+          "end": 69.81
+        }
+      ],
+      "text": "plateforme en ligne."
+    },
+    {
+      "unit": "u12",
+      "start": 70.26,
+      "end": 71.56,
+      "words": [
+        {
+          "w": "Cabinet",
+          "hl": false,
+          "start": 70.26,
+          "end": 70.709
+        },
+        {
+          "w": "Médical",
+          "hl": false,
+          "start": 70.709,
+          "end": 71.158
+        },
+        {
+          "w": "LA",
+          "hl": false,
+          "start": 71.158,
+          "end": 71.343
+        },
+        {
+          "w": "FOI.",
+          "hl": false,
+          "start": 71.343,
+          "end": 71.58
+        }
+      ],
+      "text": "Cabinet Médical LA FOI."
+    },
+    {
+      "unit": "u12",
+      "start": 71.58,
+      "end": 72.247,
+      "words": [
+        {
+          "w": "Votre",
+          "hl": false,
+          "start": 71.58,
+          "end": 71.923
+        },
+        {
+          "w": "santé,",
+          "hl": false,
+          "start": 71.923,
+          "end": 72.267
+        }
+      ],
+      "text": "Votre santé,"
+    },
+    {
+      "unit": "u12",
+      "start": 72.267,
+      "end": 73.092,
+      "words": [
+        {
+          "w": "notre",
+          "hl": false,
+          "start": 72.267,
+          "end": 72.61
+        },
+        {
+          "w": "priorité.",
+          "hl": false,
+          "start": 72.61,
+          "end": 73.112
+        }
+      ],
+      "text": "notre priorité."
+    },
+    {
+      "unit": "u12",
+      "start": 73.112,
+      "end": 73.989,
+      "words": [
+        {
+          "w": "Votre",
+          "hl": false,
+          "start": 73.112,
+          "end": 73.455
+        },
+        {
+          "w": "confiance,",
+          "hl": false,
+          "start": 73.455,
+          "end": 74.009
+        }
+      ],
+      "text": "Votre confiance,"
+    },
+    {
+      "unit": "u12",
+      "start": 74.009,
+      "end": 75.39,
+      "words": [
+        {
+          "w": "notre",
+          "hl": false,
+          "start": 74.009,
+          "end": 74.353
+        },
+        {
+          "w": "engagement.",
+          "hl": false,
+          "start": 74.353,
+          "end": 74.96
+        }
+      ],
+      "text": "notre engagement."
+    },
+    {
+      "unit": "u13",
+      "start": 75.41,
+      "end": 75.829,
+      "words": [
+        {
+          "w": "Ensemble,",
+          "hl": false,
+          "start": 75.41,
+          "end": 75.849
+        }
+      ],
+      "text": "Ensemble,"
+    },
+    {
+      "unit": "u13",
+      "start": 75.849,
+      "end": 77.354,
+      "words": [
+        {
+          "w": "construisons",
+          "hl": false,
+          "start": 75.849,
+          "end": 76.473
+        },
+        {
+          "w": "une",
+          "hl": false,
+          "start": 76.473,
+          "end": 76.681
+        },
+        {
+          "w": "communauté",
+          "hl": false,
+          "start": 76.681,
+          "end": 77.213
+        },
+        {
+          "w": "en",
+          "hl": false,
+          "start": 77.213,
+          "end": 77.374
+        }
+      ],
+      "text": "construisons une communauté en"
+    },
+    {
+      "unit": "u13",
+      "start": 77.374,
+      "end": 78.61,
+      "words": [
+        {
+          "w": "meilleure",
+          "hl": false,
+          "start": 77.374,
+          "end": 77.86
+        },
+        {
+          "w": "santé !",
+          "hl": false,
+          "start": 77.86,
+          "end": 78.16
+        }
+      ],
+      "text": "meilleure santé !"
+    }
+  ],
+  "units": [
+    {
+      "id": "u01",
+      "text": "Le 20 octobre 2026, le Cabinet Médical LA FOI célèbre son anniversaire !",
+      "start": 0.6,
+      "end": 5.31
+    },
+    {
+      "id": "u02",
+      "text": "À cette occasion, nous renouvelons notre engagement :",
+      "start": 5.76,
+      "end": 8.5
+    },
+    {
+      "id": "u03",
+      "text": "rendre les soins médicaux plus accessibles à chaque famille.",
+      "start": 8.95,
+      "end": 12.48
+    },
+    {
+      "id": "u04",
+      "text": "Pour célébrer cet événement, nous lançons une campagne spéciale de consultations médicales gratuites, selon les conditions d'adhésion du cabinet.",
+      "start": 12.93,
+      "end": 20.38
+    },
+    {
+      "id": "u05",
+      "text": "Pour en profiter, procurez-vous votre carte d'adhésion, votre carnet médical personnel et votre fiche de bilan médical.",
+      "start": 20.83,
+      "end": 27.5
+    },
+    {
+      "id": "u06",
+      "text": "Ces trois documents vous permettent d'intégrer notre programme de suivi médical et de bénéficier d'avantages réservés aux adhérents.",
+      "start": 27.95,
+      "end": 35.01
+    },
+    {
+      "id": "u07",
+      "text": "Au-delà de cette campagne, votre adhésion vous permettra également de profiter de réductions sur certaines prestations éligibles, de facilités de suivi médical et de futurs programmes promotionnels.",
+      "start": 35.46,
+      "end": 46.05
+    },
+    {
+      "id": "u08",
+      "text": "Notre ambition est simple : vous accompagner dans la durée, vous encourager à consulter à temps et faire de la prévention une priorité.",
+      "start": 46.5,
+      "end": 55.12
+    },
+    {
+      "id": "u09",
+      "text": "Parce qu'au Cabinet Médical LA FOI, chaque patient mérite écoute, attention et dignité.",
+      "start": 55.57,
+      "end": 60.67
+    },
+    {
+      "id": "u10",
+      "text": "Rendez-vous dès le 20 octobre 2026 pour le lancement de notre campagne.",
+      "start": 61.12,
+      "end": 65.83
+    },
+    {
+      "id": "u11",
+      "text": "Prenez rendez-vous dès maintenant sur notre plateforme en ligne.",
+      "start": 66.28,
+      "end": 69.81
+    },
+    {
+      "id": "u12",
+      "text": "Cabinet Médical LA FOI. Votre santé, notre priorité. Votre confiance, notre engagement.",
+      "start": 70.26,
+      "end": 74.96
+    },
+    {
+      "id": "u13",
+      "text": "Ensemble, construisons une communauté en meilleure santé !",
+      "start": 75.41,
+      "end": 78.16
+    }
+  ]
+}

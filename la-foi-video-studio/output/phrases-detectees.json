@@ -1,0 +1,325 @@
+{
+  "audio": "assets/audio/voix-off-elevenlabs.mp3",
+  "duration": 282.044082,
+  "phrases": [
+    {
+      "n": 1,
+      "start": 0,
+      "end": 11.91,
+      "unit": ""
+    },
+    {
+      "n": 2,
+      "start": 12.37,
+      "end": 25.77,
+      "unit": ""
+    },
+    {
+      "n": 3,
+      "start": 26.18,
+      "end": 36.85,
+      "unit": ""
+    },
+    {
+      "n": 4,
+      "start": 37.19,
+      "end": 44.34,
+      "unit": ""
+    },
+    {
+      "n": 5,
+      "start": 44.82,
+      "end": 48.45,
+      "unit": ""
+    },
+    {
+      "n": 6,
+      "start": 48.86,
+      "end": 64.36,
+      "unit": ""
+    },
+    {
+      "n": 7,
+      "start": 64.82,
+      "end": 78.06,
+      "unit": ""
+    },
+    {
+      "n": 8,
+      "start": 78.53,
+      "end": 80.55,
+      "unit": ""
+    },
+    {
+      "n": 9,
+      "start": 81.09,
+      "end": 84.47,
+      "unit": ""
+    },
+    {
+      "n": 10,
+      "start": 85.06,
+      "end": 92.84,
+      "unit": ""
+    },
+    {
+      "n": 11,
+      "start": 93.38,
+      "end": 95.27,
+      "unit": ""
+    },
+    {
+      "n": 12,
+      "start": 95.83,
+      "end": 101.33,
+      "unit": ""
+    },
+    {
+      "n": 13,
+      "start": 101.71,
+      "end": 103.87,
+      "unit": ""
+    },
+    {
+      "n": 14,
+      "start": 104.42,
+      "end": 111.15,
+      "unit": ""
+    },
+    {
+      "n": 15,
+      "start": 111.68,
+      "end": 113.58,
+      "unit": ""
+    },
+    {
+      "n": 16,
+      "start": 114.02,
+      "end": 120.33,
+      "unit": ""
+    },
+    {
+      "n": 17,
+      "start": 120.9,
+      "end": 129.72,
+      "unit": ""
+    },
+    {
+      "n": 18,
+      "start": 130.11,
+      "end": 133.32,
+      "unit": ""
+    },
+    {
+      "n": 19,
+      "start": 133.8,
+      "end": 141.95,
+      "unit": ""
+    },
+    {
+      "n": 20,
+      "start": 142.25,
+      "end": 150.71,
+      "unit": ""
+    },
+    {
+      "n": 21,
+      "start": 151.46,
+      "end": 154.04,
+      "unit": ""
+    },
+    {
+      "n": 22,
+      "start": 154.75,
+      "end": 159.01,
+      "unit": ""
+    },
+    {
+      "n": 23,
+      "start": 159.72,
+      "end": 161.73,
+      "unit": ""
+    },
+    {
+      "n": 24,
+      "start": 162.37,
+      "end": 169.18,
+      "unit": ""
+    },
+    {
+      "n": 25,
+      "start": 169.84,
+      "end": 172.61,
+      "unit": ""
+    },
+    {
+      "n": 26,
+      "start": 173.14,
+      "end": 180.19,
+      "unit": ""
+    },
+    {
+      "n": 27,
+      "start": 180.91,
+      "end": 182.76,
+      "unit": ""
+    },
+    {
+      "n": 28,
+      "start": 183.45,
+      "end": 189.68,
+      "unit": ""
+    },
+    {
+      "n": 29,
+      "start": 190.04,
+      "end": 191.71,
+      "unit": ""
+    },
+    {
+      "n": 30,
+      "start": 192.81,
+      "end": 196.22,
+      "unit": ""
+    },
+    {
+      "n": 31,
+      "start": 196.87,
+      "end": 202.01,
+      "unit": ""
+    },
+    {
+      "n": 32,
+      "start": 202.55,
+      "end": 207.08,
+      "unit": ""
+    },
+    {
+      "n": 33,
+      "start": 207.75,
+      "end": 212.06,
+      "unit": ""
+    },
+    {
+      "n": 34,
+      "start": 212.67,
+      "end": 216.63,
+      "unit": ""
+    },
+    {
+      "n": 35,
+      "start": 217.17,
+      "end": 219.17,
+      "unit": ""
+    },
+    {
+      "n": 36,
+      "start": 219.63,
+      "end": 223.8,
+      "unit": ""
+    },
+    {
+      "n": 37,
+      "start": 224.26,
+      "end": 226.42,
+      "unit": ""
+    },
+    {
+      "n": 38,
+      "start": 226.9,
+      "end": 229.67,
+      "unit": ""
+    },
+    {
+      "n": 39,
+      "start": 230.03,
+      "end": 232.88,
+      "unit": ""
+    },
+    {
+      "n": 40,
+      "start": 233.33,
+      "end": 241.3,
+      "unit": ""
+    },
+    {
+      "n": 41,
+      "start": 241.68,
+      "end": 244.33,
+      "unit": ""
+    },
+    {
+      "n": 42,
+      "start": 244.87,
+      "end": 247.78,
+      "unit": ""
+    },
+    {
+      "n": 43,
+      "start": 248.18,
+      "end": 254.13,
+      "unit": ""
+    },
+    {
+      "n": 44,
+      "start": 254.54,
+      "end": 260.23,
+      "unit": ""
+    },
+    {
+      "n": 45,
+      "start": 260.81,
+      "end": 264.29,
+      "unit": ""
+    },
+    {
+      "n": 46,
+      "start": 264.77,
+      "end": 266.63,
+      "unit": ""
+    },
+    {
+      "n": 47,
+      "start": 267.14,
+      "end": 269.35,
+      "unit": ""
+    },
+    {
+      "n": 48,
+      "start": 269.96,
+      "end": 272.04,
+      "unit": ""
+    },
+    {
+      "n": 49,
+      "start": 272.6,
+      "end": 274.62,
+      "unit": ""
+    },
+    {
+      "n": 50,
+      "start": 274.97,
+      "end": 276.1,
+      "unit": ""
+    },
+    {
+      "n": 51,
+      "start": 276.47,
+      "end": 277.89,
+      "unit": ""
+    },
+    {
+      "n": 52,
+      "start": 278.3,
+      "end": 279.24,
+      "unit": ""
+    },
+    {
+      "n": 53,
+      "start": 279.58,
+      "end": 282.04,
+      "unit": ""
+    }
+  ],
+  "aide": "Écoutez la voix et remplissez 'unit' (ex. u03) pour chaque phrase. Plusieurs phrases peuvent partager la même unité : le début est celui de la première, la fin celle de la dernière. Puis lancez : node scripts/align.mjs --from-phrases output/phrases-detectees.json"
+}

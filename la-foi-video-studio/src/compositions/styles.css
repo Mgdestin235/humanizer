@@ -1,0 +1,98 @@
+@font-face { font-family: 'Inter'; font-weight: 500; src: url('/assets/fonts/Inter-Medium.otf'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('/assets/fonts/Inter-SemiBold.otf'); }
+@font-face { font-family: 'Inter'; font-weight: 700; src: url('/assets/fonts/Inter-Bold.otf'); }
+@font-face { font-family: 'Inter'; font-weight: 800; src: url('/assets/fonts/Inter-ExtraBold.otf'); }
+@font-face { font-family: 'Inter'; font-weight: 900; src: url('/assets/fonts/Inter-Black.otf'); }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #000; overflow: hidden; font-family: var(--font, 'Inter', sans-serif); }
+#viewport { position: relative; overflow: hidden; }
+#stage { position: absolute; left: 0; top: 0; overflow: hidden; background: #03210f; color: #fff; }
+#fadeout { position: absolute; inset: 0; background: #000; pointer-events: none; z-index: 99; opacity: 0; }
+.scenes, .scene, .scene-inner, .sc { position: absolute; inset: 0; }
+.scene { overflow: hidden; will-change: transform; }
+.sc { overflow: hidden; }
+
+/* Photos */
+.frame { position: absolute; overflow: hidden; background: #000; }
+.frame img { position: absolute; left: 0; top: 0; transform-origin: 0 0; max-width: none; display: block; }
+.bgblur { position: absolute; inset: -60px; overflow: hidden; }
+.bgblur img { width: 100%; height: 100%; object-fit: cover; filter: blur(34px) saturate(1.15); transform: scale(1.15); }
+.bgtint { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,50,27,.55), rgba(3,50,27,.8)); }
+.bgtint.strong { background: radial-gradient(120% 90% at 50% 30%, rgba(11,138,68,.82), rgba(3,50,27,.96)); }
+.shade { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(0deg, rgba(3,33,18,.96) 0%, rgba(3,33,18,.86) 24%, rgba(3,33,18,.35) 50%, rgba(3,33,18,0) 66%),
+              linear-gradient(180deg, rgba(3,33,18,.5) 0%, rgba(3,33,18,0) 16%); }
+.fmt-16x9 .shade { background: linear-gradient(90deg, rgba(3,40,22,.96) 0%, rgba(3,40,22,.9) 36%, rgba(3,40,22,.0) 56%); }
+.fmt-1x1 .shade { background: linear-gradient(0deg, rgba(3,33,18,.97) 0%, rgba(3,33,18,.88) 34%, rgba(3,33,18,.3) 62%, rgba(3,33,18,0) 76%); }
+.fxcanvas { position: absolute; inset: 0; pointer-events: none; }
+
+/* Texte */
+.txt { position: absolute; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; text-shadow: 0 3px 18px rgba(0,0,0,.45); }
+.fmt-16x9 .txt:not(.center) { top: 0; bottom: 0; justify-content: center; }
+.txt.center { align-items: center; text-align: center; }
+.kicker { display: flex; align-items: center; gap: 16px; color: var(--gold); font-weight: 800; font-size: 34px; letter-spacing: .18em; }
+.kicker .bar { display: block; height: 5px; width: 0; background: var(--gold); border-radius: 3px; }
+.fmt-1x1 .kicker, .fmt-16x9 .kicker { font-size: 28px; }
+.title { font-weight: 900; line-height: 1.03; letter-spacing: -.02em; color: #fff; }
+.wmask { display: inline-block; overflow: hidden; vertical-align: bottom; padding: .06em .02em .14em; margin: -.06em -.02em -.14em; }
+.w { display: inline-block; will-change: transform; }
+.w.hl { color: var(--gold); }
+.rule { height: 6px; width: 0; border-radius: 3px; background: linear-gradient(90deg, var(--gold), var(--goldLight)); box-shadow: 0 0 18px rgba(242,193,78,.7); }
+.sub { font-weight: 600; font-size: 40px; line-height: 1.2; color: #e8fff0; }
+.txt.center .rule { display: none; }
+
+/* Pastilles / URL */
+.chip { position: absolute; display: flex; align-items: center; gap: 22px; padding: 18px 34px 18px 18px; border-radius: 999px;
+  background: rgba(255,255,255,.95); color: var(--ink); font-weight: 800; font-size: 40px; box-shadow: 0 12px 34px rgba(0,0,0,.35); }
+.chip b { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--green); color: #fff; font-size: 38px; }
+.urlpill { display: inline-flex; align-items: center; gap: 16px; padding: 16px 30px; border-radius: 999px; background: var(--gold); color: var(--ink);
+  font-weight: 800; font-size: 36px; box-shadow: 0 0 34px rgba(242,193,78,.5); text-shadow: none; }
+.fmt-16x9 .urlpill, .fmt-1x1 .urlpill { font-size: 30px; }
+.dot { width: 18px; height: 18px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 6px rgba(11,138,68,.25); }
+.pulse { position: absolute; width: 0; height: 0; }
+.pulse i { position: absolute; left: 0; top: 0; width: 150px; height: 150px; border-radius: 50%; border: 6px solid var(--gold); box-shadow: 0 0 24px rgba(242,193,78,.8); }
+
+/* Médaillon (logo officiel) */
+.medallion { position: absolute; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 24px 80px rgba(0,0,0,.5), 0 0 0 10px rgba(255,255,255,.9), 0 0 0 16px var(--gold); background: #fff; overflow: hidden; }
+.medallion img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.halo { position: absolute; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(242,193,78,.55), rgba(242,193,78,0) 68%); }
+.rays { position: absolute; width: 2600px; height: 2600px; margin: 0; background: repeating-conic-gradient(from 0deg, rgba(255,227,154,.18) 0deg 7deg, rgba(255,227,154,0) 7deg 22deg); border-radius: 50%;
+  -webkit-mask-image: radial-gradient(circle, #000 8%, transparent 52%); mask-image: radial-gradient(circle, #000 8%, transparent 52%); }
+.goldring { position: absolute; transform: translate(-50%, -50%); border-radius: 50%; border: 6px dashed var(--goldLight); opacity: .9; }
+.seal { position: absolute; padding: 16px 26px; border-radius: 14px; background: var(--gold); color: var(--ink); font-weight: 900; font-size: 30px; letter-spacing: .06em; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+.cta { display: inline-flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center; padding: 20px 34px; border-radius: 28px; background: rgba(255,255,255,.96); color: var(--ink); text-shadow: none; }
+.cta b { font-size: 40px; font-weight: 900; color: var(--green); }
+.cta em { font-style: normal; font-weight: 800; font-size: 36px; }
+.fmt-16x9 .cta b, .fmt-16x9 .cta em { font-size: 30px; }
+.tagline { font-weight: 800; font-size: 40px; color: var(--goldLight); }
+.fmt-16x9 .tagline { font-size: 34px; }
+
+/* Avantages */
+.head { position: absolute; display: flex; flex-direction: column; gap: 18px; }
+.cards { position: absolute; display: flex; flex-direction: column; gap: 26px; }
+.card { display: flex; align-items: center; gap: 28px; padding: 24px 30px; border-radius: 28px; background: rgba(255,255,255,.95); color: var(--ink); font-weight: 800; font-size: 40px; line-height: 1.15; box-shadow: 0 14px 40px rgba(0,0,0,.35); text-shadow: none; }
+.card .ic { flex: none; width: 96px; height: 96px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; }
+.fmt-1x1 .card, .fmt-16x9 .card { font-size: 32px; padding: 16px 24px; } .fmt-1x1 .card .ic, .fmt-16x9 .card .ic { width: 72px; height: 72px; }
+
+/* Pastille de marque */
+.badge { position: absolute; display: flex; align-items: center; gap: 16px; z-index: 40; opacity: 0; }
+.badge img { width: 92px; height: 92px; border-radius: 50%; box-shadow: 0 0 0 5px #fff, 0 0 0 9px var(--gold); background: #fff; }
+.badge span { padding: 12px 22px; border-radius: 999px; background: rgba(3,50,27,.78); color: var(--goldLight); font-weight: 800; font-size: 28px; letter-spacing: .08em; }
+.fmt-16x9 .badge img, .fmt-1x1 .badge img { width: 72px; height: 72px; } .fmt-16x9 .badge span, .fmt-1x1 .badge span { font-size: 22px; }
+.ringfx { position: absolute; display: none; border-radius: 50%; border: 8px solid var(--gold); box-shadow: 0 0 40px rgba(242,193,78,.8); z-index: 60; pointer-events: none; }
+
+/* Sous-titres */
+.subs { position: absolute; z-index: 50; text-align: center; font-weight: 900; font-size: var(--subSize); line-height: 1.16; color: #fff; pointer-events: none;
+  text-shadow: 0 0 2px #000, 0 4px 14px rgba(0,0,0,.85), 0 0 28px rgba(0,0,0,.6); -webkit-text-stroke: 1px rgba(0,0,0,.35); }
+.subs .sw { display: inline-block; }
+.subs .sw.hl { color: var(--gold); margin: 0 .1em; }
+
+/* Studio */
+body.studio { background: #111; }
+body.studio #viewport { margin: 0 auto; }
+#studio { position: fixed; left: 0; right: 0; bottom: 0; height: 60px; display: flex; align-items: center; gap: 14px; padding: 0 18px; background: #1b1b1b; color: #eee; font: 14px system-ui; z-index: 999; }
+#studio button, #studio select { background: #2b2b2b; color: #eee; border: 1px solid #444; border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+#scrub { flex: 1; } #scenes { display: flex; gap: 4px; }
+
+[hidden] { display: none !important; }

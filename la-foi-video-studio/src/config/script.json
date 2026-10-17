@@ -1,0 +1,29 @@
+{
+  "note": "Script de narration, découpé en unités de sens. Modifiez le texte ici ; la synchronisation se refait avec « npm run build ».",
+  "highlights": [
+    "anniversaire",
+    "20 octobre 2026",
+    "consultations médicales gratuites",
+    "adhésion",
+    "suivi médical",
+    "avantages",
+    "réductions",
+    "prévention",
+    "rendez-vous"
+  ],
+  "units": [
+    { "id": "u01", "text": "Le 20 octobre 2026, le Cabinet Médical LA FOI célèbre son anniversaire !" },
+    { "id": "u02", "text": "À cette occasion, nous renouvelons notre engagement :" },
+    { "id": "u03", "text": "rendre les soins médicaux plus accessibles à chaque famille." },
+    { "id": "u04", "text": "Pour célébrer cet événement, nous lançons une campagne spéciale de consultations médicales gratuites, selon les conditions d'adhésion du cabinet." },
+    { "id": "u05", "text": "Pour en profiter, procurez-vous votre carte d'adhésion, votre carnet médical personnel et votre fiche de bilan médical." },
+    { "id": "u06", "text": "Ces trois documents vous permettent d'intégrer notre programme de suivi médical et de bénéficier d'avantages réservés aux adhérents." },
+    { "id": "u07", "text": "Au-delà de cette campagne, votre adhésion vous permettra également de profiter de réductions sur certaines prestations éligibles, de facilités de suivi médical et de futurs programmes promotionnels." },
+    { "id": "u08", "text": "Notre ambition est simple : vous accompagner dans la durée, vous encourager à consulter à temps et faire de la prévention une priorité." },
+    { "id": "u09", "text": "Parce qu'au Cabinet Médical LA FOI, chaque patient mérite écoute, attention et dignité." },
+    { "id": "u10", "text": "Rendez-vous dès le 20 octobre 2026 pour le lancement de notre campagne." },
+    { "id": "u11", "text": "Prenez rendez-vous dès maintenant sur notre plateforme en ligne." },
+    { "id": "u12", "text": "Cabinet Médical LA FOI. Votre santé, notre priorité. Votre confiance, notre engagement." },
+    { "id": "u13", "text": "Ensemble, construisons une communauté en meilleure santé !" }
+  ]
+}
