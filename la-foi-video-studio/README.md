@@ -2,33 +2,23 @@
 
 Moteur local de montage publicitaire. Il produit un spot vertical 9:16 (1080×1920, 30 i/s, H.264 + AAC) à partir de photos, d'un logo, d'une voix off et d'un fichier de configuration. Il sait aussi produire un carré 1:1 et un horizontal 16:9 avec des mises en page adaptées.
 
-## État actuel — à lire en premier
+## État actuel
 
 | Élément | État |
 |---|---|
-| Moteur, 12 scènes, sous-titres, mixage, rendu, contrôle qualité | Fonctionnent |
-| Rendu 9:16 | Fonctionne. Fichier : `output/la-foi_9x16_BROUILLON.mp4` |
-| **Voix off** | **Non ajoutée.** L'ancien MP3 (282 s) ne correspond pas au script ; la nouvelle voix reste à générer (voir ci-dessous) |
-| Synchronisation voix ↔ images | **Non faite.** Les temps du brouillon sont estimés |
-| Musique | Fond généré par `scripts/make-music.mjs` (aucun droit à gérer). Remplaçable |
+| Spot final 9:16 | `output/la-foi_9x16.mp4` : 91 s, 1080×1920, 30 i/s, H.264 + AAC, −16,4 LUFS |
+| Voix off | `assets/audio/voix-off.mp3` (ElevenLabs, masculine, 87,9 s) |
+| Synchronisation | Scènes calées sur les pauses de la voix (`npm run align:auto`). **À vérifier à l'oreille**, surtout les groupes de mots dans chaque phrase (temps répartis, non mesurés mot à mot) |
+| Sous-titres | `output/sous-titres.srt` (58) et incrustés dans la vidéo |
+| Musique | Fond généré par `scripts/make-music.mjs` (sans droits à gérer), baisse automatique sous la voix |
 | Logo | Découpé depuis la photo `05-carte-carnet.png`. Remplacez `assets/logos/logo-cmf.png` par le fichier officiel |
-| Remotion / TypeScript | **Non utilisés.** Les registres npm et PyPI étaient bloqués dans l'environnement de création |
+| Remotion / TypeScript | **Non utilisés** (registres npm bloqués à la création). Moteur : Chromium + FFmpeg |
 
-### Pourquoi la voix n'est pas dans la vidéo
+Pour refaire la vidéo après un changement : `npm run align:auto && npm run render && npm run qc -- output/la-foi_9x16.mp4`. Pour un changement de son seul : `npm run render -- --reuse-frames`.
 
-La voix dure 4 min 42 s et contient 53 phrases séparées par des pauses. Le script de ce projet fait 13 unités et se lit en 1 min 30 environ. Le texte lu est donc différent. Aucun outil de transcription n'était disponible pour l'écouter. Le moteur refuse d'ajouter une voix non alignée, car les sous-titres seraient faux.
+### Autre voix
 
-**Voix choisie :** masculine, professionnelle, chaleureuse et dynamique, ton rassurant avec une touche d'émotion. Le brief complet est dans `assets/audio/BRIEF-VOIX.md`. Cette voix n'a pas pu être générée dans l'environnement de création (pas de clé ElevenLabs, API inaccessible, aucun moteur de voix local). Je n'ai pas utilisé de voix de synthèse de substitution.
-
-Procédure pour finaliser le spot :
-
-1. `npm run voice-text` écrit `assets/audio/texte-voix-off.txt` (un paragraphe par unité du script).
-2. Générez la voix dans ElevenLabs avec ce texte et le brief, puis enregistrez `assets/audio/voix-off.mp3` et renseignez-la dans `src/config/audio.json`.
-3. `npm run align:auto`, puis `npm run build`, puis `npm run render`.
-
-L'alignement automatique repère les pauses entre paragraphes et cale les scènes et les sous-titres dessus. Il a été testé uniquement sur un audio synthétique aux pauses connues (erreur de 4 ms), pas sur une vraie voix : écoutez le résultat. Pour un alignement mot à mot, utilisez plutôt `npm run voice` (API ElevenLabs avec horodatage).
-
-Si vous préférez garder la voix actuelle de 4 min 42 s, collez son texte exact dans `src/config/script.json` et alignez à la main (section « Mode A »).
+Générez-la avec `assets/audio/texte-voix-off.txt` et `assets/audio/BRIEF-VOIX.md`, enregistrez-la sous `assets/audio/voix-off.mp3`, puis relancez la commande ci-dessus. L'alignement choisit les pauses entre paragraphes d'après la longueur du texte de chaque unité ; le tableau affiché signale toute durée peu plausible.
 
 ## Démarrage
 

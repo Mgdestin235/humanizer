@@ -42,9 +42,28 @@ if (arg('auto')) {
   sil = sil.filter((x) => x.start > speechStart + 0.05 && x.end < speechEnd - 0.05);
   const N = script.units.length;
   if (sil.length < N - 1) throw new Error(`Seulement ${sil.length} pauses détectées pour ${N} unités : la voix ne suit pas le script (ou les paragraphes ne sont pas séparés).`);
-  const ranked = [...sil].sort((a, b) => b.dur - a.dur);
-  const bounds = ranked.slice(0, N - 1).sort((a, b) => a.start - b.start);
-  const margin = ranked[N - 1] ? ranked[N - 1].dur / bounds.reduce((m, x) => Math.min(m, x.dur), 9) : 0;
+  // Choix des N-1 frontières par programmation dynamique : chaque unité doit durer à peu près
+  // « longueur de son texte / longueur totale × durée de parole », et une pause longue est préférée à une courte.
+  const cands = sil.filter((x) => x.dur >= 0.2);
+  if (cands.length < N - 1) throw new Error(`Seulement ${cands.length} pauses nettes pour ${N} unités.`);
+  const chars = script.units.map((u) => u.text.replace(/[^\p{L}\p{N}]/gu, '').length + 3 * (u.text.split(/\s+/).length));
+  const totalChars = chars.reduce((a, b) => a + b, 0), speech = speechEnd - speechStart;
+  const exp = chars.map((c) => (c / totalChars) * speech);
+  const MU = 1.2, cost = (i, a, b) => { const d = Math.max(0.05, b - a); return Math.log(d / exp[i]) ** 2; };
+  const M = cands.length, INF = 1e9;
+  const best = Array.from({ length: N }, () => new Array(M).fill(INF)), from = Array.from({ length: N }, () => new Array(M).fill(-1));
+  for (let j = 0; j < M; j++) best[0][j] = cost(0, speechStart, cands[j].start) - MU * Math.min(1, cands[j].dur);
+  for (let k = 1; k < N - 1; k++) for (let j = 0; j < M; j++) for (let i = 0; i < j; i++) {
+    if (best[k - 1][i] >= INF) continue;
+    const c = best[k - 1][i] + cost(k, cands[i].end, cands[j].start) - MU * Math.min(1, cands[j].dur);
+    if (c < best[k][j]) { best[k][j] = c; from[k][j] = i; }
+  }
+  let bj = -1, bc = INF;
+  for (let j = 0; j < M; j++) { const c = best[N - 2][j] + cost(N - 1, cands[j].end, speechEnd); if (c < bc) { bc = c; bj = j; } }
+  if (bj < 0) throw new Error('Aucun découpage cohérent trouvé.');
+  const idx = []; for (let k = N - 2, j = bj; k >= 0; k--) { idx.unshift(j); j = from[k][j]; }
+  const bounds = idx.map((j) => cands[j]);
+  const margin = 0;
   const units = {};
   script.units.forEach((u, i) => {
     const a = i === 0 ? speechStart : bounds[i - 1].end, b = i === N - 1 ? speechEnd : bounds[i].start;
@@ -53,8 +72,10 @@ if (arg('auto')) {
   });
   writeJson(p('src/config/timing.json'), { source: 'pauses de la voix (automatique, à vérifier)', audio, duration: dur, units });
   console.table(script.units.map((u) => ({ unité: u.id, début: units[u.id].start, fin: units[u.id].end, pauses_internes: units[u.id].pauses.length })));
-  console.log(`Plus courte pause retenue : ${Math.min(...bounds.map((b) => b.dur)).toFixed(2)} s ; plus longue pause écartée : ${(ranked[N - 1]?.dur ?? 0).toFixed(2)} s.`);
-  if (margin > 0.75) console.log('⚠ Marge faible entre pauses retenues et écartées : écoutez la voix et vérifiez timing.json (ou utilisez l\'alignement ElevenLabs).');
+  console.table(script.units.map((u, i) => ({ unité: u.id, durée: +(units[u.id].end - units[u.id].start).toFixed(2), attendue: +exp[i].toFixed(2), rapport: +((units[u.id].end - units[u.id].start) / exp[i]).toFixed(2), pause_après: i < N - 1 ? +bounds[i].dur.toFixed(2) : '' })));
+  const bad = script.units.filter((u, i) => { const r = (units[u.id].end - units[u.id].start) / exp[i]; return r < 0.6 || r > 1.6; });
+  if (bad.length) console.log(`⚠ Durées peu plausibles pour ${bad.map((u) => u.id).join(', ')} : vérifiez à l'oreille.`);
+  console.log('Alignement par pauses + longueur du texte : écoutez la voix avec la vidéo pour confirmer les transitions.');
   console.log('timing.json écrit. Lancez « npm run build ».'); process.exit(0);
 }
 

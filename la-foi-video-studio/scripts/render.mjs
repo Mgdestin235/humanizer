@@ -18,7 +18,8 @@ const [r0, r1] = String(arg('range', `0:${tl.duration}`)).split(':').map(Number)
 const fps = tl.fps, f0 = Math.floor(r0 * fps), f1 = Math.min(Math.ceil(r1 * fps), Math.floor(tl.duration * fps));
 const nameBase = `la-foi_${format}${preview ? '_apercu' : ''}${tl.estimated ? '_BROUILLON' : ''}`;
 const outFile = arg('out', p('output', `${nameBase}.mp4`));
-const frameDir = p('output/tmp/frames'); fs.rmSync(frameDir, { recursive: true, force: true }); fs.mkdirSync(frameDir, { recursive: true });
+const reuse = !!arg('reuse-frames', false); // réencode avec les images déjà calculées (utile après un changement audio seul)
+const frameDir = p('output/tmp/frames'); if (!reuse) { fs.rmSync(frameDir, { recursive: true, force: true }); fs.mkdirSync(frameDir, { recursive: true }); }
 
 // Audio
 if (!fs.existsSync(p('assets/audio/musique-fond.wav'))) run('node', [p('scripts/make-music.mjs'), String(Math.ceil(tl.duration + 4))]);
@@ -28,11 +29,11 @@ if (!voiceOk) console.log('ℹ Voix off non ajoutée : les temps sont estimés (
 mixAudio({ duration: tl.duration, useVoice: voiceOk });
 
 // Images
-const { chromium } = await loadPlaywright();
+const { chromium } = reuse ? { chromium: null } : await loadPlaywright();
 const { server, port } = await serve(0);
-const browser = await chromium.launch({ executablePath: chromiumPath(), args: ['--no-sandbox', '--font-render-hinting=none'] });
+const browser = reuse ? null : await chromium.launch({ executablePath: chromiumPath(), args: ['--no-sandbox', '--font-render-hinting=none'] });
 const total = f1 - f0; let done = 0; const t0 = Date.now();
-await Promise.all(Array.from({ length: workers }, async (_, w) => {
+if (!reuse) await Promise.all(Array.from({ length: workers }, async (_, w) => {
   const page = await browser.newPage({ viewport: { width: dims[0], height: dims[1] } });
   page.on('pageerror', (e) => console.error('[erreur page]', e.message));
   await page.goto(`http://127.0.0.1:${port}/src/compositions/index.html?format=${format}${noSubs ? '&subs=0' : ''}`);
@@ -44,7 +45,7 @@ await Promise.all(Array.from({ length: workers }, async (_, w) => {
   }
   await page.close();
 }));
-await browser.close(); server.close();
+await browser?.close(); server.close();
 console.log(`\r  images ${done}/${total} en ${((Date.now() - t0) / 1000).toFixed(0)} s`);
 
 // Encodage

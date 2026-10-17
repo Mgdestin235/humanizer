@@ -7,12 +7,12 @@ OK    Orthographe française (accents courants)
 OK    Typographie : espaces et apostrophes 
 OK    Sous-titres cohérents (58) 
 OK    Fichier SRT présent 
-AVERT Synchronisation voix ↔ sous-titres ESTIMÉE (aucun alignement de la voix off) : le spot est un brouillon
+OK    Synchronisation voix ↔ sous-titres pauses de la voix (automatique, à vérifier)
 OK    Textes dans la zone visible (9x16) 
 OK    Photos non déformées (rapport largeur/hauteur conservé) 
 OK    Codecs H.264 + AAC h264/aac
 OK    Dimensions 1080×1920 1080x1920
 OK    30 images par seconde 30/1
-OK    Durée conforme à la timeline 81.63 s
+OK    Durée conforme à la timeline 91.20 s
 OK    Aucun silence involontaire (> 0,8 s) 
 OK    Fichier lisible, flux sans erreur 

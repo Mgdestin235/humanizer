@@ -4,3 +4,5 @@ output/verif/
 output/la-foi_*_BROUILLON.mp4
 assets/images/_hd/
 assets/audio/musique-fond.wav
+output/la-foi_*.mp4
+!output/la-foi_*_apercu.mp4
