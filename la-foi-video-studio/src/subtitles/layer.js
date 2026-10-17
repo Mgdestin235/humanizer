@@ -27,7 +27,7 @@ export function createSubtitles(parent, cues, { fmt, L }) {
       box.style.transform = `translateY(${(1 - p) * 22}px) scale(${lerp(0.96, 1, p)})`;
       c.words.forEach((w, i) => {
         if (!w.hl) return;
-        const q = prog(t, w.start, 0.35), bump = Math.sin(q * Math.PI) * 0.14;
+        const q = prog(t, w.start, 0.35), bump = Math.sin(q * Math.PI) * 0.08;
         spans[i].style.transform = `scale(${1 + bump})`;
       });
     },

@@ -67,7 +67,12 @@ for (const s of tl.scenes) {
       for (const el of document.querySelectorAll('.txt, .subs, .chip, .card, .seal, .badge, .urlpill, .cta, .head')) {
         const cs = getComputedStyle(el); const sc = el.closest('.scene'); if (sc && getComputedStyle(sc).display === 'none') continue;
         if (+cs.opacity < 0.9 || el.offsetParent === null) continue;
-        const b = el.getBoundingClientRect(); out.push({ c: el.className, l: b.left, r: b.right, t: b.top, b: b.bottom });
+        let b = el.getBoundingClientRect();
+        if (el.matches('.txt, .head') && el.children.length) { // le conteneur peut être plus grand que son texte : on mesure les enfants
+          const rs = [...el.children].map((c) => c.getBoundingClientRect()).filter((r) => r.width > 0);
+          b = { left: Math.min(...rs.map((r) => r.left)), right: Math.max(...rs.map((r) => r.right)), top: Math.min(...rs.map((r) => r.top)), bottom: Math.max(...rs.map((r) => r.bottom)) };
+        }
+        out.push({ c: el.className, l: b.left, r: b.right, t: b.top, b: b.bottom });
       }
       for (const im of document.querySelectorAll('.frame img')) { const sc = im.closest('.scene'); if (getComputedStyle(sc).display === 'none') continue; const w = parseFloat(im.style.width), h = parseFloat(im.style.height); dist.push({ src: im.src.split('/').pop(), ratio: w / h, nat: im.naturalWidth / im.naturalHeight }); }
       return { out, dist };
