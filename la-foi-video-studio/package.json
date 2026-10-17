@@ -17,8 +17,14 @@
     "thumbnail": "node scripts/thumbnail.mjs",
     "qc": "node scripts/qc.mjs",
     "music": "node scripts/make-music.mjs",
-    "voice": "node scripts/generate-voice.mjs"
+    "voice": "node scripts/generate-voice.mjs",
+    "voice-text": "node scripts/export-voice-text.mjs",
+    "align:auto": "node scripts/align.mjs --auto"
   },
-  "devDependencies": { "playwright": "^1.56.1" },
-  "engines": { "node": ">=20" }
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }

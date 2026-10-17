@@ -8,7 +8,7 @@ Moteur local de montage publicitaire. Il produit un spot vertical 9:16 (1080×19
 |---|---|
 | Moteur, 12 scènes, sous-titres, mixage, rendu, contrôle qualité | Fonctionnent |
 | Rendu 9:16 | Fonctionne. Fichier : `output/la-foi_9x16_BROUILLON.mp4` |
-| **Voix off ElevenLabs (282 s)** | **Non ajoutée.** Elle ne correspond pas au script (voir ci-dessous) |
+| **Voix off** | **Non ajoutée.** L'ancien MP3 (282 s) ne correspond pas au script ; la nouvelle voix reste à générer (voir ci-dessous) |
 | Synchronisation voix ↔ images | **Non faite.** Les temps du brouillon sont estimés |
 | Musique | Fond généré par `scripts/make-music.mjs` (aucun droit à gérer). Remplaçable |
 | Logo | Découpé depuis la photo `05-carte-carnet.png`. Remplacez `assets/logos/logo-cmf.png` par le fichier officiel |
@@ -18,11 +18,17 @@ Moteur local de montage publicitaire. Il produit un spot vertical 9:16 (1080×19
 
 La voix dure 4 min 42 s et contient 53 phrases séparées par des pauses. Le script de ce projet fait 13 unités et se lit en 1 min 30 environ. Le texte lu est donc différent. Aucun outil de transcription n'était disponible pour l'écouter. Le moteur refuse d'ajouter une voix non alignée, car les sous-titres seraient faux.
 
-Choisissez l'une de ces solutions :
+**Voix choisie :** masculine, professionnelle, chaleureuse et dynamique, ton rassurant avec une touche d'émotion. Le brief complet est dans `assets/audio/BRIEF-VOIX.md`. Cette voix n'a pas pu être générée dans l'environnement de création (pas de clé ElevenLabs, API inaccessible, aucun moteur de voix local). Je n'ai pas utilisé de voix de synthèse de substitution.
 
-1. **Régénérer la voix avec le script du projet** (recommandé) : `npm run voice` (voir « Mode B » plus bas). L'alignement mot à mot est automatique.
-2. **Fournir le texte exact de la voix actuelle.** Collez-le dans `src/config/script.json` (une unité par phrase), puis alignez à la main (voir « Alignement manuel »). La vidéo durera alors environ 4 min 40 s : prévoyez plus de scènes.
-3. **Raccourcir la voix** : régénérez-la avec le script de ce projet, mêmes réglages de voix.
+Procédure pour finaliser le spot :
+
+1. `npm run voice-text` écrit `assets/audio/texte-voix-off.txt` (un paragraphe par unité du script).
+2. Générez la voix dans ElevenLabs avec ce texte et le brief, puis enregistrez `assets/audio/voix-off.mp3` et renseignez-la dans `src/config/audio.json`.
+3. `npm run align:auto`, puis `npm run build`, puis `npm run render`.
+
+L'alignement automatique repère les pauses entre paragraphes et cale les scènes et les sous-titres dessus. Il a été testé uniquement sur un audio synthétique aux pauses connues (erreur de 4 ms), pas sur une vraie voix : écoutez le résultat. Pour un alignement mot à mot, utilisez plutôt `npm run voice` (API ElevenLabs avec horodatage).
+
+Si vous préférez garder la voix actuelle de 4 min 42 s, collez son texte exact dans `src/config/script.json` et alignez à la main (section « Mode A »).
 
 ## Démarrage
 

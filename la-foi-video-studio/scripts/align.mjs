@@ -30,6 +30,34 @@ if (arg('silences')) {
   process.exit(0);
 }
 
+// Alignement automatique par pauses : les N unités du script sont lues à la suite, séparées par les N-1 plus longues pauses.
+// À utiliser avec une voix générée à partir de assets/audio/texte-voix-off.txt (un paragraphe par unité).
+if (arg('auto')) {
+  const r = run('ffmpeg', ['-hide_banner', '-i', p(audio), '-af', 'silencedetect=noise=-38dB:d=0.12', '-f', 'null', '-'], {});
+  const st = [...r.stderr.matchAll(/silence_start: ([\d.]+)/g)].map((m) => +m[1]);
+  const en = [...r.stderr.matchAll(/silence_end: ([\d.]+)/g)].map((m) => +m[1]);
+  let sil = st.map((s, i) => ({ start: s, end: en[i] ?? dur })).map((x) => ({ ...x, dur: x.end - x.start }));
+  const speechStart = sil[0] && sil[0].start < 0.05 ? sil[0].end : 0;
+  const last = sil.at(-1), speechEnd = last && last.end >= dur - 0.05 ? last.start : dur;
+  sil = sil.filter((x) => x.start > speechStart + 0.05 && x.end < speechEnd - 0.05);
+  const N = script.units.length;
+  if (sil.length < N - 1) throw new Error(`Seulement ${sil.length} pauses détectées pour ${N} unités : la voix ne suit pas le script (ou les paragraphes ne sont pas séparés).`);
+  const ranked = [...sil].sort((a, b) => b.dur - a.dur);
+  const bounds = ranked.slice(0, N - 1).sort((a, b) => a.start - b.start);
+  const margin = ranked[N - 1] ? ranked[N - 1].dur / bounds.reduce((m, x) => Math.min(m, x.dur), 9) : 0;
+  const units = {};
+  script.units.forEach((u, i) => {
+    const a = i === 0 ? speechStart : bounds[i - 1].end, b = i === N - 1 ? speechEnd : bounds[i].start;
+    const inner = sil.filter((x) => !bounds.includes(x) && x.start >= a && x.end <= b).map((x) => +((x.start + x.end) / 2).toFixed(3));
+    units[u.id] = { start: +a.toFixed(3), end: +b.toFixed(3), pauses: inner };
+  });
+  writeJson(p('src/config/timing.json'), { source: 'pauses de la voix (automatique, à vérifier)', audio, duration: dur, units });
+  console.table(script.units.map((u) => ({ unité: u.id, début: units[u.id].start, fin: units[u.id].end, pauses_internes: units[u.id].pauses.length })));
+  console.log(`Plus courte pause retenue : ${Math.min(...bounds.map((b) => b.dur)).toFixed(2)} s ; plus longue pause écartée : ${(ranked[N - 1]?.dur ?? 0).toFixed(2)} s.`);
+  if (margin > 0.75) console.log('⚠ Marge faible entre pauses retenues et écartées : écoutez la voix et vérifiez timing.json (ou utilisez l\'alignement ElevenLabs).');
+  console.log('timing.json écrit. Lancez « npm run build ».'); process.exit(0);
+}
+
 if (arg('from-phrases')) {
   const ph = readJson(p(arg('from-phrases'))).phrases.filter((x) => x.unit);
   const units = {};
@@ -63,4 +91,4 @@ if (arg('elevenlabs')) {
   writeJson(p('src/config/timing.json'), { source: 'ElevenLabs (alignement par caractère)', audio, duration: dur, units });
   console.log('timing.json écrit avec horodatage mot à mot. Lancez « npm run build ».'); process.exit(0);
 }
-console.log('Usage : align.mjs --silences | --from-phrases fichier | --elevenlabs reponse.json');
+console.log('Usage : align.mjs --auto | --silences | --from-phrases fichier | --elevenlabs reponse.json');

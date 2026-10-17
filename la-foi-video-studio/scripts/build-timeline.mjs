@@ -23,7 +23,7 @@ if (timing) {
   for (const u of script.units) {
     const t = timing.units?.[u.id];
     if (!t) throw new Error(`timing.json : unité ${u.id} absente. Complétez-la ou supprimez timing.json.`);
-    units[u.id] = { ...u, start: t.start, end: t.end, words: t.words };
+    units[u.id] = { ...u, start: t.start, end: t.end, words: t.words, pauses: t.pauses ?? [] };
   }
 } else {
   estimated = true;
@@ -99,9 +99,25 @@ for (const id of order) {
   if (u.words && u.words.length === flat.length) {
     wt = u.words.map((x) => ({ start: x.start, end: x.end }));
   } else {
+    // Répartition selon la longueur des mots. Les fins de groupe ponctuées (, : . !) sont calées sur les pauses réelles de la voix quand elles existent.
     const weights = flat.map((t) => t.w.replace(/[^\p{L}\p{N}]/gu, '').length + 1.5);
-    const total = weights.reduce((a, b) => a + b, 0);
-    let c = u.start; wt = weights.map((w) => { const d = (w / total) * (u.end - u.start); const r = { start: c, end: c + d }; c += d; return r; });
+    const anchors = [{ idx: 0, t: u.start }];
+    const pauses = [...(u.pauses ?? [])];
+    let acc = 0;
+    groups.slice(0, -1).forEach((g) => {
+      acc += g.length;
+      if (!/[,:;.!?]$/.test(g.at(-1).w)) return;
+      const total = weights.reduce((a, b) => a + b, 0), est = u.start + (weights.slice(0, acc).reduce((a, b) => a + b, 0) / total) * (u.end - u.start);
+      const near = pauses.filter((x) => Math.abs(x - est) < 0.6 && x > anchors.at(-1).t + 0.2).sort((a, b) => Math.abs(a - est) - Math.abs(b - est))[0];
+      if (near !== undefined) anchors.push({ idx: acc, t: near });
+    });
+    anchors.push({ idx: flat.length, t: u.end });
+    wt = [];
+    for (let a = 0; a < anchors.length - 1; a++) {
+      const seg = weights.slice(anchors[a].idx, anchors[a + 1].idx), tot = seg.reduce((x, y) => x + y, 0);
+      let c = anchors[a].t;
+      seg.forEach((w) => { const d = (w / tot) * (anchors[a + 1].t - anchors[a].t); wt.push({ start: c, end: c + d }); c += d; });
+    }
   }
   let k = 0;
   for (const g of groups) {
