@@ -1,0 +1,490 @@
+{
+  "projet": "MakkaDev - vidéo institutionnelle (déplacement ministère des Finances, appel d'offres)",
+  "format": {
+    "largeur": 1080,
+    "hauteur": 1920,
+    "fps": 30,
+    "codec_video": "H.264",
+    "codec_audio": "AAC"
+  },
+  "duree_totale_s": 60.5,
+  "transition": {
+    "type": "fondu enchaîné",
+    "duree_s": 0.4,
+    "centre": "sur la coupe"
+  },
+  "voix_off": {
+    "fichier": "audio/voix_off_elevenlabs.mp3",
+    "debut_s": 1.0,
+    "integree": true
+  },
+  "musique": {
+    "fichier": "audio/musique_originale_generee.wav",
+    "generee_par_script": true,
+    "baisse_sous_la_voix": true,
+    "fondu_sortie_debut_s": 57.3
+  },
+  "audio_original_des_videos": "coupé (non utilisé)",
+  "plans": [
+    {
+      "n": 1,
+      "scene": 1,
+      "debut_s": 0.0,
+      "fin_s": 3.4,
+      "duree_s": 3.4,
+      "source": "sources/VID-20261121-WA0033.mp4",
+      "coupe_source_debut_s": 0.0,
+      "coupe_source_fin_s": 3.4,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": null,
+      "note": "trajet : le chauffeur au volant"
+    },
+    {
+      "n": 2,
+      "scene": 1,
+      "debut_s": 3.4,
+      "fin_s": 6.8,
+      "duree_s": 3.4,
+      "source": "sources/VID-20261121-WA0029.mp4",
+      "coupe_source_debut_s": 0.3,
+      "coupe_source_fin_s": 3.7,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "trajet : rue et circulation"
+    },
+    {
+      "n": 3,
+      "scene": 1,
+      "debut_s": 6.8,
+      "fin_s": 9.6,
+      "duree_s": 2.8,
+      "source": "sources/VID-20261121-WA0036.mp4",
+      "coupe_source_debut_s": 7.5,
+      "coupe_source_fin_s": 10.3,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "trajet : route devant la voiture"
+    },
+    {
+      "n": 4,
+      "scene": 1,
+      "debut_s": 9.6,
+      "fin_s": 12.2,
+      "duree_s": 2.6,
+      "source": "sources/VID-20261121-WA0036.mp4",
+      "coupe_source_debut_s": 12.3,
+      "coupe_source_fin_s": 14.9,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "trajet : le chauffeur de profil"
+    },
+    {
+      "n": 5,
+      "scene": 2,
+      "debut_s": 12.2,
+      "fin_s": 19.0,
+      "duree_s": 6.8,
+      "source": "sources/VID-20261121-WA0030.mp4",
+      "coupe_source_debut_s": 0.25,
+      "coupe_source_fin_s": 6.37,
+      "vitesse": 0.9,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "l'équipe marche ensemble"
+    },
+    {
+      "n": 6,
+      "scene": 3,
+      "debut_s": 19.0,
+      "fin_s": 22.2,
+      "duree_s": 3.2,
+      "source": "sources/VID-20261121-WA0035.mp4",
+      "coupe_source_debut_s": 0.25,
+      "coupe_source_fin_s": 3.45,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "approche des bâtiments en voiture"
+    },
+    {
+      "n": 7,
+      "scene": 3,
+      "debut_s": 22.2,
+      "fin_s": 25.2,
+      "duree_s": 3.0,
+      "source": "sources/VID-20261121-WA0033.mp4",
+      "coupe_source_debut_s": 6.5,
+      "coupe_source_fin_s": 9.5,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "les bâtiments depuis la vitre"
+    },
+    {
+      "n": 8,
+      "scene": 3,
+      "debut_s": 25.2,
+      "fin_s": 28.4,
+      "duree_s": 3.2,
+      "source": "sources/VID-20261121-WA0037.mp4",
+      "coupe_source_debut_s": 1.0,
+      "coupe_source_fin_s": 4.2,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "arrivée à pied devant les bâtiments"
+    },
+    {
+      "n": 9,
+      "scene": 4,
+      "debut_s": 28.4,
+      "fin_s": 31.6,
+      "duree_s": 3.2,
+      "source": "sources/VID-20261121-WA0034.mp4",
+      "coupe_source_debut_s": 0.4,
+      "coupe_source_fin_s": 3.6,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "marche vers l'entrée"
+    },
+    {
+      "n": 10,
+      "scene": 4,
+      "debut_s": 31.6,
+      "fin_s": 34.6,
+      "duree_s": 3.0,
+      "source": "sources/VID-20261121-WA0031.mp4",
+      "coupe_source_debut_s": 1.0,
+      "coupe_source_fin_s": 4.0,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "échange dans le parking couvert"
+    },
+    {
+      "n": 11,
+      "scene": 4,
+      "debut_s": 34.6,
+      "fin_s": 37.4,
+      "duree_s": 2.8,
+      "source": "sources/VID-20261121-WA0027.mp4",
+      "coupe_source_debut_s": 0.4,
+      "coupe_source_fin_s": 3.2,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "progression dans le couloir"
+    },
+    {
+      "n": 12,
+      "scene": 4,
+      "debut_s": 37.4,
+      "fin_s": 40.2,
+      "duree_s": 2.8,
+      "source": "sources/VID-20261121-WA0032.mp4",
+      "coupe_source_debut_s": 7.0,
+      "coupe_source_fin_s": 9.8,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "ascenseur : échange visible"
+    },
+    {
+      "n": 13,
+      "scene": 5,
+      "debut_s": 40.2,
+      "fin_s": 44.2,
+      "duree_s": 4.0,
+      "source": "sources/VID-20261121-WA0034.mp4",
+      "coupe_source_debut_s": 7.4,
+      "coupe_source_fin_s": 11.4,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "marche vers le bâtiment"
+    },
+    {
+      "n": 14,
+      "scene": 5,
+      "debut_s": 44.2,
+      "fin_s": 48.0,
+      "duree_s": 3.8,
+      "source": "sources/VID-20261121-WA0037.mp4",
+      "coupe_source_debut_s": 4.6,
+      "coupe_source_fin_s": 8.4,
+      "vitesse": 1.0,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "marche devant le bâtiment"
+    },
+    {
+      "n": 15,
+      "scene": 5,
+      "debut_s": 48.0,
+      "fin_s": 60.5,
+      "duree_s": 12.5,
+      "source": "sources/VID-20261121-WA0026.mp4",
+      "coupe_source_debut_s": 0.25,
+      "coupe_source_fin_s": 5.35,
+      "vitesse": 0.5,
+      "stabilisation": "vidstab",
+      "transition_entrante": "fondu 0.4 s",
+      "note": "meilleur plan de l'équipe, ralenti"
+    }
+  ],
+  "textes": [
+    {
+      "type": "brand",
+      "start": 0.3,
+      "end": 4.9,
+      "text": "MAKKADEV"
+    },
+    {
+      "type": "tagline",
+      "start": 1.2,
+      "end": 4.9,
+      "lines": [
+        "L'innovation locale",
+        "au service de nos institutions"
+      ]
+    },
+    {
+      "type": "headline",
+      "start": 12.9,
+      "end": 15.8,
+      "text": "Des compétences locales"
+    },
+    {
+      "type": "headline",
+      "start": 15.9,
+      "end": 19.0,
+      "text": "Des solutions numériques\\Nadaptées à nos réalités",
+      "size": 58
+    },
+    {
+      "type": "lower",
+      "start": 20.3,
+      "end": 28.3,
+      "lines": [
+        {
+          "text": "Ministère des Finances",
+          "at": 20.3,
+          "size": 64,
+          "style": "main"
+        },
+        {
+          "text": "Appel d'offres",
+          "at": 22.5,
+          "size": 50,
+          "style": "accent"
+        },
+        {
+          "text": "Gestion intelligente et\\Nautomatisation administrative",
+          "at": 24.3,
+          "size": 40,
+          "style": "sub"
+        }
+      ]
+    },
+    {
+      "type": "vision",
+      "start": 31.0,
+      "end": 33.3,
+      "icon": "check",
+      "text": "Simplifier les\\Nprocédures"
+    },
+    {
+      "type": "vision",
+      "start": 33.4,
+      "end": 35.2,
+      "icon": "bolt",
+      "text": "Automatiser les tâches\\Nrépétitives"
+    },
+    {
+      "type": "vision",
+      "start": 35.3,
+      "end": 37.1,
+      "icon": "clock",
+      "text": "Optimiser le temps\\Nde travail"
+    },
+    {
+      "type": "vision",
+      "start": 37.2,
+      "end": 40.0,
+      "icon": "bars",
+      "text": "Améliorer l'efficacité\\Nadministrative"
+    },
+    {
+      "type": "brand",
+      "start": 48.5,
+      "end": 60.5,
+      "text": "MAKKADEV",
+      "y": 430
+    },
+    {
+      "type": "tagline",
+      "start": 49.5,
+      "end": 60.5,
+      "lines": [
+        "Des talents locaux."
+      ],
+      "y": 540
+    },
+    {
+      "type": "tagline",
+      "start": 50.5,
+      "end": 60.5,
+      "lines": [
+        "Des solutions concrètes."
+      ],
+      "y": 605
+    }
+  ],
+  "sous_titres": [
+    {
+      "debut_s": 1.05,
+      "fin_s": 3.85,
+      "texte": "L'innovation locale au service de nos institutions."
+    },
+    {
+      "debut_s": 4.38,
+      "fin_s": 6.37,
+      "texte": "Chez MakkaDev, nous sommes convaincus que"
+    },
+    {
+      "debut_s": 6.39,
+      "fin_s": 8.72,
+      "texte": "les solutions aux défis numériques de notre pays"
+    },
+    {
+      "debut_s": 8.74,
+      "fin_s": 10.65,
+      "texte": "peuvent être imaginées et développées"
+    },
+    {
+      "debut_s": 10.72,
+      "fin_s": 12.07,
+      "texte": "ici même, au Tchad."
+    },
+    {
+      "debut_s": 12.51,
+      "fin_s": 14.26,
+      "texte": "MakkaDev est une structure spécialisée"
+    },
+    {
+      "debut_s": 14.28,
+      "fin_s": 16.03,
+      "texte": "dans la conception et le développement"
+    },
+    {
+      "debut_s": 16.05,
+      "fin_s": 18.64,
+      "texte": "de solutions numériques adaptées aux réalités locales."
+    },
+    {
+      "debut_s": 19.05,
+      "fin_s": 20.78,
+      "texte": "C'est dans cette dynamique que notre équipe"
+    },
+    {
+      "debut_s": 20.8,
+      "fin_s": 22.42,
+      "texte": "s'est rendue au ministère des Finances,"
+    },
+    {
+      "debut_s": 22.5,
+      "fin_s": 24.05,
+      "texte": "dans le cadre d'un appel d'offres"
+    },
+    {
+      "debut_s": 24.07,
+      "fin_s": 25.72,
+      "texte": "portant sur la gestion intelligente"
+    },
+    {
+      "debut_s": 25.74,
+      "fin_s": 28.05,
+      "texte": "et l'automatisation des tâches administratives."
+    },
+    {
+      "debut_s": 28.53,
+      "fin_s": 29.82,
+      "texte": "Notre ambition est claire :"
+    },
+    {
+      "debut_s": 30.18,
+      "fin_s": 33.16,
+      "texte": "proposer des solutions capables de simplifier les procédures,"
+    },
+    {
+      "debut_s": 33.4,
+      "fin_s": 35.05,
+      "texte": "réduire les tâches répétitives,"
+    },
+    {
+      "debut_s": 35.3,
+      "fin_s": 36.88,
+      "texte": "optimiser le temps de travail"
+    },
+    {
+      "debut_s": 36.9,
+      "fin_s": 39.91,
+      "texte": "et améliorer l'efficacité des services administratifs."
+    },
+    {
+      "debut_s": 40.28,
+      "fin_s": 41.07,
+      "texte": "Parce que pour nous,"
+    },
+    {
+      "debut_s": 41.18,
+      "fin_s": 42.33,
+      "texte": "le numérique n'est pas seulement"
+    },
+    {
+      "debut_s": 42.35,
+      "fin_s": 43.56,
+      "texte": "une question de technologie."
+    },
+    {
+      "debut_s": 43.88,
+      "fin_s": 45.58,
+      "texte": "C'est avant tout un moyen d'apporter"
+    },
+    {
+      "debut_s": 45.6,
+      "fin_s": 46.58,
+      "texte": "des réponses concrètes"
+    },
+    {
+      "debut_s": 46.6,
+      "fin_s": 48.0,
+      "texte": "aux besoins de notre société."
+    },
+    {
+      "debut_s": 48.47,
+      "fin_s": 49.11,
+      "texte": "MakkaDev."
+    },
+    {
+      "debut_s": 49.45,
+      "fin_s": 50.33,
+      "texte": "Des talents locaux,"
+    },
+    {
+      "debut_s": 50.54,
+      "fin_s": 51.66,
+      "texte": "des solutions concrètes,"
+    },
+    {
+      "debut_s": 51.91,
+      "fin_s": 53.35,
+      "texte": "une ambition pour demain."
+    }
+  ]
+}
