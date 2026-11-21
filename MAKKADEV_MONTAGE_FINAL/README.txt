@@ -46,3 +46,9 @@ Projet : MakkaDev_Projet/
 Exemples : changer un plan = modifier "src"/"ss"/"dur" dans "shots" ; changer un texte = "titles" ;
 corriger un sous-titre = "subtitles_voice_time" (temps de la voix). Un rendu complet prend ~6 minutes
 (le plan en ralenti interpolé est le plus long) ; les plans inchangés sont ensuite réutilisés.
+
+VERSION YOUTUBE HORIZONTALE (16:9)
+- MakkaDev_Video_YouTube_Horizontale.mp4 : 1920x1080, vraie vidéo horizontale (image recadrée, sans bandes).
+- Les vidéos d'origine sont verticales : chaque plan est recadré en 16:9 (fenêtre réglable par plan avec "cy"
+  dans config.json) puis agrandi. L'image est donc moins nette et le haut/bas des plans est coupé.
+- Pour la refaire : python3 build.py --landscape --work work_h

@@ -26,6 +26,7 @@ ap.add_argument("--out", default=str(HERE.parent))
 ap.add_argument("--work", default=str(HERE / "work"))
 ap.add_argument("--music", default=None, help="fichier de musique à utiliser à la place de celui de config.json")
 ap.add_argument("--no-voice", action="store_true", help="exporter sans voix off (sous-titres seulement)")
+ap.add_argument("--landscape", action="store_true", help="version horizontale 16:9 (1920x1080) pour YouTube")
 args = ap.parse_args()
 
 CFG = json.loads(Path(args.config).read_text(encoding="utf-8"))
@@ -34,6 +35,10 @@ WORK = Path(args.work)
 WORK.mkdir(parents=True, exist_ok=True)
 FPS = CFG["fps"]
 W, H = CFG["size"]
+LAND = args.landscape
+if LAND:
+    W, H = 1920, 1080
+    CFG["subtitle_safe_zone"] = {"margin_bottom": 70, "margin_left": 260, "margin_right": 260}
 OV = CFG["transition_duration"]
 TOTAL = CFG["total_duration"]
 VOFF = CFG["voice"]["offset"]
@@ -71,7 +76,7 @@ def plan_shots():
 def render_clip(sp):
     src = HERE / CFG["sources"][sp["src"]]
     key = hashlib.md5(json.dumps([sp["src"], sp["src_start"], sp["src_len"], sp["speed"], sp.get("interp"),
-                                  sp["frames"], sp["hold"], W, H], sort_keys=True).encode()).hexdigest()[:8]
+                                  sp["frames"], sp["hold"], W, H, sp.get("cy", 220)], sort_keys=True).encode()).hexdigest()[:8]
     out = WORK / f"clip_{sp['index']:02d}_{key}.mp4"
     if out.exists():
         return out
@@ -82,6 +87,7 @@ def render_clip(sp):
          f"fps={FPS},vidstabdetect=shakiness=5:accuracy=15:result={trf}", "-f", "null", "-"])
     chain = [f"fps={FPS}",
              f"vidstabtransform=input={trf}:smoothing=12:zoom=4:optzoom=0:interpol=bicubic",
+             *([f"crop=720:405:0:{sp.get('cy', 220)}"] if LAND else []),
              f"setpts=PTS/{sp['speed']}"]
     if sp.get("interp"):
         chain.append(f"minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1")
@@ -160,32 +166,35 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         ev.append(f"Dialogue: {layer},{ts(a)},{ts(b)},{style},,0,0,0,,{text}")
 
     CX = W // 2
+    # positions verticales : portrait / paysage
+    L = dict(brand_y=800, tag_y=950, head_y=480, head_bar=430, low_y=340, low_x=62, ico_y=450, vis_y=610, fb=430, ft1=540, ft2=605) if not LAND else \
+        dict(brand_y=470, tag_y=600, head_y=200, head_bar=150, low_y=130, low_x=110, ico_y=215, vis_y=385, fb=235, ft1=345, ft2=410)
     for t in CFG["titles"]:
         a, b = t["start"], t["end"]
         fo = 600 if b < TOTAL - 0.1 else int((TOTAL - CFG["fade_out"]["video_start"]) * 1000)
         if t["type"] == "brand":
-            y = t.get("y", 800)
+            y = t.get("y", L["brand_y"]) if "y" not in t else (L["fb"] if t["y"] == 430 else t["y"])
             d(3, a, b, "Title", f"{{\\an5\\pos({CX},{y})\\fad(900,{fo})\\fnInter\\b1\\fs108\\fsp26\\t(0,2200,\\fsp14)\\bord2.5\\3c&H202020&\\shad3\\4a&H60&\\blur0.8}}{t['text']}")
             d(3, a + 0.25, b, "Title", f"{{\\an5\\pos({CX},{y + 72})\\fad(700,{fo})\\p1\\bord0\\shad0\\1c{ACCENT}\\fscx0\\t(0,1100,\\fscx100)}}m -70 0 l 70 0 l 70 5 l -70 5{{\\p0}}")
         elif t["type"] == "tagline":
-            y = t.get("y", 950)
+            y = L["tag_y"] if "y" not in t else (L["ft1"] if t["y"] == 540 else L["ft2"])
             d(3, a, b, "Title", f"{{\\an5\\move({CX},{y + 20},{CX},{y},0,700)\\fad(700,{fo})\\fnInter\\b1\\fs46\\bord2.2\\3c&H202020&\\shad2\\4a&H60&\\blur0.6}}" + "\\N".join(t["lines"]))
         elif t["type"] == "headline":
             sizev = t.get("size", 62)
-            d(3, a, b, "Title", f"{{\\an5\\move({CX},{500},{CX},{480},0,650)\\fad(650,550)\\fnInter\\b1\\fs{sizev}\\bord2.4\\3c&H202020&\\shad3\\4a&H60&\\blur0.7}}{t['text']}")
-            d(3, a + 0.15, b, "Title", f"{{\\an5\\pos({CX},{430})\\fad(650,550)\\p1\\bord0\\shad0\\1c{ACCENT}\\fscx0\\t(0,900,\\fscx100)}}m -40 0 l 40 0 l 40 4 l -40 4{{\\p0}}")
+            d(3, a, b, "Title", f"{{\\an5\\move({CX},{L["head_y"] + 20},{CX},{L["head_y"]},0,650)\\fad(650,550)\\fnInter\\b1\\fs{sizev}\\bord2.4\\3c&H202020&\\shad3\\4a&H60&\\blur0.7}}{t['text']}")
+            d(3, a + 0.15, b, "Title", f"{{\\an5\\pos({CX},{L["head_bar"]})\\fad(650,550)\\p1\\bord0\\shad0\\1c{ACCENT}\\fscx0\\t(0,900,\\fscx100)}}m -40 0 l 40 0 l 40 4 l -40 4{{\\p0}}")
         elif t["type"] == "lower":
-            y0 = 340
-            d(3, a, b, "Title", f"{{\\an7\\pos(62,{y0})\\fad(500,{fo})\\p1\\bord0\\shad0\\1c{ACCENT}\\fscy0\\t(0,900,\\fscy100)}}m 0 0 l 6 0 l 6 300 l 0 300{{\\p0}}")
+            y0 = L["low_y"]
+            d(3, a, b, "Title", f"{{\\an7\\pos({L["low_x"] - 26},{y0})\\fad(500,{fo})\\p1\\bord0\\shad0\\1c{ACCENT}\\fscy0\\t(0,900,\\fscy100)}}m 0 0 l 6 0 l 6 300 l 0 300{{\\p0}}")
             ys = {"main": y0 - 6, "accent": y0 + 84, "sub": y0 + 160}
             for ln in t["lines"]:
                 y = ys[ln["style"]]
                 col = {"main": "&HFFFFFF&", "accent": ACCENT, "sub": "&HEDEDED&"}[ln["style"]]
                 fn = "Inter\\b1"
-                d(3, ln["at"], b, "Title", f"{{\\an7\\move(70,{y},88,{y},0,600)\\fad(600,{fo})\\fn{fn}\\fs{ln['size']}\\1c{col}\\bord2.2\\3c&H202020&\\shad2\\4a&H60&\\blur0.6}}{ln['text']}")
+                d(3, ln["at"], b, "Title", f"{{\\an7\\move({L["low_x"] + 8},{y},{L["low_x"] + 26},{y},0,600)\\fad(600,{fo})\\fn{fn}\\fs{ln['size']}\\1c{col}\\bord2.2\\3c&H202020&\\shad2\\4a&H60&\\blur0.6}}{ln['text']}")
         elif t["type"] == "vision":
-            d(3, a, b, "Title", f"{{\\an5\\pos({CX},450)\\fad(350,350)\\p1\\bord0\\shad0\\1c{ACCENT}\\fscx70\\fscy70\\t(0,500,\\fscx150\\fscy150)}}{ICONS[t['icon']]}{{\\p0}}")
-            d(3, a, b, "Title", f"{{\\an5\\move({CX},610,{CX},590,0,500)\\fad(400,350)\\fnInter\\b1\\fs74\\bord2.6\\3c&H202020&\\shad3\\4a&H60&\\blur0.7}}{t['text']}")
+            d(3, a, b, "Title", f"{{\\an5\\pos({CX},{L["ico_y"]})\\fad(350,350)\\p1\\bord0\\shad0\\1c{ACCENT}\\fscx70\\fscy70\\t(0,500,\\fscx150\\fscy150)}}{ICONS[t['icon']]}{{\\p0}}")
+            d(3, a, b, "Title", f"{{\\an5\\move({CX},{L["vis_y"] + 20},{CX},{L["vis_y"]},0,500)\\fad(400,350)\\fnInter\\b1\\fs74\\bord2.6\\3c&H202020&\\shad3\\4a&H60&\\blur0.7}}{t['text']}")
     for text, a, b in cues():
         d(5, a, b, "Sub", f"{{\\fad(120,100)}}{text}")
     (WORK / "subs.ass").write_text(head + "\n".join(ev) + "\n", encoding="utf-8")
@@ -206,8 +215,8 @@ def build_gradient():
     from PIL import Image
     import numpy as np
     y = np.arange(H)[:, None].astype(float)
-    top = np.clip((620 - y) / 620, 0, 1) ** 1.6 * 85
-    bot = np.clip((y - 1000) / 920, 0, 1) ** 1.5 * 165
+    top = np.clip(((350 if LAND else 620) - y) / (350 if LAND else 620), 0, 1) ** 1.6 * 85
+    bot = np.clip((y - (650 if LAND else 1000)) / (H - (650 if LAND else 1000)), 0, 1) ** 1.5 * 165
     a = np.repeat(np.clip(top + bot, 0, 255), W, axis=1).astype("uint8")
     img = np.zeros((H, W, 4), "uint8")
     img[..., 3] = a
@@ -229,12 +238,12 @@ def assemble(shots, clips):
         parts.append(f"{prev}[{i}:v]xfade=transition=fade:duration={OV}:offset={offset:.3f}{label}")
         prev = label
     fo = CFG["fade_out"]["video_start"]
-    parts.append(f"{prev}[{g}:v]overlay=0:0:format=auto,ass=work/subs.ass:fontsdir=/usr/share/fonts,"
+    parts.append(f"{prev}[{g}:v]overlay=0:0:format=auto,ass={WORK.relative_to(HERE) if WORK.is_relative_to(HERE) else WORK}/subs.ass:fontsdir=/usr/share/fonts,"
                  f"fade=t=out:st={fo}:d={TOTAL - fo},format=yuv420p[vout]")
     fc = WORK / "assemble.filtergraph"
     fc.write_text(";\n".join(parts), encoding="utf-8")
     run(["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex_script", fc, "-map", "[vout]", "-t", TOTAL,
-         "-r", FPS, "-c:v", "libx264", "-crf", "22", "-preset", "medium", "-maxrate", "6M", "-bufsize", "12M", "-pix_fmt", "yuv420p",
+         "-r", FPS, "-c:v", "libx264", "-crf", "20" if LAND else "22", "-preset", "medium", "-maxrate", "8M", "-bufsize", "16M", "-pix_fmt", "yuv420p",
          "-x264-params", "colorprim=bt709:transfer=bt709:colormatrix=bt709", "-profile:v", "high", "-level", "4.1", WORK / "video_noaudio.mp4"])
 
 
@@ -299,16 +308,18 @@ def main():
     with ThreadPoolExecutor(max_workers=3) as ex:
         clips = list(ex.map(render_clip, shots))
     build_ass()
-    build_srt()
+    if not LAND:
+        build_srt()
     build_gradient()
     print("assemblage vidéo…")
     assemble(shots, clips)
     print("mixage audio…")
     voice_ok = mix_audio()
-    final = OUT / "MakkaDev_Video_Finale.mp4"
+    final = OUT / ("MakkaDev_Video_YouTube_Horizontale.mp4" if LAND else "MakkaDev_Video_Finale.mp4")
     run(["ffmpeg", "-v", "error", "-y", "-i", WORK / "video_noaudio.mp4", "-i", WORK / "audio.m4a", "-map", "0:v", "-map", "1:a",
          "-c:v", "copy", "-c:a", "copy", "-movflags", "+faststart", "-shortest", final])
-    export_timeline(shots, voice_ok)
+    if not LAND:
+        export_timeline(shots, voice_ok)
     print("terminé :", final)
 
 
