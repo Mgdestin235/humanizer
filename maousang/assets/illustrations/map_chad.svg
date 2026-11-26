@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E3C3"/><stop offset="1" stop-color="#E6F4F1"/></linearGradient></defs>
-<polygon points="286.1,74.8 761.8,309.5 761.8,535.2 696.5,547.0 666.8,636.1 672.7,695.5 637.1,719.3 672.7,754.9 694.1,819.1 625.2,844.0 583.6,885.6 530.2,927.2 464.8,933.1 453.0,968.7 381.7,998.4 322.3,1016.2 257.0,1022.2 239.2,974.7 197.6,933.1 164.9,897.5 197.6,873.7 227.3,849.9 233.2,814.3 230.2,749.0 203.5,707.4 179.8,689.6 138.2,648.0 144.1,612.4 227.3,529.2 257.0,463.9 268.8,285.7 286.1,232.2" fill="url(#g)" stroke="#0F766E" stroke-width="5" stroke-linejoin="round"/>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E3C3"/><stop offset="1" stop-color="#FFF1E6"/></linearGradient></defs>
+<polygon points="286.1,74.8 761.8,309.5 761.8,535.2 696.5,547.0 666.8,636.1 672.7,695.5 637.1,719.3 672.7,754.9 694.1,819.1 625.2,844.0 583.6,885.6 530.2,927.2 464.8,933.1 453.0,968.7 381.7,998.4 322.3,1016.2 257.0,1022.2 239.2,974.7 197.6,933.1 164.9,897.5 197.6,873.7 227.3,849.9 233.2,814.3 230.2,749.0 203.5,707.4 179.8,689.6 138.2,648.0 144.1,612.4 227.3,529.2 257.0,463.9 268.8,285.7 286.1,232.2" fill="url(#g)" stroke="#EA580C" stroke-width="5" stroke-linejoin="round"/>
 <ellipse cx="168" cy="678" rx="26" ry="20" fill="#9ED8DB" opacity="0.9"/>
-<line x1="230" y1="748" x2="291" y2="959" stroke="#F59E0B" stroke-width="4" stroke-dasharray="10 8" opacity="0.9"/>
-<line x1="230" y1="748" x2="429" y2="924" stroke="#F59E0B" stroke-width="4" stroke-dasharray="10 8" opacity="0.9"/>
-<line x1="230" y1="748" x2="574" y2="646" stroke="#F59E0B" stroke-width="4" stroke-dasharray="10 8" opacity="0.9"/>
-<circle cx="230" cy="748" r="34" fill="#F59E0B" opacity="0.25"/>
-<circle cx="230" cy="748" r="16" fill="#F59E0B" stroke="#fff" stroke-width="4"/>
-<text x="256" y="800" font-family="Arial" font-weight="700" font-size="36" fill="#0B1B2B">N'Djaména</text>
-<circle cx="291" cy="959" r="11" fill="#0F766E" stroke="#fff" stroke-width="3"/>
-<text x="307" y="968" font-family="Arial" font-weight="700" font-size="30" fill="#0B1B2B">Moundou</text>
-<circle cx="429" cy="924" r="11" fill="#0F766E" stroke="#fff" stroke-width="3"/>
-<text x="445" y="933" font-family="Arial" font-weight="700" font-size="30" fill="#0B1B2B">Sarh</text>
-<circle cx="574" cy="646" r="11" fill="#0F766E" stroke="#fff" stroke-width="3"/>
-<text x="590" y="655" font-family="Arial" font-weight="700" font-size="30" fill="#0B1B2B">Abéché</text>
+<line x1="230" y1="748" x2="291" y2="959" stroke="#FACC15" stroke-width="4" stroke-dasharray="10 8" opacity="0.9"/>
+<line x1="230" y1="748" x2="429" y2="924" stroke="#FACC15" stroke-width="4" stroke-dasharray="10 8" opacity="0.9"/>
+<line x1="230" y1="748" x2="574" y2="646" stroke="#FACC15" stroke-width="4" stroke-dasharray="10 8" opacity="0.9"/>
+<circle cx="230" cy="748" r="34" fill="#FACC15" opacity="0.25"/>
+<circle cx="230" cy="748" r="16" fill="#FACC15" stroke="#fff" stroke-width="4"/>
+<text x="256" y="800" font-family="Arial" font-weight="700" font-size="36" fill="#141414">N'Djaména</text>
+<circle cx="291" cy="959" r="11" fill="#EA580C" stroke="#fff" stroke-width="3"/>
+<text x="307" y="968" font-family="Arial" font-weight="700" font-size="30" fill="#141414">Moundou</text>
+<circle cx="429" cy="924" r="11" fill="#EA580C" stroke="#fff" stroke-width="3"/>
+<text x="445" y="933" font-family="Arial" font-weight="700" font-size="30" fill="#141414">Sarh</text>
+<circle cx="574" cy="646" r="11" fill="#EA580C" stroke="#fff" stroke-width="3"/>
+<text x="590" y="655" font-family="Arial" font-weight="700" font-size="30" fill="#141414">Abéché</text>
 <circle cx="249" cy="857" r="7" fill="#64748B" stroke="#fff" stroke-width="3"/>
-<text x="265" y="866" font-family="Arial" font-weight="400" font-size="24" fill="#0B1B2B">Bongor</text>
+<text x="265" y="866" font-family="Arial" font-weight="400" font-size="24" fill="#141414">Bongor</text>
 <circle cx="446" cy="744" r="7" fill="#64748B" stroke="#fff" stroke-width="3"/>
-<text x="462" y="753" font-family="Arial" font-weight="400" font-size="24" fill="#0B1B2B">Mongo</text>
+<text x="462" y="753" font-family="Arial" font-weight="400" font-size="24" fill="#141414">Mongo</text>
 <circle cx="541" cy="815" r="7" fill="#64748B" stroke="#fff" stroke-width="3"/>
-<text x="557" y="824" font-family="Arial" font-weight="400" font-size="24" fill="#0B1B2B">Am Timan</text>
+<text x="557" y="824" font-family="Arial" font-weight="400" font-size="24" fill="#141414">Am Timan</text>
 <circle cx="425" cy="683" r="7" fill="#64748B" stroke="#fff" stroke-width="3"/>
-<text x="441" y="692" font-family="Arial" font-weight="400" font-size="24" fill="#0B1B2B">Ati</text>
+<text x="441" y="692" font-family="Arial" font-weight="400" font-size="24" fill="#141414">Ati</text>
 <circle cx="471" cy="403" r="7" fill="#64748B" stroke="#fff" stroke-width="3"/>
-<text x="487" y="412" font-family="Arial" font-weight="400" font-size="24" fill="#0B1B2B">Faya-Largeau</text>
+<text x="487" y="412" font-family="Arial" font-weight="400" font-size="24" fill="#141414">Faya-Largeau</text>
 <text x="860" y="1076" text-anchor="end" font-family="Arial" font-size="20" fill="#64748B">Carte schématique – contours simplifiés</text>
 </svg>

@@ -1,6 +1,6 @@
 # MAOUSANG — Texte oral du pitch
 
-Durée visée : 8 à 12 minutes. Le texte compte environ 1774 mots, soit environ 12 minutes à un débit de 150 mots par minute. Le reste du temps sert à la démonstration et aux transitions.
+Durée visée : 8 à 12 minutes. Le texte compte environ 1779 mots, soit environ 12 minutes à un débit de 150 mots par minute. Le reste du temps sert à la démonstration et aux transitions.
 
 Conseils : parler lentement, regarder le jury, montrer la plateforme en direct sur la diapositive 6 si la connexion le permet. Les chiffres cités sont sourcés (MAOUSANG_SOURCES.md) ou prévisionnels (MAOUSANG_FINANCIAL_MODEL.xlsx) : toujours dire « prévisionnel » ou « objectif » pour les seconds.
 
@@ -26,7 +26,7 @@ Maousang n'est pas une application de plus. C'est un écosystème. Quatre pôles
 
 ## Diapositive 6. Parcours en captures
 
-Voici le parcours réel sur la plateforme en production. L'utilisateur arrive sur la page d'accueil, crée son compte, se connecte et accède au menu des services. De là, il choisit un pôle. Il peut aussi publier une annonce ou poser une question à l'assistant IA. Je vous montre maintenant chaque pôle en détail.
+Voici le parcours réel dans l'application. Un démarrage animé, puis le logo Maousang, puis une courte vidéo d'introduction de trente secondes, que l'on peut passer. L'utilisateur arrive ensuite sur la page IA : « Que cherchez-vous aujourd'hui ? ». Il choisit Clando, Immobilier, Bus ou Emploi. Je vous montre maintenant chaque pôle en détail.
 
 ## Diapositive 7. Pôle 1 · Billetterie
 
@@ -62,7 +62,7 @@ Comment gagnons-nous de l'argent ? Le principe : chercher est gratuit, la transa
 
 ## Diapositive 15. Acquisition
 
-Pour acquérir nos utilisateurs, nous combinons cinq leviers. Une agence de communication pour l'identité, les campagnes et les relations presse. Les médias numériques et les influenceurs tchadiens. Un programme de parrainage : chaque utilisateur qui fait venir un ami gagne un crédit. Une campagne éducative, « le coût de la non-connectivité », qui montre le temps et l'argent perdus sans accès à l'information. Et surtout le terrain : agents, démonstrations, universités, entreprises, transporteurs et quartiers. Le calendrier s'étale sur douze mois, pour 4,8 millions de FCFA en année un.
+Pour acquérir nos utilisateurs, nous combinons cinq leviers. Une agence de communication pour l'identité, les campagnes et les relations presse. Les médias numériques et les influenceurs tchadiens. Un programme de parrainage : chaque utilisateur qui fait venir un ami gagne un crédit. Une campagne éducative, « le coût de la non-connectivité », qui montre le temps et l'argent perdus sans accès à l'information. Et surtout le terrain : agents, démonstrations, universités, entreprises, transporteurs et quartiers. Le calendrier s'étale sur douze mois, pour 3,1 millions de FCFA en année un.
 
 ## Diapositive 16. Projections financières
 
@@ -74,15 +74,15 @@ Notre expansion se fait en trois phases. Phase un : consolider le Tchad, d'abord
 
 ## Diapositive 18. Le besoin de financement
 
-Je vous demande 15 millions de FCFA. Je veux être précis sur ce que couvre cet argent. La conception, le développement et la mise en production de la plateforme sont déjà faits, à mes frais et sur mon temps : c'est mon apport. L'argent levé ne paie pas le développement passé ; il finance douze mois de lancement commercial. 4,5 millions pour l'équipe, 3 millions pour le marketing, 3 millions pour les agents de terrain, 1,2 million pour l'infrastructure, le reste pour la prospection, le juridique, les partenariats et une petite réserve. Cette ventilation sera affinée avec des devis réels.
+Je vous demande 10 millions de FCFA, et non plus 15. Je veux être précis sur ce que couvre cet argent. La conception, le développement et la mise en production de la plateforme sont déjà faits, à mes frais et sur mon temps : c'est mon apport. L'argent levé ne paie pas le développement passé ; il finance douze mois de lancement commercial. 3 millions pour l'équipe, 2 millions pour le marketing, 1,8 million pour les agents de terrain, 1 million pour l'infrastructure, le reste pour la prospection, le juridique, les partenariats et une petite réserve. Cette ventilation sera affinée avec des devis réels.
 
 ## Diapositive 19. Impact, équipe et partenaires
 
-Maousang crée de l'emploi. En année un, huit personnes, moi compris ; vingt et une en année deux ; quarante-huit en année trois, si la croissance suit. Au-delà des salariés, des milliers de conducteurs, de livreurs, de commerçants et d'agences pourront gagner des revenus grâce à la plateforme. Je les compte comme des opportunités, pas comme des emplois. Pour réussir, nous cherchons des partenaires : ministères, banques, opérateurs de paiement mobile, transporteurs, agences, universités, médias et incubateurs. Aucun n'est encore signé, et c'est précisément pour cela que je suis devant vous.
+Maousang crée de l'emploi. En année un, six personnes, moi compris ; vingt et une en année deux ; quarante-huit en année trois, si la croissance suit. Au-delà des salariés, des milliers de conducteurs, de livreurs, de commerçants et d'agences pourront gagner des revenus grâce à la plateforme. Je les compte comme des opportunités, pas comme des emplois. Pour réussir, nous cherchons des partenaires : ministères, banques, opérateurs de paiement mobile, transporteurs, agences, universités, médias et incubateurs. Aucun n'est encore signé, et c'est précisément pour cela que je suis devant vous.
 
 ## Diapositive 20. Appel à l'action
 
-Pour conclure : le problème est réel et vécu chaque jour. La solution est déjà développée et en ligne. Le marché est jeune et le mobile progresse. Nous avons huit sources de revenus, une expansion par étapes, un impact sur l'emploi, et un fondateur engagé à plein temps. Je vous demande donc 15 millions de FCFA, ainsi qu'un accompagnement stratégique et l'accès à vos réseaux. Maousang : connecter les services, rapprocher les opportunités et construire l'économie numérique de demain. Merci. Je suis prêt à répondre à vos questions, et à vous faire une démonstration en direct sur maousang.vercel.app.
+Pour conclure : le problème est réel et vécu chaque jour. La solution est déjà développée et en ligne. Le marché est jeune et le mobile progresse. Nous avons huit sources de revenus, une expansion par étapes, un impact sur l'emploi, et un fondateur engagé à plein temps. Je vous demande donc 10 millions de FCFA, ainsi qu'un accompagnement stratégique et l'accès à vos réseaux. Maousang : connecter les services, rapprocher les opportunités et construire l'économie numérique de demain. Merci. Je suis prêt à répondre à vos questions, et à vous faire une démonstration en direct sur maousang.vercel.app.
 
 ## Questions probables du jury
 

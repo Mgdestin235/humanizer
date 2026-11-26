@@ -8,7 +8,7 @@ P, I, A = M["Prudent"], M["Intermediaire"], M["Ambitieux"]
 MK, EQ = M["Marche"], M["Equipe"]
 ILL = "../assets/illustrations"
 
-DARK, TEAL, MINT, AMBER, GRAY = "#0B1B2B", "#0F766E", "#14B8A6", "#F59E0B", "#94A3B8"
+DARK, TEAL, MINT, AMBER, GRAY = "#141414", "#EA580C", "#FB923C", "#FACC15", "#94A3B8"
 
 
 def fr(x, d=0):
@@ -91,7 +91,7 @@ def pl_table(sc, name):
             ("rev_total", "<b>Chiffre d'affaires total</b>", "m"), ("cost_ops", "Dépenses opérationnelles", "m"),
             ("cost_mkt", "Dépenses marketing", "m"), ("cost_staff", "Masse salariale", "m"),
             ("tech", "Coûts techniques et infrastructure", "m"), ("cost_total", "<b>Total des dépenses</b>", "m"),
-            ("ebit", "<b>Résultat opérationnel</b>", "m"), ("cash", "Trésorerie fin d'année (avec 15 M levés)", "m")]
+            ("ebit", "<b>Résultat opérationnel</b>", "m"), ("cash", "Trésorerie fin d'année (avec 10 M levés)", "m")]
     rows = [[f"Scénario {name}", "A1", "A2", "A3"]]
     for k, lab, t in keys:
         f = {"n": lambda v: fr(v), "p": lambda v: f"{fr(v*100,1)} %", "m": lambda v: mf(v)}[t]
@@ -113,10 +113,10 @@ users_chart = bars([("Inscrits fin d'année", [v / 1e3 for v in I["users_end"]])
 mix = [("Mobilité", I["rev_mob"][2]), ("Abonnements", I["rev_subs"][2]), ("Emploi", I["rev_emp"][2]),
        ("Immobilier", I["rev_imm"][2]), ("Billetterie", I["rev_bil"][2]), ("Publicité", I["rev_ads"][2])]
 mix_chart = donut(mix, [TEAL, MINT, AMBER, "#0EA5E9", GRAY, DARK], "Répartition du CA, A3 (intermédiaire)")
-FUND = [("Recrutement et rémunération", 4500000), ("Marketing et communication", 3000000), ("Agents de terrain", 3000000),
-        ("Infrastructure technique", 1200000), ("Prospection commerciale", 1000000), ("Administratif et juridique", 1000000),
-        ("Partenariats", 800000), ("Fonds de roulement", 500000)]
-fund_chart = donut(FUND, [TEAL, AMBER, MINT, DARK, "#0EA5E9", GRAY, "#B45309", "#475569"], "Répartition des 15 000 000 FCFA", size=230)
+FUND = [("Recrutement et rémunération", 3000000), ("Marketing et communication", 2000000), ("Agents de terrain", 1800000),
+        ("Infrastructure technique", 1000000), ("Prospection commerciale", 700000), ("Administratif et juridique", 800000),
+        ("Partenariats", 400000), ("Fonds de roulement", 300000)]
+fund_chart = donut(FUND, [TEAL, AMBER, MINT, DARK, "#0EA5E9", GRAY, "#B45309", "#475569"], "Répartition des 10 000 000 FCFA", size=230)
 
 team_rows = [["Poste", "Effectif A1", "Effectif A2", "Effectif A3", "Salaire mensuel A1", "Salaire mensuel A3", "Coût annuel A1", "Coût annuel A3"]]
 for r in EQ[:-1]:
@@ -124,12 +124,9 @@ for r in EQ[:-1]:
 t = EQ[-1]
 team_rows.append(["<b>Total</b>", t[1], t[2], t[3], "", "", f"<b>{fr(t[7])}</b>", f"<b>{fr(t[9])}</b>"])
 
-CAPS = [("01_accueil", "Accueil"), ("02_inscription", "Inscription"), ("03_connexion", "Connexion"),
-        ("04_tableau_de_bord", "Menu des services"), ("05_billetterie_recherche", "Billetterie : recherche"),
-        ("06_billetterie_resultats", "Billetterie : offres"), ("07_clando_demande", "Clando : demande"),
-        ("08_livraison", "Livraison"), ("09_emploi_offres", "Emploi : offres"), ("10_emploi_ats", "Emploi : ATS"),
-        ("11_immobilier_recherche", "Immobilier : recherche"), ("12_immobilier_annonce", "Immobilier : annonce"),
-        ("13_annonces", "Annonces"), ("14_assistant_ia", "Assistant IA")]
+CAPS = [("01_demarrage", "Démarrage animé"), ("02_logo", "Logo Maousang"), ("03_video_intro", "Vidéo d'introduction"),
+        ("04_page_ia", "Page IA : choix du service"), ("05_clando", "Clando"), ("06_immobilier", "Immobilier"),
+        ("07_bus", "Bus (billetterie)"), ("08_emploi", "Emploi")]
 cap_html = ""
 for k, lab in CAPS:
     pth = os.path.join(ROOT, "assets", "captures", k + ".png")
@@ -150,8 +147,8 @@ table.num td:not(:first-child), table.num th:not(:first-child) {{ text-align: ri
   margin: -18mm -16mm 0; break-after: page; }}
 .cover h1 {{ font-size: 46pt; color: #fff; margin-top: 30mm; }} .cover .k {{ color: {AMBER}; font-weight: 700; letter-spacing: 1px; }}
 .cover img {{ position: absolute; right: 10mm; bottom: 18mm; width: 95mm; }}
-.cover .sub {{ font-size: 15pt; color: #CDE7E3; max-width: 105mm; }}
-.box {{ background: #E6F4F1; border-radius: 8px; padding: 10px 14px; margin: 10px 0; break-inside: avoid; }}
+.cover .sub {{ font-size: 15pt; color: #E5E5E5; max-width: 105mm; }}
+.box {{ background: #FFF1E6; border-radius: 8px; padding: 10px 14px; margin: 10px 0; break-inside: avoid; }}
 .warn {{ background: #FFF7E6; border-left: 0; border-radius: 8px; padding: 10px 14px; margin: 10px 0; break-inside: avoid; }}
 .kpis {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }}
 .kpi {{ background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 8px 10px; }}
@@ -159,7 +156,7 @@ table.num td:not(:first-child), table.num th:not(:first-child) {{ text-align: ri
 .two {{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }}
 .fig {{ break-inside: avoid; margin: 8px 0; }}
 .src {{ font-size: 8pt; color: #64748B; }}
-.caps {{ display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }}
+.caps {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }}
 .cap {{ margin: 0; text-align: center; font-size: 7.5pt; }} .cap img {{ width: 100%; border-radius: 6px; border: 1px solid #CBD5E1; }}
 .ph {{ height: 46mm; border: 1px dashed #94A3B8; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #64748B; font-size: 7pt; padding: 3px; }}
 .pb {{ break-before: page; }}
@@ -181,17 +178,17 @@ html = f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>MAO
 <div class="kpis">
 <div class="kpi"><b>2,79 M</b><span>internautes au Tchad (oct. 2025), notre marché total</span></div>
 <div class="kpi"><b>{fr(sam/1e6,2)} M</b><span>internautes urbains estimés, notre marché accessible</span></div>
-<div class="kpi"><b>15 M FCFA</b><span>besoin de financement pour 12 mois de lancement</span></div>
+<div class="kpi"><b><s style="color:#94A3B8;font-size:11pt">15 M</s> 10 M FCFA</b><span>besoin de financement pour 12 mois de lancement</span></div>
 <div class="kpi"><b>{mf(I['rev_total'][2])} FCFA</b><span>CA prévisionnel A3, scénario intermédiaire</span></div>
-<div class="kpi"><b>8 → 48</b><span>emplois directs prévus de A1 à A3</span></div>
+<div class="kpi"><b>6 → 48</b><span>emplois directs prévus de A1 à A3</span></div>
 <div class="kpi"><b>8</b><span>sources de revenus</span></div>
 </div>
-<p>Nous demandons <b>15 000 000 FCFA</b> et un accompagnement stratégique. Ils financent l'équipe de lancement, le marketing, les agents de terrain et la structuration juridique, pour atteindre 10 000 inscrits en année 1. Dans le scénario intermédiaire, Maousang devient rentable en année 3. La trésorerie peut être légèrement négative en année 2 ({mf(I['cash'][1])} FCFA). Nous prévoyons donc un relais : revenus, prêt d'honneur ou tour d'amorçage.</p>
+<p>Nous demandons <b>10 000 000 FCFA</b> (au lieu des 15 000 000 initialement prévus) et un accompagnement stratégique. Ils financent l'équipe de lancement, le marketing, les agents de terrain et la structuration juridique, pour atteindre 10 000 inscrits en année 1. Dans le scénario intermédiaire, Maousang devient rentable en année 3. La trésorerie peut être légèrement négative en année 2 ({mf(I['cash'][1])} FCFA). Nous prévoyons donc un relais : revenus, prêt d'honneur ou tour d'amorçage.</p>
 
 <h2>2. Présentation de Maousang</h2>
 <p><b>Mission :</b> connecter les populations, les entreprises, les prestataires et les organisations grâce à des solutions numériques simples, accessibles et intelligentes.</p>
 <p><b>Vision :</b> « Devenir une plateforme de référence pour l'accès aux services numériques au Tchad, avec une expansion en Afrique centrale, en rapprochant les populations des opportunités, des services et des acteurs économiques. »</p>
-<div class="warn"><b>Note de méthode.</b> Le site maousang.vercel.app n'était pas accessible depuis l'environnement de rédaction. Les fonctionnalités décrites ici viennent du fondateur. Les captures d'écran de l'annexe sont à insérer avec les scripts fournis.</div>
+<div class="warn"><b>Note de méthode.</b> Les fonctionnalités décrites viennent du fondateur et des captures d'écran de l'application qu'il a fournies (novembre 2026, voir l'annexe).</div>
 
 <h2>3. Le problème</h2>
 <ul>
@@ -280,9 +277,9 @@ html = f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>MAO
       ["M7–M8", "Campagnes de quartier ; recrutement de restaurants et de commerces pour la livraison"],
       ["M9–M10", "Rentrée universitaire ; seconde vague de sensibilisation"],
       ["M11–M12", "Campagne de fin d'année (voyages des fêtes) ; bilan et plan A2"]])}
-{tbl([["Poste du budget A1", "Montant (FCFA)"], ["Agence de communication", "1 200 000"], ["Web médias et influenceurs", "800 000"],
-      ["Publicité digitale", "600 000"], ["Universités et démonstrations", "400 000"], ["Prospection terrain", "1 000 000"],
-      ["Partenariats", "800 000"], ["<b>Total (dans les 15 M)</b>", "<b>4 800 000</b>"],
+{tbl([["Poste du budget A1", "Montant (FCFA)"], ["Agence de communication", "800 000"], ["Web médias et influenceurs", "500 000"],
+      ["Publicité digitale", "400 000"], ["Universités et démonstrations", "300 000"], ["Prospection terrain", "700 000"],
+      ["Partenariats", "400 000"], ["<b>Total (dans les 10 M)</b>", "<b>3 100 000</b>"],
       ["Parrainage (payé sur les revenus)", f"{fr(I['cost_ref'][0])}"]], "num")}
 
 <h2 class="pb">9. Projections financières sur trois ans</h2>
@@ -320,19 +317,19 @@ html = f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>MAO
       ["Guinée", "14,9 M", "3,96 M", "26,5 %", "Croissance du mobile", "Franc guinéen"]])}
 <p class="src">Source : DataReportal Digital 2025 (janvier 2025).</p>
 
-<h2>11. Besoin de financement : 15 000 000 FCFA</h2>
+<h2>11. Besoin de financement : <s style="color:#94A3B8">15 000 000</s> 10 000 000 FCFA</h2>
 <div class="two"><div>
 {tbl([["Poste", "Montant (FCFA)", "Contenu"]] + [[n, f'<span style="white-space:nowrap">{fr(v)}</span>', c] for (n, v), c in zip(FUND, [
-    "Resp. commercial, resp. marketing (150 000/mois) et support (75 000/mois), 12 mois",
-    "Agence, campagnes, influenceurs, événements", "4 agents à temps partiel (62 500/mois) + primes",
+    "Resp. commercial et resp. marketing (125 000/mois chacun), 12 mois",
+    "Agence, campagnes, influenceurs, événements", "3 agents à temps partiel (50 000/mois) + primes",
     "Hébergement, base de données, SMS, cartes, stores", "Supports, déplacements, démonstrations",
     "Immatriculation, CGU, protection des données, comptabilité", "Paiement mobile, transporteurs, universités",
-    "Réserve de sécurité"])] + [["<b>Total</b>", '<b style="white-space:nowrap">15 000 000</b>', ""]], "")}
+    "Réserve de sécurité"])] + [["<b>Total</b>", '<b style="white-space:nowrap">10 000 000</b>', ""]], "")}
 </div><div class="fig">{fund_chart}</div></div>
 {tbl([["Catégorie", "Contenu", "Financement"],
       ["Dépenses déjà réalisées", "Conception, développement et mise en production de la plateforme", "Fondateur (non couvert par la levée)"],
       ["Apport du fondateur", "Temps et compétences ; travail non rémunéré en A1 (direction générale et technique)", "Apport en industrie, valorisation à préciser"],
-      ["Besoin financier restant", "Lancement commercial sur 12 mois", "15 000 000 FCFA demandés"],
+      ["Besoin financier restant", "Lancement commercial sur 12 mois", "10 000 000 FCFA demandés"],
       ["Dépenses futures", "A2–A3 : équipe élargie, marketing, infrastructure", "Chiffre d'affaires et, si besoin, tour d'amorçage"]])}
 <p class="src">Ventilation indicative, à affiner selon les devis réels.</p>
 
@@ -370,12 +367,12 @@ html = f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>MAO
 
 <h2>14. Appel à l'action</h2>
 <div class="box"><p>Un problème réel. Une solution déjà en production. Un marché jeune où le mobile progresse. Huit sources de revenus. Une expansion par étapes. Des emplois. Un fondateur engagé.</p>
-<p><b>Nous demandons 15 000 000 FCFA et un accompagnement stratégique pour lancer la croissance de Maousang.</b></p>
+<p><b>Nous demandons 10 000 000 FCFA et un accompagnement stratégique pour lancer la croissance de Maousang.</b></p>
 <p style="font-size:12pt"><b style="color:{AMBER}">MAOUSANG</b> — <i>Connecter les services, rapprocher les opportunités et construire l'économie numérique de demain.</i></p>
 <p>Giscard Destin, fondateur · maousang.vercel.app</p></div>
 
 <h2 class="pb">Annexe : parcours en captures d'écran</h2>
-<p>Du démarrage aux fonctionnalités. Les emplacements vides sont remplis automatiquement lorsque les captures existent dans <code>assets/captures/</code> (voir LISEZ-MOI.md).</p>
+<p>Du démarrage aux fonctionnalités. Captures fournies par le fondateur.</p>
 <div class="caps">{cap_html}</div>
 <p class="src" style="margin-top:12px">Sources détaillées, dates et liens : MAOUSANG_SOURCES.md.</p>
 </body></html>"""

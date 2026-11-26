@@ -29,8 +29,8 @@ def rgb(h):
     return RGBColor.from_string(h)
 
 
-DARK, TEAL, MINT, AMBER = "0B1B2B", "0F766E", "14B8A6", "F59E0B"
-LIGHT, GRAY, MID, WHITE, NAVY2 = "E6F4F1", "64748B", "CBD5E1", "FFFFFF", "12324A"
+DARK, TEAL, MINT, AMBER = "141414", "EA580C", "FB923C", "FACC15"
+LIGHT, GRAY, MID, WHITE, NAVY2 = "FFF1E6", "64748B", "CBD5E1", "FFFFFF", "262626"
 FONT = "Arial"
 
 
@@ -84,6 +84,8 @@ def text(slide, x, y, w, h, content, size=14, bold=False, color=DARK, align=PP_A
             f.bold = o.get("bold", bold)
             f.italic = o.get("italic", italic)
             f.color.rgb = rgb(o.get("color", color))
+            if o.get("strike"):
+                f._rPr.set("strike", "sngStrike")
     return tb
 
 
@@ -236,7 +238,7 @@ picture(s, "cover_art.png", 7.6, 0.25, h=7.0)
 text(s, 0.8, 1.2, 6.6, 0.4, "PITCH INVESTISSEURS  ·  2026", size=13, bold=True, color=AMBER)
 text(s, 0.8, 1.75, 6.8, 1.2, "MAOUSANG", size=66, bold=True, color=WHITE)
 text(s, 0.8, 3.05, 6.6, 1.2, "La plateforme numérique multiservices qui rapproche les Tchadiens des services, "
-     "des opportunités et des acteurs économiques.", size=20, color="D1E7E4")
+     "des opportunités et des acteurs économiques.", size=20, color="E5E5E5")
 for i, (ic, lab) in enumerate([("ticket", "Billetterie"), ("moto", "Mobilité"), ("briefcase", "Emploi"), ("home", "Immobilier")]):
     icon(s, ic, 0.8 + i * 1.55, 4.55, 0.55, circle=TEAL, ring=MINT)
     text(s, 0.8 + i * 1.55, 5.18, 1.5, 0.3, lab, size=12, color=WHITE)
@@ -338,21 +340,46 @@ notes(s, "3. Le problème",
 s = new_slide()
 header(s, "Avant Maousang, après Maousang", "Le même besoin, en quelques minutes depuis un téléphone")
 rows = [("Billet de bus", "Aller au guichet de la gare, faire la queue", "Rechercher et comparer les voyages en ligne"),
-        ("Course ou livraison", "Héler un clando dans la rue, négocier le prix", "Demander une course ou une livraison dans l'application"),
+        ("Course ou livraison", "Héler un clando dans la rue, négocier le prix", "Commander une course ou une livraison"),
         ("Emploi", "Parcourir les panneaux, groupes et sites dispersés", "Postuler en ligne ; le recruteur trie avec l'ATS"),
         ("Logement", "Payer un démarcheur, multiplier les visites", "Filtrer les annonces, contacter le propriétaire"),
         ("Visibilité", "Bouche-à-oreille limité au quartier", "Profil, annonces et publicité ciblée")]
-card(s, 0.6, 1.75, 5.85, 4.95, fill="FEF3F2", line=None)
-card(s, 6.85, 1.75, 5.85, 4.95, fill=LIGHT, line=None)
-icon(s, "x", 0.85, 1.92, 0.5, circle="DC2626")
-text(s, 1.5, 1.98, 4.5, 0.4, "AVANT", size=18, bold=True, color="B91C1C")
-icon(s, "check", 7.1, 1.92, 0.5, circle=TEAL)
-text(s, 7.75, 1.98, 4.5, 0.4, "APRÈS MAOUSANG", size=18, bold=True, color=TEAL)
-for i, (k, av, ap) in enumerate(rows):
-    y = 2.65 + i * 0.8
-    text(s, 0.85, y, 5.4, 0.75, [[(k + " : ", {"bold": True}), (av, {})]], size=13)
-    text(s, 7.1, y, 5.4, 0.75, [[(k + " : ", {"bold": True, "color": TEAL}), (ap, {})]], size=13)
-shape(s, MSO_SHAPE.RIGHT_ARROW, 6.42, 3.95, 0.46, 0.55, fill=AMBER)
+
+AA_ROWS = rows
+
+
+def ill_slot(slide, key, label, x, y, w, h):
+    """Emplacement nommé ILLU_<clé> pour une illustration 3D (remplacé par insert_screenshots.py)."""
+    r = shape(slide, MSO_SHAPE.ROUNDED_RECTANGLE, x, y, w, h, fill=WHITE, line="94A3B8", lw=1, dash=True,
+              name=f"ILLU_{key}", radius=0.06)
+    tf = r.text_frame
+    tf.word_wrap = True
+    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    p = tf.paragraphs[0]
+    p.alignment = PP_ALIGN.CENTER
+    run = p.add_run()
+    run.text = "Illustration 3D à insérer : " + label
+    run.font.size, run.font.name, run.font.bold = Pt(11), FONT, True
+    run.font.color.rgb = rgb(GRAY)
+
+
+def avant_apres(s):
+    card(s, 0.6, 1.75, 5.85, 4.95, fill="FEF3F2", line=None)
+    card(s, 6.85, 1.75, 5.85, 4.95, fill=LIGHT, line=None)
+    icon(s, "x", 0.85, 1.9, 0.45, circle="DC2626")
+    text(s, 1.42, 1.95, 4.5, 0.4, "AVANT", size=18, bold=True, color="B91C1C")
+    icon(s, "check", 7.1, 1.9, 0.45, circle=TEAL)
+    text(s, 7.67, 1.95, 4.5, 0.4, "APRÈS MAOUSANG", size=18, bold=True, color=TEAL)
+    ill_slot(s, "avant", "personnes qui attendent, négocient, se déplacent", 0.85, 2.48, 5.35, 2.0)
+    ill_slot(s, "apres", "personnes souriantes avec leur téléphone", 7.1, 2.48, 5.35, 2.0)
+    for i, (k, av, ap) in enumerate(AA_ROWS):
+        y = 4.62 + i * 0.41
+        text(s, 0.85, y, 5.4, 0.4, [[(k + " : ", {"bold": True}), (av, {})]], size=12)
+        text(s, 7.1, y, 5.4, 0.4, [[(k + " : ", {"bold": True, "color": TEAL}), (ap, {})]], size=12)
+    shape(s, MSO_SHAPE.RIGHT_ARROW, 6.42, 3.2, 0.46, 0.55, fill=TEAL)
+
+
+avant_apres(s)
 footer(s, 4)
 notes(s, "4. Avant / Après",
       "Ce tableau résume la promesse. Avant : on va au guichet de la gare pour un billet, on hèle un clando et on "
@@ -402,61 +429,62 @@ notes(s, "5. L'écosystème",
 s = new_slide()
 header(s, "Le parcours utilisateur, du démarrage aux services",
        "Parcours sur la plateforme en production (maousang.vercel.app)")
-steps = [("01_accueil", "Accueil"), ("02_inscription", "Inscription"), ("03_connexion", "Connexion"),
-         ("04_tableau_de_bord", "Menu des services"), ("13_annonces", "Annonces"), ("14_assistant_ia", "Assistant IA")]
+steps = [("01_demarrage", "Démarrage animé (≈ 1,5 s)"), ("02_logo", "Logo Maousang (≈ 1,5 s)"),
+         ("03_video_intro", "Vidéo d'introduction (≈ 30 s)"), ("04_page_ia", "Page IA : choix du service")]
 for i, (k, lab) in enumerate(steps):
-    x = 0.75 + i * 2.05
-    phone(s, k, lab, x, 1.8, w=1.75, h=3.6)
-    shape(s, MSO_SHAPE.OVAL, x + 0.65, 5.6, 0.45, 0.45, fill=TEAL if i < 4 else AMBER)
-    text(s, x + 0.65, 5.66, 0.45, 0.35, str(i + 1), size=13, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
-    text(s, x - 0.1, 6.15, 1.95, 0.35, lab, size=13, bold=True, align=PP_ALIGN.CENTER)
-    if i < 5:
-        shape(s, MSO_SHAPE.RIGHT_ARROW, x + 1.8, 3.45, 0.22, 0.3, fill=MID)
-footer(s, 6, "Captures à insérer avec outils/insert_screenshots.py (voir LISEZ-MOI). Les pôles détaillés suivent.")
+    x = 1.0 + i * 3.0
+    phone(s, k, lab, x, 1.65, w=2.1, h=4.1)
+    shape(s, MSO_SHAPE.OVAL, x + 0.82, 5.9, 0.45, 0.45, fill=TEAL)
+    text(s, x + 0.82, 5.96, 0.45, 0.35, str(i + 1), size=13, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+    text(s, x - 0.35, 6.42, 2.8, 0.35, lab, size=13, bold=True, align=PP_ALIGN.CENTER)
+    if i < 3:
+        shape(s, MSO_SHAPE.RIGHT_ARROW, x + 2.3, 3.55, 0.4, 0.4, fill=MID)
+footer(s, 6, "Captures d'écran de l'application fournies par le fondateur (novembre 2026). Les pôles détaillés suivent.")
 notes(s, "6. Parcours en captures",
-      "Voici le parcours réel sur la plateforme en production. L'utilisateur arrive sur la page d'accueil, crée son "
-      "compte, se connecte et accède au menu des services. De là, il choisit un pôle. Il peut aussi publier une "
-      "annonce ou poser une question à l'assistant IA. Je vous montre maintenant chaque pôle en détail.")
+      "Voici le parcours réel dans l'application. Un démarrage animé, puis le logo Maousang, puis une courte vidéo "
+      "d'introduction de trente secondes, que l'on peut passer. L'utilisateur arrive ensuite sur la page IA : "
+      "« Que cherchez-vous aujourd'hui ? ». Il choisit Clando, Immobilier, Bus ou Emploi. Je vous montre "
+      "maintenant chaque pôle en détail.")
 
 # 7-10 — Pôles -----------------------------------------------------------------------
 POLES = [
     ("ticket", "Pôle 1 · Billetterie", "Acheter son billet sans passer par le guichet",
      "Les billets interurbains se vendent surtout au guichet des agences. Les prix varient : N'Djaména–Moundou 12 500 FCFA, "
      "–Sarh 17 500 FCFA, –Abéché 25 000 FCFA (presse, 2023-2024).",
-     "Rechercher des voyages, consulter les offres des transporteurs et accéder aux services de billetterie en ligne.",
+     "Rechercher un bus par ville de départ, ville d'arrivée et date de voyage, puis réserver et acheter son billet.",
      "Voyageurs interurbains, étudiants, familles, compagnies de bus et agences de voyage.",
      "Moins de déplacements et d'attente pour le voyageur, meilleur remplissage pour le transporteur. "
      "Revenu : commission sur billet (hypothèse 5 %).",
-     [("05_billetterie_recherche", "Recherche de voyages"), ("06_billetterie_resultats", "Offres et réservation")],
+     [("07_bus", "Bus : rechercher un bus")],
      "Prix des billets : ADC Tchad et Tchadinfos (2023-2024). Commission : hypothèse à négocier avec les transporteurs."),
     ("moto", "Pôle 2 · Mobilité – Clando", "Une course ou une livraison en quelques clics",
      "Le clando se hèle dans la rue, le prix se négocie et la livraison reste informelle. En septembre 2026, la ville a "
      "lancé un programme d'identification des moto-taxis : la demande de traçabilité existe.",
-     "Mise en relation entre passagers, conducteurs de moto-taxi et livreurs : livraison de repas, courses, colis, "
+     "« Commander un Clando » ou « Commander une Livraison » : moto-taxi, repas, courses, colis, documents, "
      "et autres prestataires de mobilité.",
      "Citadins, restaurants, commerces, conducteurs de moto-taxi et livreurs.",
      "Des revenus en plus pour les conducteurs, de la traçabilité pour les passagers. "
      "Revenu : commission par course ou livraison (hypothèse 10 %).",
-     [("07_clando_demande", "Demande de course"), ("08_livraison", "Livraison")],
+     [("05_clando", "Clando : course et livraison")],
      "Programme d'identification des moto-taxis : Tchadinfos, 19/09/2026. Commission : hypothèse."),
     ("briefcase", "Pôle 3 · Emploi et ATS intelligent", "Le bon candidat, plus vite",
      "Les offres sont dispersées entre sites, réseaux sociaux et affichages. Les recruteurs trient des piles de CV à la main.",
-     "Offres d'emploi et ATS (logiciel de suivi des candidatures) : réception des candidatures, analyse automatisée des CV, "
+     "Offres d'emploi, publication d'offres, profil, offres recommandées ; ATS : réception des candidatures, analyse automatisée des CV, "
      "classement des profils, aide à la présélection, mise en relation.",
      "Chercheurs d'emploi, jeunes diplômés, PME, ONG, cabinets RH.",
      "Tri des candidatures plus rapide, candidats plus visibles. Revenu : offre payante (hyp. 10 000 FCFA) "
      "et ATS premium (hyp. 25 000 FCFA/mois). Gratuit pour les candidats.",
-     [("09_emploi_offres", "Offres d'emploi"), ("10_emploi_ats", "Tableau ATS")],
+     [("08_emploi", "Emploi")],
      "Tarifs : hypothèses de travail non validées par le marché."),
     ("home", "Pôle 4 · Immobilier", "Trouver un logement sans démarcheur",
      "La recherche passe par le bouche-à-oreille et des démarcheurs informels. Le Tchad affiche un déficit estimé "
      "à 1,5 million de logements (gouvernement, nov. 2026).",
-     "Recherche de logements, location, réservation journalière, publication d'annonces, mise en relation "
+     "Location longue durée, location courte durée, agences partenaires, favoris, publication d'annonces, mise en relation "
      "entre propriétaires, agences et locataires.",
      "Locataires, étudiants, voyageurs, expatriés, propriétaires et agences immobilières.",
      "Moins de visites inutiles, plus de visibilité pour les biens. Revenu : annonces sponsorisées "
      "(hyp. 5 000 FCFA/mois) et commission sur réservation journalière (hyp. 10 %).",
-     [("11_immobilier_recherche", "Recherche de logements"), ("12_immobilier_annonce", "Fiche d'annonce")],
+     [("06_immobilier", "Immobilier")],
      "Déficit de logements : Tchadinfos, 04/11/2026 (programme national d'habitat). Tarifs : hypothèses."),
 ]
 pole_notes = [
@@ -492,8 +520,7 @@ for k, (ic, title, msg, prob, feat, users, value, caps, src) in enumerate(POLES)
         text(s, x + 0.65, y + 0.2, 3.0, 0.4, bt, size=14, bold=True, color=TEAL)
         text(s, x + 0.18, y + 0.7, 3.45, 1.55, bd, size=12, color="1F2937")
     for j, (key, lab) in enumerate(caps):
-        phone(s, key, lab, 9.85 + j * 1.5, 1.8 + j * 0.35, w=1.4, h=2.85)
-        text(s, 9.75 + j * 1.5, 4.75 + j * 0.35, 1.6, 0.3, lab, size=10, color=GRAY, align=PP_ALIGN.CENTER)
+        phone(s, key, lab, 10.05, 1.75, w=2.5, h=4.85)
     footer(s, 7 + k, src)
     notes(s, f"{7 + k}. {title}", pole_notes[k])
 
@@ -537,7 +564,7 @@ s = new_slide()
 header(s, "TAM, SAM, SOM : un potentiel mesuré avec prudence",
        "Unité : utilisateurs actifs. Valeur : revenu plateforme annuel potentiel en FCFA")
 shape(s, MSO_SHAPE.OVAL, 0.7, 1.75, 5.0, 5.0, fill=LIGHT, line=MINT, lw=1.5)
-shape(s, MSO_SHAPE.OVAL, 1.55, 3.0, 3.3, 3.3, fill="99D5CC")
+shape(s, MSO_SHAPE.OVAL, 1.55, 3.0, 3.3, 3.3, fill="FDBA74")
 shape(s, MSO_SHAPE.OVAL, 2.35, 4.25, 1.7, 1.7, fill=TEAL)
 text(s, 0.7, 2.05, 5.0, 0.6, [[("TAM  ", {"bold": True}), (f"{fr(tam / 1e6, 2)} M", {"bold": True, "color": TEAL})]], size=18, align=PP_ALIGN.CENTER)
 text(s, 1.55, 3.3, 3.3, 0.6, [[("SAM  ", {"bold": True}), (f"{fr(sam / 1e6, 2)} M", {"bold": True, "color": DARK})]], size=17, align=PP_ALIGN.CENTER)
@@ -690,21 +717,21 @@ for i, (lab, spans) in enumerate(plan):
     shape(s, MSO_SHAPE.RECTANGLE, gx + 1.55, y + 0.05, 12 * cw, rh - 0.1, fill="F1F5F9")
     for a, b, col in spans:
         shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, gx + 1.55 + (a - 1) * cw + 0.03, y + 0.1, (b - a + 1) * cw - 0.06, rh - 0.2, fill=col, radius=0.3)
-text(s, gx, 5.15, 7.2, 0.3, "Budget A1 (dans les 15 M FCFA) – indicatif, à affiner selon devis", size=12, bold=True, color=TEAL)
-budget = [("Agence de communication", 1.2), ("Web médias et influenceurs", 0.8), ("Publicité digitale", 0.6),
-          ("Universités et démonstrations", 0.4), ("Prospection terrain", 1.0), ("Partenariats", 0.8)]
+text(s, gx, 5.15, 7.2, 0.3, "Budget A1 (dans les 10 M FCFA) – indicatif, à affiner selon devis", size=12, bold=True, color=TEAL)
+budget = [("Agence de communication", 0.8), ("Web médias et influenceurs", 0.5), ("Publicité digitale", 0.4),
+          ("Universités et démonstrations", 0.3), ("Prospection terrain", 0.7), ("Partenariats", 0.4)]
 for i, (b, v) in enumerate(budget):
     col, row = i % 2, i // 2
     text(s, gx + col * 3.65, 5.5 + row * 0.38, 2.6, 0.35, b, size=11)
     text(s, gx + col * 3.65 + 2.55, 5.5 + row * 0.38, 0.9, 0.35, f"{fr(v, 1)} M", size=11, bold=True, align=PP_ALIGN.RIGHT)
-footer(s, 15, "Total A1 : 4,8 M FCFA (3,0 M marketing + 1,0 M prospection + 0,8 M partenariats). Parrainage : ≈ 1,0 M FCFA en A1, payé sur les revenus.")
+footer(s, 15, "Total A1 : 3,1 M FCFA (2,0 M marketing + 0,7 M prospection + 0,4 M partenariats). Parrainage : ≈ 1,0 M FCFA en A1, payé sur les revenus.")
 notes(s, "15. Acquisition",
       "Pour acquérir nos utilisateurs, nous combinons cinq leviers. Une agence de communication pour l'identité, les "
       "campagnes et les relations presse. Les médias numériques et les influenceurs tchadiens. Un programme de "
       "parrainage : chaque utilisateur qui fait venir un ami gagne un crédit. Une campagne éducative, « le coût de "
       "la non-connectivité », qui montre le temps et l'argent perdus sans accès à l'information. Et surtout le "
       "terrain : agents, démonstrations, universités, entreprises, transporteurs et quartiers. Le calendrier "
-      "s'étale sur douze mois, pour 4,8 millions de FCFA en année un.")
+      "s'étale sur douze mois, pour 3,1 millions de FCFA en année un.")
 
 # 16 — Finances --------------------------------------------------------------------------
 s = new_slide()
@@ -773,7 +800,7 @@ for i, (nm, sc, col) in enumerate((("Prudent", P, GRAY), ("Intermédiaire", I, T
 text(s, 6.2, 5.25, 6.3, 1.5, [[("Formule clé : ", {"bold": True}),
                                ("CA = Σ pôles. Ex. mobilité = MAU × 40 % × 4 courses/mois × 12 × 1 000 FCFA × 10 %.", {})],
                               [("Hypothèses : ", {"bold": True}),
-                               ("MAU = inscrits moyens × 35 % → 25 % ; dépenses A1 = budget financé de 15 M.", {})],
+                               ("MAU = inscrits moyens × 35 % → 25 % ; dépenses A1 = budget financé de 10 M.", {})],
                               [("Trésorerie A2 (intermédiaire) : ", {"bold": True, "color": "B45309"}),
                                (f"{mfcfa(I['cash'][1])} FCFA → prévoir un relais (revenus, prêt ou tour d'amorçage).", {})]],
      size=11, spacing=3)
@@ -824,11 +851,11 @@ notes(s, "17. Expansion",
 
 # 18 — Financement ---------------------------------------------------------------------------
 s = new_slide()
-header(s, "Notre besoin : 15 000 000 FCFA pour lancer la croissance",
+header(s, [[("Notre besoin : ", {}), ("15 000 000", {"strike": True, "color": GRAY}), (" 10 000 000 FCFA", {})]],
        "Le produit est financé par le fondateur ; l'argent levé sert au lancement commercial")
-FUND = [("Recrutement et rémunération", 4.5), ("Marketing et communication", 3.0), ("Agents de terrain", 3.0),
-        ("Infrastructure technique", 1.2), ("Prospection commerciale", 1.0), ("Administratif et juridique", 1.0),
-        ("Partenariats", 0.8), ("Fonds de roulement", 0.5)]
+FUND = [("Recrutement et rémunération", 3.0), ("Marketing et communication", 2.0), ("Agents de terrain", 1.8),
+        ("Infrastructure technique", 1.0), ("Administratif et juridique", 0.8), ("Prospection commerciale", 0.7),
+        ("Partenariats", 0.4), ("Fonds de roulement", 0.3)]
 cd = CategoryChartData()
 cd.categories = [f for f, _ in FUND]
 cd.add_series("M FCFA", [v for _, v in FUND])
@@ -855,14 +882,14 @@ text(s, 0.8, 2.3, 3.4, 1.85, ["Conception du projet", "Développement de la plat
                               "Apport en temps et en compétences, non rémunéré en A1"], size=12, spacing=4)
 card(s, 0.6, 4.35, 3.75, 2.4, fill=DARK, line=None)
 text(s, 0.8, 4.48, 3.4, 0.35, "Ce que finance la levée", size=14, bold=True, color=AMBER)
-text(s, 0.8, 4.9, 3.4, 1.8, ["12 mois de lancement commercial", "Équipe de 7 personnes autour du fondateur",
+text(s, 0.8, 4.9, 3.4, 1.8, ["12 mois de lancement commercial", "Équipe de 5 personnes autour du fondateur",
                              "Acquisition des 10 000 premiers inscrits", "Structuration juridique et partenariats"],
      size=12, color=WHITE, spacing=4)
 card(s, 9.2, 1.75, 3.5, 5.0, fill="F8FAFC")
 text(s, 9.4, 1.88, 3.1, 0.35, "Calendrier des ressources", size=14, bold=True, color=TEAL)
 rows = [("Dépenses déjà réalisées", "Développement et mise en production, payés par le fondateur"),
         ("Apport du fondateur", "Travail non rémunéré en A1 ; valorisation à préciser"),
-        ("Besoin restant", "15 000 000 FCFA (A1)"),
+        ("Besoin restant", "10 000 000 FCFA (A1), au lieu de 15 000 000"),
         ("Dépenses futures", "A2–A3 : financées par le CA et, si besoin, un tour d'amorçage")]
 for i, (k, v) in enumerate(rows):
     yy = 2.35 + i * 1.08
@@ -870,11 +897,11 @@ for i, (k, v) in enumerate(rows):
     text(s, 9.4, yy + 0.32, 3.1, 0.7, v, size=11, color="334155")
 footer(s, 18, "Ventilation indicative, à affiner selon les devis réels. Détail : onglet Financement du modèle Excel.")
 notes(s, "18. Le besoin de financement",
-      "Je vous demande 15 millions de FCFA. Je veux être précis sur ce que couvre cet argent. La conception, le "
+      "Je vous demande 10 millions de FCFA, et non plus 15. Je veux être précis sur ce que couvre cet argent. La conception, le "
       "développement et la mise en production de la plateforme sont déjà faits, à mes frais et sur mon temps : "
       "c'est mon apport. L'argent levé ne paie pas le développement passé ; il finance douze mois de lancement "
-      "commercial. 4,5 millions pour l'équipe, 3 millions pour le marketing, 3 millions pour les agents de terrain, "
-      "1,2 million pour l'infrastructure, le reste pour la prospection, le juridique, les partenariats et une petite "
+      "commercial. 3 millions pour l'équipe, 2 millions pour le marketing, 1,8 million pour les agents de terrain, "
+      "1 million pour l'infrastructure, le reste pour la prospection, le juridique, les partenariats et une petite "
       "réserve. Cette ventilation sera affinée avec des devis réels.")
 
 # 19 — Impact, équipe, partenaires ------------------------------------------------------------
@@ -927,7 +954,7 @@ for pname in partners:
     x += w + 0.12
 footer(s, 19, "Salaires : estimations à valider (onglet Equipe). Rôle de chaque partenaire : voir le business plan, section 12.")
 notes(s, "19. Impact, équipe et partenaires",
-      "Maousang crée de l'emploi. En année un, huit personnes, moi compris ; vingt et une en année deux ; quarante-huit "
+      "Maousang crée de l'emploi. En année un, six personnes, moi compris ; vingt et une en année deux ; quarante-huit "
       "en année trois, si la croissance suit. Au-delà des salariés, des milliers de conducteurs, de livreurs, de "
       "commerçants et d'agences pourront gagner des revenus grâce à la plateforme. Je les compte comme des "
       "opportunités, pas comme des emplois. Pour réussir, nous cherchons des partenaires : ministères, banques, "
@@ -946,9 +973,9 @@ for i, r in enumerate(reasons):
     icon(s, "check", 0.8, y, 0.36, circle=None, col="a")
     text(s, 1.3, y + 0.02, 5.6, 0.4, r, size=15, color=WHITE)
 card(s, 7.35, 1.55, 5.2, 3.5, fill=TEAL, line=None)
-text(s, 7.65, 1.75, 4.6, 0.35, "NOTRE DEMANDE", size=13, bold=True, color="CCFBF1")
-text(s, 7.65, 2.15, 4.6, 0.8, "15 000 000 FCFA", size=36, bold=True, color=WHITE)
-text(s, 7.65, 3.0, 4.6, 1.9, ["un accompagnement financier et stratégique pour 12 mois de lancement commercial,",
+text(s, 7.65, 1.75, 4.6, 0.35, "NOTRE DEMANDE", size=13, bold=True, color="FFEDD5")
+text(s, 7.65, 2.05, 4.6, 1.1, [[("15 000 000 FCFA", {"strike": True, "size": 18, "color": "FFEDD5", "bold": False})], [("10 000 000 FCFA", {})]], size=36, bold=True, color=WHITE)
+text(s, 7.65, 3.25, 4.6, 1.75, ["un accompagnement financier et stratégique pour 12 mois de lancement commercial,",
                               "et vos réseaux : paiement mobile, transporteurs, entreprises, institutions."],
      size=14, color=WHITE, spacing=6)
 shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, 0.8, 5.45, 11.75, 1.15, fill=NAVY2, line=MINT, lw=1, radius=0.15)
@@ -962,12 +989,22 @@ text(s, 7.0, 6.8, 5.55, 0.35, "maousang.vercel.app", size=13, bold=True, color=M
 notes(s, "20. Appel à l'action",
       "Pour conclure : le problème est réel et vécu chaque jour. La solution est déjà développée et en ligne. Le "
       "marché est jeune et le mobile progresse. Nous avons huit sources de revenus, une expansion par étapes, un "
-      "impact sur l'emploi, et un fondateur engagé à plein temps. Je vous demande donc 15 millions de FCFA, ainsi "
+      "impact sur l'emploi, et un fondateur engagé à plein temps. Je vous demande donc 10 millions de FCFA, ainsi "
       "qu'un accompagnement stratégique et l'accès à vos réseaux. Maousang : connecter les services, rapprocher "
       "les opportunités et construire l'économie numérique de demain. Merci. Je suis prêt à répondre à vos questions, "
       "et à vous faire une démonstration en direct sur maousang.vercel.app.")
 
 prs.save(OUT)
+
+# ---------------------------------------------- Version éditable Avant / Après
+prs2 = Presentation()
+prs2.slide_width, prs2.slide_height = Inches(13.333), Inches(7.5)
+s = prs2.slides.add_slide(prs2.slide_layouts[6])
+bg(s, WHITE)
+header(s, "Avant Maousang, après Maousang", "Le même besoin, en quelques minutes depuis un téléphone")
+avant_apres(s)
+s.notes_slide.notes_text_frame.text = open(os.path.join(ROOT, "livrables", "MAOUSANG_PROMPTS_ILLUSTRATIONS_3D.md")).read()
+prs2.save(os.path.join(ROOT, "livrables", "MAOUSANG_AVANT_APRES_EDITABLE.pptx"))
 
 # ------------------------------------------------------------------ Notes MD
 words = sum(len(t.split()) for _, t in NOTES)

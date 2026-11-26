@@ -6,13 +6,9 @@ Recherche documentaire faite le 26 novembre 2026. Ce fichier liste chaque chiffr
 - **Donnée relayée** : chiffre d'un organisme officiel, lu dans un média ou un blog. Il faut le confirmer dans la publication d'origine avant usage officiel.
 - **Hypothèse** : choix de modélisation de Maousang, à tester sur le terrain.
 
-## 1. Limite importante : le site de Maousang n'a pas pu être inspecté
+## 1. Interface de Maousang
 
-L'environnement de travail n'avait pas accès à `maousang.vercel.app` : la politique réseau a bloqué l'hôte, et la demande d'accès a été refusée. En conséquence :
-
-- Les fonctionnalités décrites viennent du cahier des charges du fondateur, pas d'une inspection du site.
-- Les couleurs du deck (vert sarcelle `#0F766E`, ambre `#F59E0B`, bleu nuit `#0B1B2B`) sont une proposition. Il faut les aligner sur l'identité visuelle réelle du site.
-- Les captures d'écran sont remplacées par des emplacements nommés. Le script `outils/capture_maousang.js` les capture, puis `outils/insert_screenshots.py` les insère (voir `LISEZ-MOI.md`).
+Le site `maousang.vercel.app` n'a pas pu être consulté depuis l'environnement de rédaction (accès réseau bloqué). Le fondateur a fourni le 26/11/2026 huit captures de l'application : démarrage animé, logo, vidéo d'introduction, page IA « Que cherchez-vous aujourd'hui ? », Clando, Immobilier, Bus et Emploi. Elles sont dans le deck et le business plan. Les couleurs du deck (orange `#EA580C`, noir, blanc) reprennent celles de ces captures. Le tri des CV par l'ATS n'apparaît pas sur les captures : il est décrit d'après le fondateur.
 
 ## 2. Marché tchadien
 

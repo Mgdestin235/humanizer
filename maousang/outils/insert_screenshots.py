@@ -1,4 +1,5 @@
-"""Insère les captures d'écran réelles dans les emplacements CAPTURE_<clé> du deck.
+"""Insère les captures (CAPTURE_<clé>, dossier assets/captures) et les illustrations 3D
+(ILLU_<clé>, dossier assets/illustrations_3d) dans les emplacements du deck.
 
 Usage :
     python3 insert_screenshots.py [deck.pptx] [dossier_captures] [sortie.pptx]
@@ -16,16 +17,19 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 deck = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "livrables", "MAOUSANG_PITCH_DECK.pptx")
 caps = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, "assets", "captures")
 out = sys.argv[3] if len(sys.argv) > 3 else deck
+ill = os.path.join(ROOT, "assets", "illustrations_3d")
+PREFIX = {"CAPTURE_": caps, "ILLU_": ill}
 
 prs = Presentation(deck)
 done, missing = [], set()
 for slide in prs.slides:
     for shp in list(slide.shapes):
-        if not shp.name.startswith("CAPTURE_"):
+        pre = next((x for x in PREFIX if shp.name.startswith(x)), None)
+        if not pre:
             continue
-        key = shp.name[len("CAPTURE_"):]
-        img = next((os.path.join(caps, key + e) for e in (".png", ".jpg", ".jpeg")
-                    if os.path.exists(os.path.join(caps, key + e))), None)
+        key, folder = shp.name[len(pre):], PREFIX[pre]
+        img = next((os.path.join(folder, key + e) for e in (".png", ".jpg", ".jpeg")
+                    if os.path.exists(os.path.join(folder, key + e))), None)
         if not img:
             missing.add(key)
             continue

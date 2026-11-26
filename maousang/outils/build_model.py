@@ -41,31 +41,31 @@ TEAM = [
      "A1 : non rémunéré (apport du fondateur), assure aussi la direction technique"),
     ("Responsable technique", (0, 1, 1), (0, 300000, 450000), "Recruté en A2"),
     ("Développeurs", (0, 1, 4), (0, 250000, 300000), "Équipe produit à partir de A2"),
-    ("Responsable commercial et partenariats", (1, 1, 1), (150000, 250000, 400000), ""),
-    ("Responsable marketing et communication", (1, 1, 1), (150000, 250000, 400000), ""),
+    ("Responsable commercial et partenariats", (1, 1, 1), (125000, 250000, 400000), ""),
+    ("Responsable marketing et communication", (1, 1, 1), (125000, 250000, 400000), ""),
     ("Responsable administratif et financier", (0, 1, 1), (0, 250000, 350000),
      "A1 : comptabilité externalisée (frais administratifs)"),
     ("Chargés de partenariats / commerciaux", (0, 1, 4), (0, 150000, 150000), ""),
-    ("Agents de terrain", (4, 10, 25), (62500, 75000, 80000),
+    ("Agents de terrain", (3, 10, 25), (50000, 75000, 80000),
      "A1 : temps partiel + primes sur résultats"),
-    ("Support client", (1, 4, 10), (75000, 90000, 100000), ""),
+    ("Support client", (0, 4, 10), (0, 90000, 100000), "A1 : assuré par l'équipe"),
 ]
 
 # ------------------------------------------------------------ Financement
 FUNDING = [
-    ("Marketing et communication", 3000000,
+    ("Marketing et communication", 2000000,
      "Agence de communication, identité, campagnes digitales, influenceurs, événements"),
-    ("Recrutement et rémunération", 4500000,
-     "Resp. commercial (150 000) + resp. marketing (150 000) + support (75 000) × 12 mois"),
-    ("Agents de terrain", 3000000, "4 agents × 62 500 FCFA × 12 mois (temps partiel)"),
-    ("Prospection commerciale", 1000000, "Supports imprimés, déplacements, kits de démonstration"),
-    ("Frais administratifs et juridiques", 1000000,
+    ("Recrutement et rémunération", 3000000,
+     "Resp. commercial (125 000) + resp. marketing (125 000) × 12 mois"),
+    ("Agents de terrain", 1800000, "3 agents × 50 000 FCFA × 12 mois (temps partiel)"),
+    ("Prospection commerciale", 700000, "Supports imprimés, déplacements, kits de démonstration"),
+    ("Frais administratifs et juridiques", 800000,
      "Immatriculation, CGU / protection des données, comptabilité externalisée, marque"),
-    ("Infrastructure technique et maintenance", 1200000,
-     "Hébergement, base de données, SMS/OTP, cartographie, stores, 100 000 FCFA/mois"),
-    ("Partenariats et développement commercial", 800000,
+    ("Infrastructure technique et maintenance", 1000000,
+     "Hébergement, base de données, SMS/OTP, cartographie, stores, ≈ 83 000 FCFA/mois"),
+    ("Partenariats et développement commercial", 400000,
      "Intégration paiement mobile, conventions transporteurs, agences, universités"),
-    ("Fonds de roulement", 500000, "Réserve de sécurité (imprévus, décalages de trésorerie)"),
+    ("Fonds de roulement", 300000, "Réserve de sécurité (imprévus, décalages de trésorerie)"),
 ]
 
 # ----------------------------------------------------------- Scénarios
@@ -100,12 +100,12 @@ S = {
     "ref_share": ((0.20,) * 3, (0.20,) * 3, (0.20,) * 3),
     "ref_reward": ((500,) * 3, (500,) * 3, (500,) * 3),
     "staff_factor": ((1.0, 0.7, 0.7), (1.0, 1.0, 1.0), (1.0, 1.5, 1.5)),
-    "mkt_fixed": ((4800000, 20000000, 30000000), (4800000, 30000000, 90000000),
-                  (4800000, 45000000, 200000000)),
-    "tech": ((1200000, 4000000, 20000000), (1200000, 6000000, 45000000),
-             (1200000, 8000000, 80000000)),
-    "ops": ((1000000, 8000000, 30000000), (1000000, 12000000, 60000000),
-            (1000000, 15000000, 100000000)),
+    "mkt_fixed": ((3100000, 20000000, 30000000), (3100000, 30000000, 90000000),
+                  (3100000, 45000000, 200000000)),
+    "tech": ((1000000, 4000000, 20000000), (1000000, 6000000, 45000000),
+             (1000000, 8000000, 80000000)),
+    "ops": ((800000, 8000000, 30000000), (800000, 12000000, 60000000),
+            (800000, 15000000, 100000000)),
     "pay_fee": ((0.03,) * 3, (0.03,) * 3, (0.03,) * 3),
 }
 SCEN = [("Prudent", 0), ("Intermediaire", 1), ("Ambitieux", 2)]
@@ -209,7 +209,7 @@ ROWS = [
     ("staff_factor", "Coefficient d'équipe (plan de l'onglet Equipe)", "x", "in", None,
      "A1 identique dans tous les scénarios (budget financé)"),
     ("mkt_fixed", "Marketing, prospection et partenariats (fixe)", "FCFA", "in", None,
-     "A1 = 3,0 M marketing + 1,0 M prospection + 0,8 M partenariats"),
+     "A1 = 2,0 M marketing + 0,7 M prospection + 0,4 M partenariats"),
     ("ref_share", "Part des nouveaux inscrits venant du parrainage", "%", "in", None, ""),
     ("ref_reward", "Récompense par filleul actif", "FCFA", "in", None, "Crédit de course ou bon d'achat"),
     ("tech", "Coûts techniques et infrastructure", "FCFA", "in", None, ""),
@@ -223,8 +223,8 @@ ROWS = [
     ("cost_total", "TOTAL DES DÉPENSES", "FCFA", "calc", "=[cost_staff]+[cost_mkt]+[tech]+[cost_ops]", ""),
     ("ebit", "RÉSULTAT OPÉRATIONNEL PRÉVISIONNEL", "FCFA", "calc", "=[rev_total]-[cost_total]", "CA − dépenses"),
     ("margin", "Marge opérationnelle", "%", "calc", "=IF([rev_total]=0,0,[ebit]/[rev_total])", ""),
-    ("cash", "Trésorerie fin d'année (15 M FCFA levés, sans autre financement)", "FCFA", "calc",
-     ("=15000000+[ebit]", "=[cash@prev]+[ebit]", "=[cash@prev]+[ebit]"),
+    ("cash", "Trésorerie fin d'année (10 M FCFA levés, sans autre financement)", "FCFA", "calc",
+     ("=10000000+[ebit]", "=[cash@prev]+[ebit]", "=[cash@prev]+[ebit]"),
      "Si négative : besoin de financement complémentaire"),
 ]
 
@@ -257,7 +257,7 @@ def build():
         ("• Onglets Prudent, Intermediaire, Ambitieux : même structure, hypothèses différentes.", None),
         ("• La colonne F de chaque scénario explique la formule en langage clair.", None),
         ("• Onglet Equipe : plan de recrutement et masse salariale (A1 = budget financé).", None),
-        ("• Onglet Financement : ventilation indicative des 15 000 000 FCFA, à affiner selon devis.", None),
+        ("• Onglet Financement : ventilation indicative des 10 000 000 FCFA, à affiner selon devis.", None),
         ("• Onglet Marche : calcul TAM / SAM / SOM à partir de sources publiques (voir MAOUSANG_SOURCES.md).", None),
         ("• Onglet Synthese : comparaison des trois scénarios.", None),
         ("", None),
@@ -409,7 +409,7 @@ def build():
 
     # ---------------------------------------------------------- Financement
     wf = wb.create_sheet("Financement")
-    wf["A1"] = "Besoin de financement : 15 000 000 FCFA (ventilation indicative, à affiner selon devis)"
+    wf["A1"] = "Besoin de financement : 10 000 000 FCFA (ventilation indicative, à affiner selon devis)"
     wf["A1"].font = TITLE
     for j, h in enumerate(["Poste", "Montant", "Part", "Contenu"], 1):
         c = wf.cell(row=3, column=j, value=h)
@@ -426,8 +426,8 @@ def build():
     wf.cell(row=rt, column=1, value="TOTAL").font = BOLD
     c = wf.cell(row=rt, column=2, value=f"=SUM(B4:B{rt-1})")
     c.font, c.number_format = BOLD, FMT_FCFA
-    wf.cell(row=rt + 1, column=1, value="Contrôle : écart avec 15 000 000").font = CALC_FONT
-    c = wf.cell(row=rt + 1, column=2, value=f"=B{rt}-15000000")
+    wf.cell(row=rt + 1, column=1, value="Contrôle : écart avec 10 000 000").font = CALC_FONT
+    c = wf.cell(row=rt + 1, column=2, value=f"=B{rt}-10000000")
     c.number_format = FMT_FCFA
     wf.cell(row=rt + 3, column=1, value="Distinction des ressources").font = BOLD
     rows = [
@@ -435,7 +435,7 @@ def build():
          "Apport en temps et en compétences (non décaissé par le financement demandé)"),
         ("Apport du fondateur", "Travail non rémunéré en A1 (direction générale et technique)",
          "Valorisation à renseigner par le fondateur si nécessaire"),
-        ("Besoin financier restant", "15 000 000 FCFA", "Lancement commercial et structuration sur 12 mois"),
+        ("Besoin financier restant", "10 000 000 FCFA", "Lancement commercial et structuration sur 12 mois"),
         ("Dépenses futures (A2, A3)", "Financées par le CA et, si besoin, un tour complémentaire",
          "Voir la trésorerie des onglets de scénario"),
     ]
