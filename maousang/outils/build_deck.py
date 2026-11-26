@@ -1002,6 +1002,56 @@ for i, (k, lab) in enumerate([("04_page_ia", "Page IA"), ("05_clando", "Clando")
     text(s, x, 6.25, 2.15, 0.35, lab, size=14, bold=True, align=PP_ALIGN.CENTER, color=TEAL if i == 0 else DARK)
 footer(s, 5, "Captures de l'application fournies par le fondateur (novembre 2026).")
 
+# 22 — Version 5 minutes : les 4 services de lancement
+s = new_slide()
+header(s, "Nos 4 services de lancement", "Commencer simple : quatre besoins quotidiens, une seule application")
+SERV = [("moto", "Mobilité", "Commander un moto-taxi (clando) depuis son téléphone.",
+         "Citadins de N'Djaména, conducteurs de moto-taxi", "Commission par course"),
+        ("ticket", "Billetterie", "Acheter son billet de bus pour les voyages interurbains.",
+         "Voyageurs, étudiants, compagnies de bus", "Commission par billet"),
+        ("home", "Immobilier", "Rechercher et réserver un appartement à la journée.",
+         "Expatriés, étrangers de passage, Tchadiens", "Commission par réservation"),
+        ("briefcase", "Aide à l'emploi", "L'ATS fait la synthèse des CV et envoie les meilleurs profils aux recruteurs.",
+         "Chercheurs d'emploi, entreprises, ONG", "Abonnement recruteur")]
+for i, (ic, t, d, u, r) in enumerate(SERV):
+    col, row = i % 2, i // 2
+    x, y = 0.6 + col * 6.15, 1.75 + row * 2.45
+    card(s, x, y, 5.95, 2.25, fill="F8FAFC")
+    icon(s, ic, x + 0.25, y + 0.3, 0.95, circle=TEAL)
+    text(s, x + 1.45, y + 0.25, 4.3, 0.45, t, size=20, bold=True)
+    text(s, x + 1.45, y + 0.75, 4.3, 0.7, d, size=14)
+    text(s, x + 1.45, y + 1.45, 4.3, 0.35, [[("Pour : ", {"bold": True, "color": TEAL}), (u, {})]], size=12)
+    text(s, x + 1.45, y + 1.78, 4.3, 0.35, [[("Revenu : ", {"bold": True, "color": TEAL}), (r, {})]], size=12)
+text(s, 0.6, 6.68, 12.1, 0.3, "Ensuite : commerce et billetterie internationale, selon la traction.", size=12, italic=True, color=GRAY)
+
+# 23 — Version 5 minutes : appel à l'action avec trois packs
+s = new_slide(DARK)
+text(s, 0.8, 0.45, 11.7, 0.6, "Investir dans Maousang : trois packs au choix", size=32, bold=True, color=WHITE)
+text(s, 0.8, 1.1, 11.7, 0.7, "Pour ce besoin de financement de 10 millions de FCFA, notre startup propose un panier "
+     "de trois packs de retour sur investissement.", size=15, color="FFEDD5")
+PACKS = [("users", "Pack 1 · Devenir associé", "Vous entrez au capital de la startup et contribuez aux décisions "
+          "stratégiques, économiques et à la vision d'avenir."),
+         ("money", "Pack 2 · Dividendes", "Vous percevez des dividendes dès que l'entreprise atteint son seuil "
+          "de rentabilité."),
+         ("trend", "Pack 3 · Part des revenus", "Vous recevez une rémunération calculée sur le chiffre d'affaires, "
+          "selon le pourcentage négocié.")]
+for i, (ic, t, d) in enumerate(PACKS):
+    x = 0.8 + i * 3.95
+    card(s, x, 2.05, 3.7, 3.05, fill=NAVY2, line=TEAL)
+    icon(s, ic, x + 0.3, 2.3, 0.8, circle=TEAL)
+    text(s, x + 0.3, 3.25, 3.15, 0.45, t, size=17, bold=True, color=AMBER)
+    text(s, x + 0.3, 3.75, 3.15, 1.3, d, size=13, color=WHITE)
+shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, 0.8, 5.4, 11.75, 0.95, fill=TEAL, radius=0.15)
+text(s, 1.0, 5.47, 11.35, 0.8, [[("MAOUSANG", {"bold": True, "color": DARK}),
+                                 (" — Connecter les services, rapprocher les opportunités et construire "
+                                  "l'économie numérique de demain.", {"color": WHITE, "italic": True})]],
+     size=17, anchor=MSO_ANCHOR.MIDDLE)
+text(s, 0.8, 6.55, 6.0, 0.35, [[("Giscard Destin", {"bold": True, "color": WHITE}),
+                                ("  ·  Fondateur", {"color": "94A3B8"})]], size=13)
+text(s, 7.0, 6.55, 5.55, 0.35, "maousang.vercel.app", size=13, bold=True, color=MINT, align=PP_ALIGN.RIGHT)
+text(s, 0.8, 6.98, 11.7, 0.3, "Part au capital, seuil, pourcentage et durée : à négocier, puis à formaliser par contrat "
+     "ou pacte d'associés.", size=9, color="94A3B8")
+
 prs.save(OUT)
 
 # ---------------------------------------------- Version éditable Avant / Après
