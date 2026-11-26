@@ -6,6 +6,8 @@
 |---|---|
 | `MAOUSANG_PITCH_DECK.pptx` | Présentation modifiable de 20 diapositives. Graphiques et tableaux natifs ; texte oral dans les notes de chaque diapositive |
 | `MAOUSANG_PITCH_DECK.pdf` | Version PDF de la présentation |
+| `MAOUSANG_PITCH_5MIN.pptx` et `.pdf` | Version courte : 10 diapositives pour un pitch de 5 minutes |
+| `MAOUSANG_SPEAKER_NOTES_5MIN.md` | Texte oral de la version 5 minutes (environ 450 mots) |
 | `MAOUSANG_BUSINESS_PLAN.pdf` | Business plan de 14 pages : marché, modèle économique, prévisions, expansion, financement, risques |
 | `MAOUSANG_FINANCIAL_MODEL.xlsx` | Modèle financier sur 3 ans, 3 scénarios, avec formules. Cellules bleues = hypothèses modifiables |
 | `MAOUSANG_SOURCES.md` | Sources, liens, dates, hypothèses et formules |

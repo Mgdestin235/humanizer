@@ -338,7 +338,7 @@ notes(s, "3. Le problème",
 
 # 4 — Avant / Après -----------------------------------------------------------
 s = new_slide()
-header(s, "Avant Maousang, après Maousang", "Le même besoin, en quelques minutes depuis un téléphone")
+header(s, "Avant Maousang, après Maousang", "Plusieurs démarches dispersées → une seule application")
 rows = [("Billet de bus", "Aller au guichet de la gare, faire la queue", "Rechercher et comparer les voyages en ligne"),
         ("Course ou livraison", "Héler un clando dans la rue, négocier le prix", "Commander une course ou une livraison"),
         ("Emploi", "Parcourir les panneaux, groupes et sites dispersés", "Postuler en ligne ; le recruteur trie avec l'ATS"),
@@ -364,25 +364,23 @@ def ill_slot(slide, key, label, x, y, w, h):
 
 
 def avant_apres(s):
-    card(s, 0.6, 1.75, 5.85, 4.95, fill="FEF3F2", line=None)
-    card(s, 6.85, 1.75, 5.85, 4.95, fill=LIGHT, line=None)
-    icon(s, "x", 0.85, 1.9, 0.45, circle="DC2626")
-    text(s, 1.42, 1.95, 4.5, 0.4, "AVANT", size=18, bold=True, color="B91C1C")
-    icon(s, "check", 7.1, 1.9, 0.45, circle=TEAL)
-    text(s, 7.67, 1.95, 4.5, 0.4, "APRÈS MAOUSANG", size=18, bold=True, color=TEAL)
-    ill_slot(s, "avant", "personnes qui attendent, négocient, se déplacent", 0.85, 2.48, 5.35, 2.0)
-    ill_slot(s, "apres", "personnes souriantes avec leur téléphone", 7.1, 2.48, 5.35, 2.0)
-    for i, (k, av, ap) in enumerate(AA_ROWS):
-        y = 4.62 + i * 0.41
-        text(s, 0.85, y, 5.4, 0.4, [[(k + " : ", {"bold": True}), (av, {})]], size=12)
-        text(s, 7.1, y, 5.4, 0.4, [[(k + " : ", {"bold": True, "color": TEAL}), (ap, {})]], size=12)
-    shape(s, MSO_SHAPE.RIGHT_ARROW, 6.42, 3.2, 0.46, 0.55, fill=TEAL)
-
+    img = os.path.join(ROOT, "assets", "illustrations_3d", "avant_apres.png")
+    x, y, h = 1.95, 1.65, 5.25
+    w = h * 1672 / 941
+    if os.path.exists(img):
+        pic = s.shapes.add_picture(img, Inches(x), Inches(y), Inches(w), Inches(h))
+        pic.name = "IMG_avant_apres"
+    else:
+        ill_slot(s, "avant_apres", "image Avant / Après (16:9)", x, y, w, h)
+    shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, x + 0.2, y + h - 0.6, 1.3, 0.42, fill="B91C1C", radius=0.5)
+    text(s, x + 0.2, y + h - 0.53, 1.3, 0.3, "AVANT", size=14, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+    shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, x + w - 2.6, y + h - 0.6, 2.4, 0.42, fill=TEAL, radius=0.5)
+    text(s, x + w - 2.6, y + h - 0.53, 2.4, 0.3, "APRÈS MAOUSANG", size=14, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
 
 avant_apres(s)
 footer(s, 4)
 notes(s, "4. Avant / Après",
-      "Ce tableau résume la promesse. Avant : on va au guichet de la gare pour un billet, on hèle un clando et on "
+      "Cette image résume la promesse. Avant : on va au guichet de la gare pour un billet, on hèle un clando et on "
       "négocie, on parcourt des panneaux pour trouver un emploi, on paie un démarcheur pour un logement. Après : "
       "tout se fait depuis le téléphone. Le voyageur compare les trajets, le passager demande une course, le "
       "candidat postule en ligne et le recruteur trie les CV avec notre ATS, le locataire filtre les annonces. "
@@ -994,6 +992,16 @@ notes(s, "20. Appel à l'action",
       "les opportunités et construire l'économie numérique de demain. Merci. Je suis prêt à répondre à vos questions, "
       "et à vous faire une démonstration en direct sur maousang.vercel.app.")
 
+# 21 — Diapositive réservée à la version 5 minutes (retirée du deck complet par make_versions.py)
+s = new_slide()
+header(s, "L'application en action", "Une page IA, quatre services, en quelques secondes")
+for i, (k, lab) in enumerate([("04_page_ia", "Page IA"), ("05_clando", "Clando"), ("07_bus", "Bus"),
+                              ("08_emploi", "Emploi"), ("06_immobilier", "Immobilier")]):
+    x = 0.75 + i * 2.45
+    phone(s, k, lab, x, 1.65, w=2.15, h=4.45)
+    text(s, x, 6.25, 2.15, 0.35, lab, size=14, bold=True, align=PP_ALIGN.CENTER, color=TEAL if i == 0 else DARK)
+footer(s, 5, "Captures de l'application fournies par le fondateur (novembre 2026).")
+
 prs.save(OUT)
 
 # ---------------------------------------------- Version éditable Avant / Après
@@ -1001,7 +1009,7 @@ prs2 = Presentation()
 prs2.slide_width, prs2.slide_height = Inches(13.333), Inches(7.5)
 s = prs2.slides.add_slide(prs2.slide_layouts[6])
 bg(s, WHITE)
-header(s, "Avant Maousang, après Maousang", "Le même besoin, en quelques minutes depuis un téléphone")
+header(s, "Avant Maousang, après Maousang", "Plusieurs démarches dispersées → une seule application")
 avant_apres(s)
 s.notes_slide.notes_text_frame.text = open(os.path.join(ROOT, "livrables", "MAOUSANG_PROMPTS_ILLUSTRATIONS_3D.md")).read()
 prs2.save(os.path.join(ROOT, "livrables", "MAOUSANG_AVANT_APRES_EDITABLE.pptx"))

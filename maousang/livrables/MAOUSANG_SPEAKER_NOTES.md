@@ -18,7 +18,7 @@ Partons du quotidien. À N'Djaména, trouver un clando fiable, réserver un loge
 
 ## Diapositive 4. Avant / Après
 
-Ce tableau résume la promesse. Avant : on va au guichet de la gare pour un billet, on hèle un clando et on négocie, on parcourt des panneaux pour trouver un emploi, on paie un démarcheur pour un logement. Après : tout se fait depuis le téléphone. Le voyageur compare les trajets, le passager demande une course, le candidat postule en ligne et le recruteur trie les CV avec notre ATS, le locataire filtre les annonces. Pour les prestataires, c'est une vitrine qu'ils n'avaient pas.
+Cette image résume la promesse. Avant : on va au guichet de la gare pour un billet, on hèle un clando et on négocie, on parcourt des panneaux pour trouver un emploi, on paie un démarcheur pour un logement. Après : tout se fait depuis le téléphone. Le voyageur compare les trajets, le passager demande une course, le candidat postule en ligne et le recruteur trie les CV avec notre ATS, le locataire filtre les annonces. Pour les prestataires, c'est une vitrine qu'ils n'avaient pas.
 
 ## Diapositive 5. L'écosystème
 
