@@ -245,7 +245,7 @@ text(s, 0.76, 2.64, 8.0, 2.3, ["Tous vos services", "dans une seule app"], size=
 for i, col in enumerate(["6F8FD6", GREEN, AMBER]):
     shape(s, MSO_SHAPE.RECTANGLE, 0.89 + i * 0.67, 4.97, 0.67, 0.08, fill=col)
 text(s, 0.89, 5.33, 8.23, 0.45, "Mobilité, billetterie, immobilier et aide à l'emploi au Tchad", size=20, color="D6E0F7")
-text(s, 0.89, 6.46, 6.44, 0.32, "Giscard Destin · Fondateur, Maousang · maousang.vercel.app", size=16, bold=True, color=WHITE)
+text(s, 0.89, 6.46, 6.44, 0.32, "Giscard Destin · Fondateur de Maousang", size=16, bold=True, color=WHITE)
 picture(s, "maousang_logo.png", 10.0, 5.75, h=1.15)
 notes(s, "1. Couverture",
       "Bonjour à toutes et à tous. Je m'appelle Giscard Destin. Je suis ingénieur en intelligence artificielle et "
@@ -302,7 +302,7 @@ notes(s, "2. Maousang en bref",
 
 # 3 — Problème ---------------------------------------------------------------
 s = new_slide()
-header(s, "Le problème : une économie encore trop peu connectée",
+header(s, "Le problème : une économie peu connectée",
        "Au Tchad, accéder à un service demande souvent un déplacement, un intermédiaire ou du bouche-à-oreille")
 pains = [("moto", "Trouver un transport fiable"), ("home", "Chercher et réserver un logement"),
          ("briefcase", "Trouver des offres d'emploi"), ("ticket", "Acheter un billet de transport"),
@@ -526,7 +526,7 @@ for k, (ic, title, msg, prob, feat, users, value, caps, src) in enumerate(POLES)
 
 # 11 — Marché -------------------------------------------------------------------------
 s = new_slide()
-header(s, "Le marché : un pays jeune, mobile et encore peu connecté",
+header(s, "Le marché : mobile, mais peu connecté",
        "Le téléphone est déjà là ; l'usage d'Internet reste à conquérir")
 picture(s, "map_chad.png", 0.4, 1.55, h=5.35)
 stats = [("21,1 M", "habitants (oct. 2025)", "ONU, via DataReportal 2026"),
@@ -1008,7 +1008,7 @@ footer(s, 5, "Captures de l'application fournies par le fondateur (novembre 2026
 s = new_slide()
 header(s, "Nos 4 services de lancement", "Commencer simple : quatre besoins quotidiens, une seule application")
 SERV = [("moto", "Mobilité", "Commander un moto-taxi (clando) depuis son téléphone.",
-         "Citadins de N'Djaména, conducteurs de moto-taxi", "Commission par course"),
+         "Citadins, conducteurs de moto-taxi", "Commission par course"),
         ("ticket", "Billetterie", "Acheter son billet de bus pour les voyages interurbains.",
          "Voyageurs, étudiants, compagnies de bus", "Commission par billet"),
         ("home", "Immobilier", "Rechercher et réserver un appartement à la journée.",
@@ -1044,7 +1044,7 @@ for i, (ic, t, d) in enumerate(PACKS):
     text(s, x + 0.3, 3.25, 3.15, 0.45, t, size=17, bold=True, color=AMBER)
     text(s, x + 0.3, 3.75, 3.15, 1.3, d, size=13, color=WHITE)
 shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, 0.8, 5.4, 11.75, 0.95, fill=TEAL, radius=0.15)
-text(s, 1.0, 5.47, 11.35, 0.8, [[("MAOUSANG", {"bold": True, "color": DARK}),
+text(s, 1.0, 5.47, 11.35, 0.8, [[("MAOUSANG", {"bold": True, "color": AMBER}),
                                  (" — Connecter les services, rapprocher les opportunités et construire "
                                   "l'économie numérique de demain.", {"color": WHITE, "italic": True})]],
      size=17, anchor=MSO_ANCHOR.MIDDLE)
