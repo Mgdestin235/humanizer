@@ -29,9 +29,10 @@ def rgb(h):
     return RGBColor.from_string(h)
 
 
-DARK, TEAL, MINT, AMBER = "141414", "EA580C", "FB923C", "FACC15"
-LIGHT, GRAY, MID, WHITE, NAVY2 = "FFF1E6", "64748B", "CBD5E1", "FFFFFF", "262626"
-FONT = "Arial"
+DARK, TEAL, MINT, AMBER = "14213D", "2A51A3", "6F8FD6", "F78E20"
+LIGHT, GRAY, MID, WHITE, NAVY2 = "EEF2FA", "4A5568", "D6E0F7", "FFFFFF", "1E2E52"
+GREEN = "00A887"
+FONT = "Montserrat"  # police du modèle SANIA
 
 
 def fr(x, d=0):
@@ -84,6 +85,8 @@ def text(slide, x, y, w, h, content, size=14, bold=False, color=DARK, align=PP_A
             f.bold = o.get("bold", bold)
             f.italic = o.get("italic", italic)
             f.color.rgb = rgb(o.get("color", color))
+            if o.get("spc"):
+                f._rPr.set("spc", str(o["spc"]))
             if o.get("strike"):
                 f._rPr.set("strike", "sngStrike")
     return tb
@@ -165,7 +168,7 @@ def phone(slide, key, label, x, y, w=1.75, h=3.5):
 
 
 def header(slide, title, msg=None, dark=False):
-    text(slide, 0.6, 0.38, 12.1, 0.7, title, size=30, bold=True, color=WHITE if dark else DARK)
+    text(slide, 0.6, 0.38, 12.1, 0.7, title, size=34, bold=True, color=WHITE if dark else DARK)
     if msg:
         text(slide, 0.6, 1.08, 12.1, 0.45, msg, size=15, color=MINT if dark else TEAL)
 
@@ -232,19 +235,18 @@ def table(slide, x, y, w, h, data, colw, head=TEAL, size=11, first_bold=True, ze
 
 
 # =================================================================== SLIDES
-# 1 — Couverture -----------------------------------------------------------
+# 1 — Couverture (mise en page du modèle SANIA) ---------------------------
 s = new_slide(DARK)
-picture(s, "cover_art.png", 7.6, 0.25, h=7.0)
-text(s, 0.8, 1.2, 6.6, 0.4, "PITCH INVESTISSEURS  ·  2026", size=13, bold=True, color=AMBER)
-text(s, 0.8, 1.75, 6.8, 1.2, "MAOUSANG", size=66, bold=True, color=WHITE)
-text(s, 0.8, 3.05, 6.6, 1.2, "La plateforme numérique multiservices qui rapproche les Tchadiens des services, "
-     "des opportunités et des acteurs économiques.", size=20, color="E5E5E5")
-for i, (ic, lab) in enumerate([("ticket", "Billetterie"), ("moto", "Mobilité"), ("briefcase", "Emploi"), ("home", "Immobilier")]):
-    icon(s, ic, 0.8 + i * 1.55, 4.55, 0.55, circle=TEAL, ring=MINT)
-    text(s, 0.8 + i * 1.55, 5.18, 1.5, 0.3, lab, size=12, color=WHITE)
-text(s, 0.8, 6.15, 6.8, 0.35, [[("Giscard Destin", {"bold": True, "color": WHITE}),
-                               ("  ·  Fondateur, ingénieur en IA et data scientist", {"color": "94A3B8"})]], size=13)
-text(s, 0.8, 6.55, 6.8, 0.35, "maousang.vercel.app", size=13, bold=True, color=MINT)
+picture(s, "pixel_chad.png", 8.6, 0.55, h=4.9)
+text(s, 0.89, 1.8, 8.23, 0.3, "PITCH INVESTISSEURS · MAOUSANG · NOVEMBRE 2026", size=14, bold=True, color="9DB4E8",
+     **{})
+s.shapes[-1].text_frame.paragraphs[0].runs[0].font._rPr.set("spc", "200")
+text(s, 0.76, 2.64, 8.0, 2.3, ["Tous vos services", "dans une seule app"], size=56, bold=True, color=WHITE)
+for i, col in enumerate(["6F8FD6", GREEN, AMBER]):
+    shape(s, MSO_SHAPE.RECTANGLE, 0.89 + i * 0.67, 4.97, 0.67, 0.08, fill=col)
+text(s, 0.89, 5.33, 8.23, 0.45, "Mobilité, billetterie, immobilier et aide à l'emploi au Tchad", size=20, color="D6E0F7")
+text(s, 0.89, 6.46, 6.44, 0.32, "Giscard Destin · Fondateur, Maousang · maousang.vercel.app", size=16, bold=True, color=WHITE)
+picture(s, "maousang_logo.png", 10.0, 5.75, h=1.15)
 notes(s, "1. Couverture",
       "Bonjour à toutes et à tous. Je m'appelle Giscard Destin. Je suis ingénieur en intelligence artificielle et "
       "data scientist, et je suis le fondateur de Maousang. Maousang est une plateforme numérique multiservices, "
@@ -562,7 +564,7 @@ s = new_slide()
 header(s, "TAM, SAM, SOM : un potentiel mesuré avec prudence",
        "Unité : utilisateurs actifs. Valeur : revenu plateforme annuel potentiel en FCFA")
 shape(s, MSO_SHAPE.OVAL, 0.7, 1.75, 5.0, 5.0, fill=LIGHT, line=MINT, lw=1.5)
-shape(s, MSO_SHAPE.OVAL, 1.55, 3.0, 3.3, 3.3, fill="FDBA74")
+shape(s, MSO_SHAPE.OVAL, 1.55, 3.0, 3.3, 3.3, fill="9DB4E8")
 shape(s, MSO_SHAPE.OVAL, 2.35, 4.25, 1.7, 1.7, fill=TEAL)
 text(s, 0.7, 2.05, 5.0, 0.6, [[("TAM  ", {"bold": True}), (f"{fr(tam / 1e6, 2)} M", {"bold": True, "color": TEAL})]], size=18, align=PP_ALIGN.CENTER)
 text(s, 1.55, 3.3, 3.3, 0.6, [[("SAM  ", {"bold": True}), (f"{fr(sam / 1e6, 2)} M", {"bold": True, "color": DARK})]], size=17, align=PP_ALIGN.CENTER)
@@ -971,7 +973,7 @@ for i, r in enumerate(reasons):
     icon(s, "check", 0.8, y, 0.36, circle=None, col="a")
     text(s, 1.3, y + 0.02, 5.6, 0.4, r, size=15, color=WHITE)
 card(s, 7.35, 1.55, 5.2, 3.5, fill=TEAL, line=None)
-text(s, 7.65, 1.75, 4.6, 0.35, "NOTRE DEMANDE", size=13, bold=True, color="FFEDD5")
+text(s, 7.65, 1.75, 4.6, 0.35, "NOTRE DEMANDE", size=13, bold=True, color="D6E0F7")
 text(s, 7.65, 2.05, 4.6, 1.1, [[("15 000 000 FCFA", {"strike": True, "size": 18, "color": "FFEDD5", "bold": False})], [("10 000 000 FCFA", {})]], size=36, bold=True, color=WHITE)
 text(s, 7.65, 3.25, 4.6, 1.75, ["un accompagnement financier et stratégique pour 12 mois de lancement commercial,",
                               "et vos réseaux : paiement mobile, transporteurs, entreprises, institutions."],
@@ -1028,7 +1030,7 @@ text(s, 0.6, 6.68, 12.1, 0.3, "Ensuite : commerce et billetterie internationale,
 s = new_slide(DARK)
 text(s, 0.8, 0.45, 11.7, 0.6, "Investir dans Maousang : trois packs au choix", size=32, bold=True, color=WHITE)
 text(s, 0.8, 1.1, 11.7, 0.7, "Pour ce besoin de financement de 10 millions de FCFA, notre startup propose un panier "
-     "de trois packs de retour sur investissement.", size=15, color="FFEDD5")
+     "de trois packs de retour sur investissement.", size=15, color="D6E0F7")
 PACKS = [("users", "Pack 1 · Devenir associé", "Vous entrez au capital de la startup et contribuez aux décisions "
           "stratégiques, économiques et à la vision d'avenir."),
          ("money", "Pack 2 · Dividendes", "Vous percevez des dividendes dès que l'entreprise atteint son seuil "

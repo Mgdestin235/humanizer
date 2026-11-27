@@ -9,11 +9,11 @@ import sys
 OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/illustrations"
 os.makedirs(OUT, exist_ok=True)
 
-DARK = "#141414"
-TEAL = "#EA580C"
-MINT = "#FB923C"
-AMBER = "#FACC15"
-LIGHT = "#FFF1E6"
+DARK = "#14213D"
+TEAL = "#2A51A3"
+MINT = "#6F8FD6"
+AMBER = "#F78E20"
+LIGHT = "#EEF2FA"
 WHITE = "#FFFFFF"
 
 ICONS = {
@@ -143,8 +143,8 @@ def africa_map():
     W, H = 1300, 1200
     P = lambda lo, la: proj(lo, la, -27, 56, -37, 38, W, H, 40)
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
-         f'<polygon points="{poly([P(*p) for p in AFRICA])}" fill="{LIGHT}" stroke="#FDBA74" stroke-width="3" stroke-linejoin="round"/>',
-         f'<polygon points="{poly([P(*p) for p in MADAGASCAR])}" fill="{LIGHT}" stroke="#FDBA74" stroke-width="3"/>',
+         f'<polygon points="{poly([P(*p) for p in AFRICA])}" fill="{LIGHT}" stroke="#9DB4E8" stroke-width="3" stroke-linejoin="round"/>',
+         f'<polygon points="{poly([P(*p) for p in MADAGASCAR])}" fill="{LIGHT}" stroke="#9DB4E8" stroke-width="3"/>',
          f'<polygon points="{poly([P(*p) for p in CHAD])}" fill="{TEAL}" stroke="#fff" stroke-width="3"/>']
     nd = P(15.05, 12.11)
     targets = [("Cameroun", 11.5, 3.87, 1, "L", 0), ("Centrafrique", 18.56, 4.36, 1, "R", 18),
@@ -181,7 +181,7 @@ def cover_art():
     W, H = 1100, 1200
     P = lambda lo, la: proj(lo, la, 13.3, 24.2, 7.2, 23.7, W, H, 80)
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
-         f'<polygon points="{poly([P(*p) for p in CHAD])}" fill="#262626" stroke="{MINT}" stroke-width="4" stroke-linejoin="round" opacity="0.95"/>']
+         f'<polygon points="{poly([P(*p) for p in CHAD])}" fill="#1E2E52" stroke="{MINT}" stroke-width="4" stroke-linejoin="round" opacity="0.95"/>']
     nodes = [P(lo, la) for _, lo, la, _ in CITIES]
     nd = nodes[0]
     for (x, y) in nodes[1:]:
@@ -205,6 +205,32 @@ def cover_art():
     return "\n".join(s)
 
 
+def pixel_chad():
+    """Carte du Tchad en carrés de couleur, dans le style du modèle SANIA."""
+    import random
+    random.seed(7)
+    W, H, step = 900, 1100, 34
+    P = lambda lo, la: proj(lo, la, 13.3, 24.2, 7.2, 23.7, W, H, 30)
+    poly_pts = [P(*p) for p in CHAD]
+
+    def inside(x, y):
+        n, c = len(poly_pts), False
+        for i in range(n):
+            x1, y1 = poly_pts[i]
+            x2, y2 = poly_pts[(i + 1) % n]
+            if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+                c = not c
+        return c
+    pal = ["#2A51A3", "#2A51A3", "#6F8FD6", "#9DB4E8", "#00A887", "#F78E20"]
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">']
+    for y in range(0, H, step):
+        for x in range(0, W, step):
+            if inside(x + step / 2, y + step / 2):
+                s.append(f'<rect x="{x+3}" y="{y+3}" width="{step-6}" height="{step-6}" fill="{random.choice(pal)}"/>')
+    s.append("</svg>")
+    return "\n".join(s)
+
+
 def write(name, svg):
     with open(os.path.join(OUT, name + ".svg"), "w") as f:
         f.write(svg)
@@ -217,4 +243,5 @@ if __name__ == "__main__":
     write("map_chad", chad_map())
     write("map_africa", africa_map())
     write("cover_art", cover_art())
+    write("pixel_chad", pixel_chad())
     print("svg ok", len(os.listdir(OUT)))

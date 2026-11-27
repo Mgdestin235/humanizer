@@ -1,47 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1200" viewBox="0 0 1300 1200">
-<polygon points="350.1,81.1 422.2,90.0 481.0,66.4 583.9,60.6 598.6,92.9 586.8,110.5 605.9,122.3 660.3,132.6 716.1,160.5 730.8,137.0 804.3,142.9 863.1,153.2 911.6,147.3 939.6,197.3 958.7,256.0 983.7,298.7 1002.8,342.8 1017.5,379.5 1061.6,423.6 1073.3,433.9 1096.8,454.5 1189.4,433.9 1186.5,454.5 1142.4,541.2 1102.7,578.0 1046.9,633.8 1020.4,666.1 1013.1,707.3 1032.2,761.7 1033.6,820.5 980.7,871.9 958.7,930.7 957.2,960.1 920.5,989.5 913.1,1026.3 891.1,1055.7 847.0,1092.4 813.2,1107.1 730.8,1118.9 707.3,1107.1 698.5,1077.7 679.4,1027.7 660.3,1004.2 650.0,944.0 610.3,860.2 617.7,805.8 632.4,739.6 616.2,695.5 610.3,658.8 575.0,614.7 578.0,592.7 580.9,563.3 561.8,541.2 525.1,544.1 495.7,513.3 454.5,517.7 407.5,538.3 378.1,530.9 326.6,542.7 297.2,523.6 267.8,505.9 241.4,482.4 216.4,447.1 189.9,425.1 184.0,391.3 194.3,364.8 200.2,328.1 185.5,298.7 216.4,247.2 242.8,210.5 292.8,169.3 295.8,160.5 313.4,116.4 336.9,107.6" fill="#FFF1E6" stroke="#FDBA74" stroke-width="3" stroke-linejoin="round"/>
-<polygon points="1161.5,783.7 1179.2,835.2 1157.1,960.1 1127.7,977.8 1076.3,923.4 1088.0,845.5 1127.7,820.5" fill="#FFF1E6" stroke="#FDBA74" stroke-width="3"/>
-<polygon points="671.9,262.7 789.6,320.7 789.6,376.6 773.5,379.5 766.1,401.6 767.6,416.3 758.8,422.1 767.6,431.0 772.9,446.8 755.8,453.0 745.5,463.3 732.3,473.6 716.1,475.1 713.2,483.9 695.6,491.2 680.9,495.6 664.7,497.1 660.3,485.3 650.0,475.1 641.9,466.2 650.0,460.4 657.3,454.5 658.8,445.7 658.1,429.5 651.5,419.2 645.6,414.8 635.3,404.5 636.8,395.7 657.3,375.1 664.7,358.9 667.6,314.8 671.9,301.6" fill="#EA580C" stroke="#fff" stroke-width="3"/>
-<path d="M658,429 Q610,481 606,550" fill="none" stroke="#FACC15" stroke-width="5" stroke-dasharray="0"/>
-<circle cx="606" cy="550" r="13" fill="#FACC15" stroke="#fff" stroke-width="4"/>
-<text x="586" y="560" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Cameroun</text>
-<path d="M658,429 Q663,496 710,543" fill="none" stroke="#FACC15" stroke-width="5" stroke-dasharray="0"/>
-<circle cx="710" cy="543" r="13" fill="#FACC15" stroke="#fff" stroke-width="4"/>
-<text x="730" y="571" text-anchor="start" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Centrafrique</text>
-<path d="M658,429 Q426,324 180,391" fill="none" stroke="#FB923C" stroke-width="4" stroke-dasharray="12 8"/>
-<circle cx="180" cy="391" r="13" fill="#FB923C" stroke="#fff" stroke-width="4"/>
-<text x="160" y="401" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Sénégal</text>
-<path d="M658,429 Q500,429 378,529" fill="none" stroke="#FB923C" stroke-width="4" stroke-dasharray="12 8"/>
-<circle cx="378" cy="529" r="13" fill="#FB923C" stroke="#fff" stroke-width="4"/>
-<text x="358" y="539" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Côte d'Ivoire</text>
-<path d="M658,429 Q440,372 235,468" fill="none" stroke="#FB923C" stroke-width="4" stroke-dasharray="12 8"/>
-<circle cx="235" cy="468" r="13" fill="#FB923C" stroke="#fff" stroke-width="4"/>
-<text x="215" y="478" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Guinée</text>
+<polygon points="350.1,81.1 422.2,90.0 481.0,66.4 583.9,60.6 598.6,92.9 586.8,110.5 605.9,122.3 660.3,132.6 716.1,160.5 730.8,137.0 804.3,142.9 863.1,153.2 911.6,147.3 939.6,197.3 958.7,256.0 983.7,298.7 1002.8,342.8 1017.5,379.5 1061.6,423.6 1073.3,433.9 1096.8,454.5 1189.4,433.9 1186.5,454.5 1142.4,541.2 1102.7,578.0 1046.9,633.8 1020.4,666.1 1013.1,707.3 1032.2,761.7 1033.6,820.5 980.7,871.9 958.7,930.7 957.2,960.1 920.5,989.5 913.1,1026.3 891.1,1055.7 847.0,1092.4 813.2,1107.1 730.8,1118.9 707.3,1107.1 698.5,1077.7 679.4,1027.7 660.3,1004.2 650.0,944.0 610.3,860.2 617.7,805.8 632.4,739.6 616.2,695.5 610.3,658.8 575.0,614.7 578.0,592.7 580.9,563.3 561.8,541.2 525.1,544.1 495.7,513.3 454.5,517.7 407.5,538.3 378.1,530.9 326.6,542.7 297.2,523.6 267.8,505.9 241.4,482.4 216.4,447.1 189.9,425.1 184.0,391.3 194.3,364.8 200.2,328.1 185.5,298.7 216.4,247.2 242.8,210.5 292.8,169.3 295.8,160.5 313.4,116.4 336.9,107.6" fill="#EEF2FA" stroke="#9DB4E8" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1161.5,783.7 1179.2,835.2 1157.1,960.1 1127.7,977.8 1076.3,923.4 1088.0,845.5 1127.7,820.5" fill="#EEF2FA" stroke="#9DB4E8" stroke-width="3"/>
+<polygon points="671.9,262.7 789.6,320.7 789.6,376.6 773.5,379.5 766.1,401.6 767.6,416.3 758.8,422.1 767.6,431.0 772.9,446.8 755.8,453.0 745.5,463.3 732.3,473.6 716.1,475.1 713.2,483.9 695.6,491.2 680.9,495.6 664.7,497.1 660.3,485.3 650.0,475.1 641.9,466.2 650.0,460.4 657.3,454.5 658.8,445.7 658.1,429.5 651.5,419.2 645.6,414.8 635.3,404.5 636.8,395.7 657.3,375.1 664.7,358.9 667.6,314.8 671.9,301.6" fill="#2A51A3" stroke="#fff" stroke-width="3"/>
+<path d="M658,429 Q610,481 606,550" fill="none" stroke="#F78E20" stroke-width="5" stroke-dasharray="0"/>
+<circle cx="606" cy="550" r="13" fill="#F78E20" stroke="#fff" stroke-width="4"/>
+<text x="586" y="560" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Cameroun</text>
+<path d="M658,429 Q663,496 710,543" fill="none" stroke="#F78E20" stroke-width="5" stroke-dasharray="0"/>
+<circle cx="710" cy="543" r="13" fill="#F78E20" stroke="#fff" stroke-width="4"/>
+<text x="730" y="571" text-anchor="start" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Centrafrique</text>
+<path d="M658,429 Q426,324 180,391" fill="none" stroke="#6F8FD6" stroke-width="4" stroke-dasharray="12 8"/>
+<circle cx="180" cy="391" r="13" fill="#6F8FD6" stroke="#fff" stroke-width="4"/>
+<text x="160" y="401" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Sénégal</text>
+<path d="M658,429 Q500,429 378,529" fill="none" stroke="#6F8FD6" stroke-width="4" stroke-dasharray="12 8"/>
+<circle cx="378" cy="529" r="13" fill="#6F8FD6" stroke="#fff" stroke-width="4"/>
+<text x="358" y="539" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Côte d'Ivoire</text>
+<path d="M658,429 Q440,372 235,468" fill="none" stroke="#6F8FD6" stroke-width="4" stroke-dasharray="12 8"/>
+<circle cx="235" cy="468" r="13" fill="#6F8FD6" stroke="#fff" stroke-width="4"/>
+<text x="215" y="478" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Guinée</text>
 <path d="M658,429 Q586,501 576,601" fill="none" stroke="#94A3B8" stroke-width="4" stroke-dasharray="12 8"/>
 <circle cx="576" cy="601" r="13" fill="#94A3B8" stroke="#fff" stroke-width="4"/>
-<text x="556" y="611" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Gabon</text>
+<text x="556" y="611" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Gabon</text>
 <path d="M658,429 Q616,550 661,670" fill="none" stroke="#94A3B8" stroke-width="4" stroke-dasharray="12 8"/>
 <circle cx="661" cy="670" r="13" fill="#94A3B8" stroke="#fff" stroke-width="4"/>
-<text x="681" y="680" text-anchor="start" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Congo</text>
+<text x="681" y="680" text-anchor="start" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Congo</text>
 <path d="M658,429 Q567,385 468,409" fill="none" stroke="#94A3B8" stroke-width="4" stroke-dasharray="12 8"/>
 <circle cx="468" cy="409" r="13" fill="#94A3B8" stroke="#fff" stroke-width="4"/>
-<text x="448" y="393" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#141414">Niger</text>
-<path d="M658,429 L496,56" stroke="#141414" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
-<rect x="416" y="32" width="160" height="48" rx="24" fill="#141414"/>
+<text x="448" y="393" text-anchor="end" font-family="Arial" font-weight="700" font-size="32" fill="#14213D">Niger</text>
+<path d="M658,429 L496,56" stroke="#14213D" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
+<rect x="416" y="32" width="160" height="48" rx="24" fill="#14213D"/>
 <text x="496" y="66" text-anchor="middle" font-family="Arial" font-weight="700" font-size="26" fill="#fff">✈ Europe</text>
-<path d="M658,429 L937,56" stroke="#141414" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
-<rect x="857" y="32" width="160" height="48" rx="24" fill="#141414"/>
+<path d="M658,429 L937,56" stroke="#14213D" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
+<rect x="857" y="32" width="160" height="48" rx="24" fill="#14213D"/>
 <text x="937" y="66" text-anchor="middle" font-family="Arial" font-weight="700" font-size="26" fill="#fff">✈ Turquie</text>
-<path d="M658,429 L1113,56" stroke="#141414" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
-<rect x="1033" y="32" width="160" height="48" rx="24" fill="#141414"/>
+<path d="M658,429 L1113,56" stroke="#14213D" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
+<rect x="1033" y="32" width="160" height="48" rx="24" fill="#14213D"/>
 <text x="1113" y="66" text-anchor="middle" font-family="Arial" font-weight="700" font-size="26" fill="#fff">✈ Russie</text>
-<path d="M658,429 L1150,240" stroke="#141414" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
-<rect x="1070" y="216" width="160" height="48" rx="24" fill="#141414"/>
+<path d="M658,429 L1150,240" stroke="#14213D" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
+<rect x="1070" y="216" width="160" height="48" rx="24" fill="#14213D"/>
 <text x="1150" y="250" text-anchor="middle" font-family="Arial" font-weight="700" font-size="26" fill="#fff">✈ Émirats</text>
-<path d="M658,429 L1150,402" stroke="#141414" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
-<rect x="1070" y="378" width="160" height="48" rx="24" fill="#141414"/>
+<path d="M658,429 L1150,402" stroke="#14213D" stroke-width="3" stroke-dasharray="4 8" opacity="0.55"/>
+<rect x="1070" y="378" width="160" height="48" rx="24" fill="#14213D"/>
 <text x="1150" y="412" text-anchor="middle" font-family="Arial" font-weight="700" font-size="26" fill="#fff">✈ Chine</text>
-<circle cx="658" cy="429" r="22" fill="#FACC15" stroke="#fff" stroke-width="5"/>
-<text x="688" y="405" font-family="Arial" font-weight="700" font-size="34" fill="#141414">Tchad</text>
+<circle cx="658" cy="429" r="22" fill="#F78E20" stroke="#fff" stroke-width="5"/>
+<text x="688" y="405" font-family="Arial" font-weight="700" font-size="34" fill="#14213D">Tchad</text>
 <text x="1270" y="1180" text-anchor="end" font-family="Arial" font-size="22" fill="#64748B">Carte schématique – contours simplifiés</text>
 </svg>
