@@ -246,7 +246,8 @@ for i, col in enumerate(["6F8FD6", GREEN, AMBER]):
     shape(s, MSO_SHAPE.RECTANGLE, 0.89 + i * 0.67, 4.97, 0.67, 0.08, fill=col)
 text(s, 0.89, 5.33, 8.23, 0.45, "Mobilité, billetterie, immobilier et aide à l'emploi au Tchad", size=20, color="D6E0F7")
 text(s, 0.89, 6.46, 6.44, 0.32, "Giscard Destin · Fondateur de Maousang", size=16, bold=True, color=WHITE)
-picture(s, "maousang_logo.png", 10.0, 5.75, h=1.15)
+card(s, 8.95, 5.9, 3.75, 1.05, fill=WHITE, line=None, radius=0.12)
+picture(s, "maousang_logo.png", 9.15, 6.08, w=3.35)
 notes(s, "1. Couverture",
       "Bonjour à toutes et à tous. Je m'appelle Giscard Destin. Je suis ingénieur en intelligence artificielle et "
       "data scientist, et je suis le fondateur de Maousang. Maousang est une plateforme numérique multiservices, "
